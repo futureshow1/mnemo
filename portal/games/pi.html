@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · π Drill</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+<style>
+.pi-stage { max-width: 800px; margin: 0 auto; }
+
+.pi-target {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(20px, 3vw, 28px);
+  letter-spacing: 0.08em;
+  padding: 30px;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--vermillion);
+  margin-bottom: 24px;
+  word-break: break-all;
+  line-height: 1.6;
+}
+.pi-target .head { color: var(--vermillion); font-family: var(--serif); font-size: 1.4em; margin-right: 8px; }
+.pi-target .chunk { display: inline-block; padding: 0 4px; }
+.pi-target .chunk:nth-child(odd) { color: var(--ink); }
+.pi-target .chunk:nth-child(even) { color: var(--gold); }
+.pi-target .seen { opacity: 1; }
+.pi-target .hidden-d { color: transparent !important; background: var(--ink); }
+
+.pi-input-area {
+  margin-top: 30px;
+}
+.pi-input-area textarea {
+  width: 100%;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  padding: 20px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  min-height: 120px;
+  resize: vertical;
+  outline: none;
+  line-height: 1.5;
+}
+.pi-input-area textarea:focus { border-color: var(--vermillion); }
+
+.pi-result {
+  margin-top: 20px;
+  padding: 24px;
+  border: 1px solid var(--ink);
+  background: var(--paper-deep);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 18px;
+  letter-spacing: 0.06em;
+  line-height: 1.7;
+  word-break: break-all;
+}
+.pi-result .ok { background: #d4ebd6; color: #1a4a1f; padding: 0 4px; }
+.pi-result .err { background: #f3d6cb; color: var(--vermillion-deep); padding: 0 4px; text-decoration: line-through; }
+.pi-result .miss { background: var(--ink); color: var(--paper); padding: 0 4px; }
+
+.milestones {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  margin: 30px 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+.milestone {
+  padding: 18px 14px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  text-align: center;
+  background: var(--paper);
+  cursor: pointer;
+  transition: all 0.25s var(--ease);
+}
+.milestone:nth-child(even) { background: var(--paper-deep); }
+.milestone.active { background: var(--vermillion); color: var(--paper); }
+.milestone .ms-num {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.milestone .ms-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+}
+.milestone.active .ms-label { color: var(--gold); }
+
+.major-hint {
+  margin-top: 20px;
+  padding: 16px;
+  background: color-mix(in srgb, var(--gold) 8%, transparent);
+  border-left: 3px solid var(--gold);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.major-hint .label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-style: normal;
+  margin-right: 8px;
+}
+
+@media (max-width: 700px) {
+  .milestones { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em>π</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">08 · π Drill · Pi recall</div>
+      <h1 class="game-title" data-pl="Cyfry π" data-en="Digits of π">Cyfry π</h1>
+      <p class="game-instructions" data-pl="Klasyk treningu pamięci. Wybierz cel (10, 25, 50, 100, 200 cyfr), naucz się przez podział na chunki, wpisz z pamięci. System pokaże, gdzie pomyliłeś. Aktualne rekordy świata: Akira Haraguchi 100 000 (2006), Suresh Sharma 70 030 (Guinness, 2015)." data-en="A memory training classic. Pick a target (10, 25, 50, 100, 200 digits), learn through chunking, type from memory. The system shows where you erred. Current records: Akira Haraguchi 100,000 (2006), Suresh Sharma 70,030 (Guinness, 2015).">
+        Klasyk treningu pamięci. Wybierz cel, naucz się, wpisz z pamięci.
+      </p>
+    </div>
+
+    <div class="milestones" id="milestones"></div>
+
+    <div class="pi-stage">
+      <div class="pi-target" id="piTarget"></div>
+
+      <div class="major-hint">
+        <span class="label" data-pl="Wskazówka" data-en="Hint">Wskazówka</span>
+        <span data-pl="Dla każdej pary cyfr stwórz obraz przez system Major. Sklejaj obrazy w łańcuch lub umieść w pałacu pamięci." data-en="For each pair of digits, create an image via the Major system. Chain the images or place them in a memory palace.">
+          Dla każdej pary cyfr stwórz obraz przez system Major. Sklejaj w łańcuch lub w pałac pamięci.
+        </span>
+      </div>
+
+      <div class="game-controls" style="margin-top: 30px;">
+        <button class="btn primary" id="hideBtn" data-pl="Ukryj cyfry" data-en="Hide digits">Ukryj cyfry</button>
+        <button class="btn" id="showBtn" data-pl="Pokaż" data-en="Show">Pokaż</button>
+        <button class="btn" id="testBtn" data-pl="Sprawdź" data-en="Test me">Sprawdź</button>
+      </div>
+
+      <div class="pi-input-area">
+        <textarea id="userInput" placeholder="3.14159..." spellcheck="false"></textarea>
+        <button class="btn primary" id="checkBtn" style="margin-top: 12px;" data-pl="Porównaj z π" data-en="Compare with π">Porównaj z π</button>
+      </div>
+
+      <div class="pi-result" id="result" style="display:none;"></div>
+
+      <div class="stats-bar" style="margin-top: 30px;">
+        <div class="stat-item"><span class="label" data-pl="Cel" data-en="Target">Cel</span><span class="val" id="target">10</span></div>
+        <div class="stat-item"><span class="label" data-pl="Trafione" data-en="Hit">Trafione</span><span class="val" id="hit">0</span></div>
+        <div class="stat-item"><span class="label" data-pl="Pierwszy błąd na pozycji" data-en="First error at">Pierwszy błąd na pozycji</span><span class="val" id="firstError">—</span></div>
+        <div class="stat-item"><span class="label" data-pl="Najlepsze (cyfry)" data-en="Best (digits)">Najlepsze (cyfry)</span><span class="val" id="best">—</span></div>
+      </div>
+
+      <div class="message" id="msg" style="margin-top: 24px;" data-pl="Wybierz cel, ukryj cyfry, wpisz z pamięci, sprawdź." data-en="Pick a target, hide digits, type from memory, check.">
+        Wybierz cel, ukryj cyfry, wpisz z pamięci, sprawdź.
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function(){
+  const PI = '3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127';
+
+  const MILESTONES = [10, 25, 50, 100, 200];
+  let target = 10;
+
+  const piTarget = document.getElementById('piTarget');
+  const targetEl = document.getElementById('target');
+  const userInput = document.getElementById('userInput');
+  const result = document.getElementById('result');
+  const msg = document.getElementById('msg');
+  const hitEl = document.getElementById('hit');
+  const firstError = document.getElementById('firstError');
+  const bestEl = document.getElementById('best');
+
+  const updateBest = () => {
+    const best = MNEMO.getBestScore('pi');
+    bestEl.textContent = best !== null ? best : '—';
+  };
+  updateBest();
+
+  const renderMilestones = () => {
+    document.getElementById('milestones').innerHTML = MILESTONES.map(m => `
+      <div class="milestone ${m === target ? 'active' : ''}" data-target="${m}">
+        <div class="ms-num">${m}</div>
+        <div class="ms-label" data-pl="cyfr" data-en="digits">cyfr</div>
+      </div>
+    `).join('');
+    document.querySelectorAll('.milestone').forEach(el => {
+      el.addEventListener('click', () => {
+        target = parseInt(el.dataset.target, 10);
+        renderTarget();
+        renderMilestones();
+        targetEl.textContent = target;
+        userInput.value = '';
+        result.style.display = 'none';
+      });
+    });
+  };
+
+  const renderTarget = (hidden = false) => {
+    const head = '3.';
+    const digits = PI.substring(2, target + 2); // skip "3."
+    // chunk into groups of 5
+    let html = `<span class="head">${head}</span>`;
+    for (let i = 0; i < digits.length; i += 5) {
+      const chunk = digits.substring(i, i + 5);
+      const cls = hidden ? 'chunk hidden-d' : 'chunk seen';
+      html += `<span class="${cls}">${chunk}</span>`;
+    }
+    piTarget.innerHTML = html;
+  };
+
+  document.getElementById('hideBtn').addEventListener('click', () => renderTarget(true));
+  document.getElementById('showBtn').addEventListener('click', () => renderTarget(false));
+  document.getElementById('testBtn').addEventListener('click', () => {
+    renderTarget(true);
+    userInput.focus();
+    msg.textContent = MNEMO.t('Wpisz cyfry π. Pomyłki będą podświetlone.', 'Type digits of π. Errors will be highlighted.');
+  });
+
+  document.getElementById('checkBtn').addEventListener('click', () => {
+    const userText = userInput.value.replace(/[^\d]/g, '');
+    const targetDigits = '3' + PI.substring(2, target + 2); // include the leading 3
+    let html = '';
+    let hits = 0;
+    let firstErr = null;
+    const max = Math.max(userText.length, targetDigits.length);
+    for (let i = 0; i < max; i++) {
+      if (i >= userText.length) {
+        html += `<span class="miss">${targetDigits[i] || ''}</span>`;
+        if (firstErr === null) firstErr = i + 1;
+      } else if (i >= targetDigits.length) {
+        html += `<span class="err">${userText[i]}</span>`;
+      } else if (userText[i] === targetDigits[i]) {
+        html += `<span class="ok">${userText[i]}</span>`;
+        if (firstErr === null) hits++;
+      } else {
+        html += `<span class="err">${userText[i]}</span>`;
+        if (firstErr === null) firstErr = i + 1;
+      }
+    }
+    result.style.display = 'block';
+    result.innerHTML = html;
+    hitEl.textContent = hits;
+    firstError.textContent = firstErr !== null ? firstErr : '—';
+    msg.className = (firstErr === null && userText.length >= targetDigits.length) ? 'message success' : 'message';
+    msg.textContent = (firstErr === null && userText.length >= targetDigits.length)
+      ? MNEMO.t(`Doskonale! ${target} cyfr π bezbłędnie.`, `Excellent! ${target} digits of π flawless.`)
+      : MNEMO.t(`Trafione: ${hits} z ${target}. Pierwszy błąd: pozycja ${firstErr}.`, `Hits: ${hits} of ${target}. First error: position ${firstErr}.`);
+
+    MNEMO.saveScore('pi', hits);
+    updateBest();
+  });
+
+  renderMilestones();
+  renderTarget();
+})();
+</script>
+</body>
+</html>

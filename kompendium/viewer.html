@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Kompendium</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kompendium.css">
+<script src="https://cdn.jsdelivr.net/npm/marked@11.1.1/marked.min.js"></script>
+</head>
+<body class="page-viewer">
+
+<div class="viewer-progress" id="progress"></div>
+
+<header class="kompendium-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="kompendium" data-en="compendium">kompendium</span></a>
+  <a href="index.html" class="kompendium-brand">MNEMO · <em data-pl="Kompendium" data-en="Compendium">Kompendium</em></a>
+  <div class="k-controls">
+    <button class="lang-toggle" id="langToggle">
+      <span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span>
+    </button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="viewer-layout">
+  <aside class="viewer-toc">
+    <div class="toc-eyebrow" data-pl="W tym rozdziale" data-en="In this chapter">W tym rozdziale</div>
+    <ul class="toc-list" id="toc"></ul>
+  </aside>
+
+  <article class="article">
+    <header class="article-header" id="header" style="display:none;">
+      <div class="article-eyebrow" id="articleEyebrow"></div>
+      <h1 class="article-title" id="articleTitle"></h1>
+      <p class="article-lead" id="articleLead" style="display:none;"></p>
+    </header>
+    <div class="article-loading" id="loading" data-pl="Ładuję rozdział..." data-en="Loading chapter...">Ładuję rozdział...</div>
+    <div class="article-body" id="body"></div>
+    <nav class="chapter-nav" id="chapterNav" style="display:none;"></nav>
+  </article>
+
+  <aside class="viewer-meta" id="meta">
+    <div>
+      <span class="meta-label" data-pl="Czas lektury" data-en="Reading time">Czas lektury</span>
+      <span class="meta-value" id="readingTime">—</span>
+    </div>
+    <div>
+      <span class="meta-label" data-pl="Słów" data-en="Words">Słów</span>
+      <span class="meta-value" id="wordCount">—</span>
+    </div>
+    <div>
+      <span class="meta-label" data-pl="Rozdział" data-en="Chapter">Rozdział</span>
+      <span class="meta-value" id="chapterRef">—</span>
+    </div>
+  </aside>
+</main>
+
+<script src="kompendium.js"></script>
+<script>
+(function() {
+  // Chapter index (slug → metadata)
+  // Chapters are listed in order of appearance for next/prev nav
+  const CHAPTERS_PL = [
+    { slug: '00-wprowadzenie', label: '00', title: 'Wprowadzenie' },
+    { slug: '01-historia', label: '01', title: 'Historia sztuki pamięci' },
+    { slug: '02-nauka-o-pamieci', label: '02', title: 'Nauka o pamięci' },
+    { slug: '03-zasady', label: '03', title: 'Dwanaście zasad' },
+    { slug: '04-techniki-klasyczne', label: '04', title: 'Klasyczne mnemotechniki' },
+    { slug: '05-metody-wspolczesne', label: '05', title: 'Współczesne metody' },
+    { slug: '06-mistrzowie', label: '06', title: 'Mistrzowie pamięci' },
+    { slug: '07-styl-zycia', label: '07', title: 'Styl życia' },
+    { slug: '08-aplikacja-wiekowa', label: '08', title: 'Aplikacja wiekowa' },
+    { slug: '09-pulapki-mity', label: '09', title: 'Pułapki i mity' },
+    { slug: '10-cwiczenia', label: '10', title: 'Ćwiczenia praktyczne' },
+    { slug: '11-narzedzia', label: '11', title: 'Narzędzia cyfrowe' },
+    { slug: '12-sciezka-osobista', label: '12', title: 'Ścieżka osobista' },
+    { slug: '13-giordano-bruno', label: '13', title: 'Giordano Bruno', isBruno: true }
+  ];
+  const CHAPTERS_EN = [
+    { slug: '00-introduction', label: 'EN/00', title: 'Introduction' },
+    { slug: '01-history', label: 'EN/01', title: 'History' },
+    { slug: '02-science', label: 'EN/02', title: 'Science' },
+    { slug: '03-principles', label: 'EN/03', title: 'Twelve principles' },
+    { slug: '04-techniques', label: 'EN/04', title: 'Techniques' },
+    { slug: '05-masters', label: 'EN/05', title: 'Masters' },
+    { slug: '06-lifestyle-age-pitfalls', label: 'EN/06', title: 'Lifestyle · Ages · Pitfalls' },
+    { slug: '07-exercises-tools-path', label: 'EN/07', title: 'Exercises · Tools · Path' },
+    { slug: '13-giordano-bruno', label: 'EN/13', title: 'Giordano Bruno', isBruno: true }
+  ];
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = params.get('doc') || '00-wprowadzenie';
+  const lang = MNEMO.lang();
+
+  const chapters = lang === 'en' ? CHAPTERS_EN : CHAPTERS_PL;
+  const chapterIdx = chapters.findIndex(c => c.slug === slug);
+  const chapter = chapters[chapterIdx] || chapters[0];
+
+  // If Bruno special, redirect to bruno.html
+  if (chapter.isBruno) {
+    window.location.href = 'bruno.html?lang=' + lang;
+    return;
+  }
+
+  document.title = `MNEMO · ${chapter.title}`;
+
+  // Configure marked
+  marked.setOptions({
+    gfm: true,
+    breaks: false,
+    headerIds: false
+  });
+
+  // Fetch the markdown
+  const url = `${lang}/${chapter.slug}.md`;
+  fetch(url)
+    .then(r => {
+      if (!r.ok) throw new Error('Failed to load: ' + url);
+      return r.text();
+    })
+    .then(md => renderArticle(md, chapter))
+    .catch(err => {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('body').innerHTML = `<div class="article-error">
+        <h2>${MNEMO.t('Nie znaleziono rozdziału', 'Chapter not found')}</h2>
+        <p>${err.message}</p>
+        <p><a href="index.html">${MNEMO.t('← powrót do spisu', '← back to index')}</a></p>
+      </div>`;
+    });
+
+  function renderArticle(md, chapter) {
+    document.getElementById('loading').style.display = 'none';
+
+    // Extract first H1 as title (from MD), use chapter title as fallback
+    const h1Match = md.match(/^#\s+(.+?)$/m);
+    let title = chapter.title;
+    let cleanedMd = md;
+    if (h1Match) {
+      title = h1Match[1].replace(/^\d+\.\s*/, '');
+      // remove the H1 from the body content
+      cleanedMd = md.replace(/^#\s+.+?$/m, '').trim();
+    }
+
+    // Article header
+    document.getElementById('header').style.display = 'block';
+    document.getElementById('articleEyebrow').textContent = `${chapter.label} · MNEMO ${MNEMO.t('Kompendium', 'Compendium')}`;
+    document.getElementById('articleTitle').textContent = title;
+
+    // Optional lead — first blockquote at top of MD
+    const leadMatch = cleanedMd.match(/^>\s*(.+?)$/m);
+    if (leadMatch && cleanedMd.indexOf(leadMatch[0]) < 100) {
+      // skip — we keep blockquotes inline; if you want a lead separately, customize
+    }
+
+    // Render markdown body
+    const html = marked.parse(cleanedMd);
+    document.getElementById('body').innerHTML = html;
+
+    // Word count and reading time
+    const text = document.getElementById('body').textContent;
+    const words = text.trim().split(/\s+/).length;
+    const minutes = Math.max(1, Math.round(words / 220));
+    document.getElementById('wordCount').textContent = words.toLocaleString(MNEMO.lang() === 'en' ? 'en-US' : 'pl-PL');
+    document.getElementById('readingTime').textContent = `${minutes} min`;
+    document.getElementById('chapterRef').textContent = chapter.label;
+
+    // Build TOC from H2s
+    const toc = document.getElementById('toc');
+    const h2s = document.querySelectorAll('.article-body h2');
+    if (h2s.length === 0) {
+      document.querySelector('.viewer-toc').style.display = 'none';
+    } else {
+      h2s.forEach((h2, i) => {
+        const id = 'h-' + i;
+        h2.id = id;
+        const li = document.createElement('li');
+        li.innerHTML = `<a href="#${id}">${h2.textContent}</a>`;
+        toc.appendChild(li);
+      });
+    }
+
+    // Build chapter nav
+    const nav = document.getElementById('chapterNav');
+    nav.style.display = 'grid';
+    const prev = chapters[chapterIdx - 1];
+    const next = chapters[chapterIdx + 1];
+    nav.innerHTML = `
+      ${prev ? `<a href="viewer.html?doc=${prev.slug}&lang=${lang}">
+        <span class="nav-label">← ${MNEMO.t('poprzedni', 'previous')}</span>
+        <span class="nav-title">${prev.title}</span>
+      </a>` : '<div></div>'}
+      ${next ? `<a href="viewer.html?doc=${next.slug}&lang=${lang}">
+        <span class="nav-label">${MNEMO.t('następny', 'next')} →</span>
+        <span class="nav-title">${next.title}</span>
+      </a>` : '<div></div>'}
+    `;
+
+    // Scrollspy + progress bar
+    const progress = document.getElementById('progress');
+    const tocLinks = toc.querySelectorAll('a');
+    const updateScroll = () => {
+      const h = document.documentElement;
+      const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+      progress.style.width = scrolled + '%';
+
+      // active toc
+      let active = null;
+      h2s.forEach((h2) => {
+        if (h2.getBoundingClientRect().top < 120) active = h2.id;
+      });
+      tocLinks.forEach(a => {
+        if (a.getAttribute('href') === '#' + active) a.classList.add('active');
+        else a.classList.remove('active');
+      });
+    };
+    window.addEventListener('scroll', updateScroll, { passive: true });
+    updateScroll();
+  }
+
+  // Re-load page on language change so we get the right doc
+  MNEMO.onLangChange((newLang) => {
+    // Try to map slug to other-lang variant
+    const fromList = newLang === 'en' ? CHAPTERS_PL : CHAPTERS_EN;
+    const toList = newLang === 'en' ? CHAPTERS_EN : CHAPTERS_PL;
+    const idx = fromList.findIndex(c => c.slug === slug);
+    let nextSlug;
+    if (idx >= 0 && toList[idx]) nextSlug = toList[idx].slug;
+    else nextSlug = toList[0].slug;
+    window.location.href = `viewer.html?doc=${nextSlug}&lang=${newLang}`;
+  });
+})();
+</script>
+</body>
+</html>

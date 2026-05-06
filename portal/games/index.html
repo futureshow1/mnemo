@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO — Gra solo / Solo game</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="../index.html" class="back-link">← <span data-pl="powrót do portalu" data-en="back to portal">powrót do portalu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em data-pl="Gra" data-en="Game">Gra</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle">
+      <span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span>
+    </button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-menu">
+  <div class="container">
+    <h1 class="menu-title" data-pl="Dziewięć ćwiczeń. Twój teatr." data-en="Nine exercises. Your theatre.">Dziewięć ćwiczeń. Twój teatr.</h1>
+    <p class="menu-lead" data-pl="Każde z nich uczy innego aspektu sztuki pamięci. Wszystko w przeglądarce. Bez logowania, śledzenia, reklam. Twoje wyniki zapisują się lokalnie." data-en="Each teaches a different aspect of the art of memory. All in your browser. No login, tracking, ads. Your results save locally.">Każde z nich uczy innego aspektu sztuki pamięci. Wszystko w przeglądarce. Bez logowania, śledzenia, reklam. Twoje wyniki zapisują się lokalnie.</p>
+
+    <div class="game-list">
+      <a href="match.html" class="game-card">
+        <div class="card-board card-board-1"></div>
+        <div class="card-content">
+          <div class="card-num">01</div>
+          <h2 data-pl="Memory Match" data-en="Memory Match">Memory Match</h2>
+          <p data-pl="Klasyczne łączenie par. Trening pamięci roboczej i wzrokowej. Trzy poziomy trudności." data-en="Classic pair matching. Working and visual memory training. Three difficulty levels.">Klasyczne łączenie par. Trening pamięci roboczej i wzrokowej.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: początek" data-en="level: beginner">poziom: początek</span>
+            <span>3—8 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="palace.html" class="game-card">
+        <div class="card-board card-board-2"></div>
+        <div class="card-content">
+          <div class="card-num">02</div>
+          <h2 data-pl="Pałac pamięci" data-en="Memory Palace">Pałac pamięci</h2>
+          <p data-pl="Szachownica jako siatka loci. Zapamiętaj symbole na polach, potem odtwórz w kolejności." data-en="The chessboard as a grid of loci. Memorize symbols on squares, then recall in order.">Szachownica jako siatka loci. Zapamiętaj symbole, potem odtwórz.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: średnio" data-en="level: intermediate">poziom: średnio</span>
+            <span>5—10 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="numbers.html" class="game-card">
+        <div class="card-board card-board-3"></div>
+        <div class="card-content">
+          <div class="card-num">03</div>
+          <h2 data-pl="Number-Shape" data-en="Number-Shape">Number-Shape</h2>
+          <p data-pl="System zakładkowy dla cyfr 0—9. Cyfra → kształt. Zbudujesz odruch w 5 minut." data-en="The peg system for digits 0—9. Digit → shape. Reflex in 5 minutes.">System zakładkowy dla cyfr 0—9. Cyfra → kształt.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: początek" data-en="level: beginner">poziom: początek</span>
+            <span>2—5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="major.html" class="game-card">
+        <div class="card-board card-board-4"></div>
+        <div class="card-content">
+          <div class="card-num">04</div>
+          <h2 data-pl="System Major" data-en="Major System">System Major</h2>
+          <p data-pl="Trener mapowania cyfra → spółgłoska. Fundament dla zapamiętywania liczb wielocyfrowych." data-en="Trainer for digit → consonant mapping. The foundation for memorizing long numbers.">Trener mapowania cyfra → spółgłoska.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: zaawansowane" data-en="level: advanced">poziom: zaawansowane</span>
+            <span>5—15 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="chain.html" class="game-card">
+        <div class="card-board card-board-5"></div>
+        <div class="card-content">
+          <div class="card-num">05</div>
+          <h2 data-pl="Łańcuch skojarzeń" data-en="Chain of associations">Łańcuch skojarzeń</h2>
+          <p data-pl="Pięć losowych słów. Twoja historia. Trening narracji jako mnemoniki." data-en="Five random words. Your story. Training narrative as mnemonics.">Pięć losowych słów. Twoja historia. Trening narracji.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: początek" data-en="level: beginner">poziom: początek</span>
+            <span>3—5 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="wheel.html" class="game-card game-card-bruno">
+        <div class="card-board card-board-bruno"></div>
+        <div class="card-content">
+          <div class="card-num">06</div>
+          <h2 data-pl="Koło Bruna" data-en="Bruno's wheel">Koło Bruna</h2>
+          <p data-pl="Trzy obrotowe koła kombinatoryczne — wzorowane na rotae Giordana Bruna. Litera × planeta × figura = 7 920 unikatowych kombinacji." data-en="Three rotating combinatorial wheels — modelled on Giordano Bruno's rotae. Letter × planet × figure = 7,920 unique combinations.">Maszyna kombinatoryczna Bruna z 1582 roku.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: eksperyment" data-en="level: experiment">poziom: eksperyment</span>
+            <span>∞</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="pao.html" class="game-card">
+        <div class="card-board card-board-7"></div>
+        <div class="card-content">
+          <div class="card-num">07</div>
+          <h2 data-pl="System PAO" data-en="PAO System">System PAO</h2>
+          <p data-pl="Person-Action-Object dla par 00–99. Standard zawodowy memory sports. Sześć cyfr = jeden obraz." data-en="Person-Action-Object for pairs 00–99. Memory sport's professional standard. Six digits = one image.">Standard zawodowy. Sześć cyfr = jeden obraz.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: zaawansowane" data-en="level: advanced">poziom: zaawansowane</span>
+            <span>10—20 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="pi.html" class="game-card">
+        <div class="card-board card-board-8"></div>
+        <div class="card-content">
+          <div class="card-num">08</div>
+          <h2 data-pl="Cyfry π" data-en="Digits of π">Cyfry π</h2>
+          <p data-pl="Klasyk treningu pamięci. Wybierz cel (10, 25, 50, 100, 200), naucz się przez chunking, wpisz z pamięci." data-en="A memory training classic. Pick a target (10, 25, 50, 100, 200), learn via chunking, type from memory.">Cel od 10 do 200 cyfr. Sprawdź gdzie pomyliłeś.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: średnio" data-en="level: intermediate">poziom: średnio</span>
+            <span>5—30 min</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="faces.html" class="game-card">
+        <div class="card-board card-board-9"></div>
+        <div class="card-content">
+          <div class="card-num">09</div>
+          <h2 data-pl="Imiona i twarze" data-en="Names and faces">Imiona i twarze</h2>
+          <p data-pl="Najczęstszy „brak pamięci" w życiu codziennym. Metoda Face-Feature-Link na 8 twarzach." data-en="The most common „memory lapse" in daily life. Face-Feature-Link method on 8 faces.">Najczęstszy brak pamięci. Cecha + obraz + link.</p>
+          <div class="card-meta">
+            <span data-pl="poziom: początek" data-en="level: beginner">poziom: początek</span>
+            <span>5—10 min</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="menu-tip">
+      <h3 data-pl="Wskazówka" data-en="Tip">Wskazówka</h3>
+      <p data-pl="Najlepsze wyniki daje codzienna sesja 10—15 minut. Lepiej krótko a regularnie niż długo a okazjonalnie." data-en="Best results come from a daily 10—15 minute session. Better short and regular than long and occasional.">Najlepsze wyniki daje codzienna sesja 10—15 minut. Lepiej krótko a regularnie niż długo a okazjonalnie.</p>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+</body>
+</html>

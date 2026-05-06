@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Giordano Bruno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kompendium.css">
+<link rel="stylesheet" href="bruno.css">
+</head>
+<body class="page-bruno">
+
+<div class="viewer-progress" id="progress"></div>
+
+<header class="kompendium-topbar bruno-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="kompendium" data-en="compendium">kompendium</span></a>
+  <a href="index.html" class="kompendium-brand">MNEMO · <em>Bruno</em></a>
+  <div class="k-controls">
+    <button class="lang-toggle" id="langToggle">
+      <span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span>
+    </button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="bruno-hero">
+  <div class="bruno-hero-bg">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" class="bruno-hero-svg">
+      <defs>
+        <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#c8401f" stop-opacity="0.3"/>
+          <stop offset="100%" stop-color="#0e0e0d" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="400" cy="400" r="380" fill="url(#glow)"/>
+      <g stroke="#b8924a" fill="none" stroke-width="0.5" opacity="0.5">
+        <circle cx="400" cy="400" r="180"/>
+        <circle cx="400" cy="400" r="240"/>
+        <circle cx="400" cy="400" r="300"/>
+        <circle cx="400" cy="400" r="360"/>
+      </g>
+      <g stroke="#c8401f" stroke-width="0.5" opacity="0.4">
+        <line x1="400" y1="40" x2="400" y2="760"/>
+        <line x1="40" y1="400" x2="760" y2="400"/>
+        <line x1="113" y1="113" x2="687" y2="687"/>
+        <line x1="687" y1="113" x2="113" y2="687"/>
+      </g>
+    </svg>
+  </div>
+  <div class="bruno-hero-content">
+    <div class="hero-eyebrow" data-pl="Monografia · Sekcja 13" data-en="Monograph · Section 13">Monografia · Sekcja 13</div>
+    <h1 class="bruno-hero-title">
+      <span class="hero-line-1">Giordano</span>
+      <span class="hero-line-2"><em>Bruno</em></span>
+    </h1>
+    <div class="hero-dates">1548 · Nola — 17 II 1600 · Roma · Campo de' Fiori</div>
+    <blockquote class="hero-quote">
+      <span lang="la">„Si vere et ad plenum scientiam habere desideramus, oportet ut ipsam transeamus realiter et per umbras."</span>
+      <cite data-pl="— De umbris idearum, 1582" data-en="— De umbris idearum, 1582">— De umbris idearum, 1582</cite>
+    </blockquote>
+    <div class="hero-translation" data-pl="„Jeśli pragniemy posiąść wiedzę prawdziwą i pełną, musimy istotnie przejść przez nią — przez cienie."" data-en="„If we truly desire complete knowledge, we must actually pass through it — through shadows."">
+      „Jeśli pragniemy posiąść wiedzę prawdziwą i pełną, musimy istotnie przejść przez nią — przez cienie."
+    </div>
+    <div class="hero-scroll">
+      <span data-pl="przewiń" data-en="scroll">przewiń</span>
+      <span class="hero-arrow">↓</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INTRO ========== -->
+<section class="bruno-section bruno-intro">
+  <div class="bruno-container">
+    <div class="section-num">I</div>
+    <p class="bruno-intro-lead" data-pl="Giordano Bruno jest najbardziej radykalną postacią w historii sztuki pamięci. Dla niego mnemotechnika nie była ani sportem, ani nawet retorycznym ćwiczeniem rzymskich mówców. Była metafizyczną drogą — sposobem na ułożenie umysłu w taki sposób, by odzwierciedlał strukturę wszechświata." data-en="Giordano Bruno is the most radical figure in the history of the art of memory. For him mnemonics was neither sport nor merely the rhetorical exercise of Roman orators. It was a metaphysical path — a way to organize the mind so that it would mirror the structure of the universe.">
+      Giordano Bruno jest najbardziej radykalną postacią w historii sztuki pamięci. Dla niego mnemotechnika nie była ani sportem, ani nawet retorycznym ćwiczeniem rzymskich mówców. Była metafizyczną drogą — sposobem na ułożenie umysłu w taki sposób, by odzwierciedlał strukturę wszechświata.
+    </p>
+    <p class="bruno-intro-body" data-pl="Spalony żywcem na Campo de' Fiori 17 lutego 1600 roku, Bruno pozostawił po sobie szereg dzieł, w których próbował odbudować — w sercu kontrreformacyjnej Europy — antyczny i hermetyczny model umysłu jako kosmicznego instrumentu. Sztuka pamięci była dla niego jednoczesnym aktem poznawczym, magicznym i politycznym." data-en="Burned alive in Rome on 17 February 1600, Bruno left behind a series of works in which he tried to rebuild — at the heart of Counter-Reformation Europe — the ancient and hermetic model of the mind as a cosmic instrument. The art of memory was for Bruno simultaneously a cognitive, magical, and political act.">
+      Spalony żywcem na Campo de' Fiori 17 lutego 1600 roku, Bruno pozostawił po sobie szereg dzieł, w których próbował odbudować — w sercu kontrreformacyjnej Europy — antyczny i hermetyczny model umysłu jako kosmicznego instrumentu.
+    </p>
+  </div>
+</section>
+
+<!-- ========== LIFE — TIMELINE ========== -->
+<section class="bruno-section bruno-life">
+  <div class="bruno-container">
+    <div class="section-num">II</div>
+    <h2 class="section-title" data-pl="Życie · od dominikanina do stosu" data-en="Life · from Dominican to the stake">Życie · od dominikanina do stosu</h2>
+
+    <div class="bruno-timeline">
+      <div class="bt-event">
+        <div class="bt-date">1548</div>
+        <div class="bt-place" data-pl="Nola, Królestwo Neapolu" data-en="Nola, Kingdom of Naples">Nola, Królestwo Neapolu</div>
+        <div class="bt-desc" data-pl="Filippo Bruno (imię chrzcielne) urodził się pod Wezuwiuszem, syn niewielkiego żołnierza zawodowego." data-en="Filippo Bruno (baptismal name) is born at the foot of Vesuvius, son of a minor soldier.">Filippo Bruno (imię chrzcielne) urodził się pod Wezuwiuszem.</div>
+      </div>
+      <div class="bt-event">
+        <div class="bt-date">1565</div>
+        <div class="bt-place" data-pl="Neapol · Klasztor św. Dominika" data-en="Naples · St Dominic's monastery">Neapol · Klasztor św. Dominika</div>
+        <div class="bt-desc" data-pl="Wstępuje w wieku 17 lat do dominikanów. Przyjmuje imię Giordano. Dostęp do biblioteki z dziełami zakazanymi przez Indeks." data-en="Enters the Dominicans at age 17. Takes the name Giordano. Access to a library with books on the Index.">Wstępuje do dominikanów. Dostęp do biblioteki z dziełami zakazanymi.</div>
+      </div>
+      <div class="bt-event">
+        <div class="bt-date">1576</div>
+        <div class="bt-place" data-pl="Pierwsza ucieczka" data-en="First flight">Pierwsza ucieczka</div>
+        <div class="bt-desc" data-pl="Oskarżony o herezję (m.in. za usunięcie z celi obrazów Maryi i świętych). Wyrzeka się ślubów. Zaczyna szesnastoletnią tułaczkę po Europie." data-en="Accused of heresy (among other things, for removing images of Mary and saints from his cell). Renounces vows. Begins sixteen years of European wandering.">Oskarżony o herezję. Zaczyna 16-letnią tułaczkę po Europie.</div>
+      </div>
+      <div class="bt-event highlight">
+        <div class="bt-date">1582</div>
+        <div class="bt-place" data-pl="Paryż · Dwór Henryka III" data-en="Paris · Court of Henry III">Paryż · Dwór Henryka III</div>
+        <div class="bt-desc" data-pl="Pod opieką króla Francji wydaje De umbris idearum — pierwszy szkic systemu mającego odzwierciedlać porządek wszechświata. Tego samego roku: Cantus Circaeus." data-en="Under the patronage of the King of France he publishes De umbris idearum — the first sketch of a system meant to mirror the order of the universe. Same year: Cantus Circaeus.">Wydaje De umbris idearum — szkic systemu odzwierciedlającego wszechświat.</div>
+      </div>
+      <div class="bt-event">
+        <div class="bt-date">1583—85</div>
+        <div class="bt-place" data-pl="Anglia · krąg Sir Philipa Sidneya" data-en="England · Sir Philip Sidney's circle">Anglia · krąg Sir Philipa Sidneya</div>
+        <div class="bt-desc" data-pl="Wykłady na Oxfordzie (źle przyjęte). Pisze najsłynniejsze dialogi włoskie: La cena de le ceneri, Spaccio de la bestia trionfante, Degli eroici furori." data-en="Lectures at Oxford (poorly received). Writes the famous Italian dialogues: La cena de le ceneri, Spaccio de la bestia trionfante, Degli eroici furori.">Najsłynniejsze dialogi włoskie. Wykłady na Oxfordzie.</div>
+      </div>
+      <div class="bt-event">
+        <div class="bt-date">1586—91</div>
+        <div class="bt-place" data-pl="Niemcy · Helmstedt, Wittenberga, Frankfurt" data-en="Germany · Helmstedt, Wittenberg, Frankfurt">Niemcy</div>
+        <div class="bt-desc" data-pl="Łacińskie poematy filozoficzne: De triplici minimo, De monade, De immenso et innumerabilibus. Ars Memoriae. Lampas triginta statuarum." data-en="Latin philosophical poems: De triplici minimo, De monade, De immenso et innumerabilibus. Ars Memoriae. Lampas triginta statuarum.">Łacińskie poematy. Lampas triginta statuarum.</div>
+      </div>
+      <div class="bt-event">
+        <div class="bt-date">1591</div>
+        <div class="bt-place" data-pl="Wenecja · fatalne zaproszenie" data-en="Venice · the fatal invitation">Wenecja · fatalne zaproszenie</div>
+        <div class="bt-desc" data-pl="Patrycjusz Giovanni Mocenigo zaprasza Bruna, by uczył go sztuki pamięci. Niezadowolony z postępów, donosi go do Inkwizycji." data-en="Patrician Giovanni Mocenigo invites Bruno to teach him the art of memory. Dissatisfied, he denounces him to the Inquisition.">Mocenigo donosi Bruna do Inkwizycji.</div>
+      </div>
+      <div class="bt-event">
+        <div class="bt-date">1592—1600</div>
+        <div class="bt-place" data-pl="Castel Sant'Angelo · 8 lat więzienia" data-en="Castel Sant'Angelo · 8 years of imprisonment">Castel Sant'Angelo · 8 lat więzienia</div>
+        <div class="bt-desc" data-pl="Wydany Inkwizycji rzymskiej. Osiem lat przesłuchań i izolacji. Odmowa wyrzeczenia się tez kosmologicznych i filozoficznych." data-en="Handed over to the Roman Inquisition. Eight years of interrogations and isolation. Refusal to renounce cosmological and philosophical theses.">8 lat przesłuchań. Odmowa wyrzeczenia.</div>
+      </div>
+      <div class="bt-event finale">
+        <div class="bt-date">17 II 1600</div>
+        <div class="bt-place" data-pl="Campo de' Fiori, Roma" data-en="Campo de' Fiori, Rome">Campo de' Fiori, Roma</div>
+        <div class="bt-desc" data-pl="Spalony żywcem. Związany z knebłem w ustach, by nie mógł „skażać" ludu swoimi słowami. Według świadka kardynała Schoppe, ostatnie słowa: „Maiori forsan cum timore sententiam in me fertis quam ego accipiam"." data-en="Burned alive. Gagged so he could not „infect" the people with words. According to witness Cardinal Schoppe, last words: „Maiori forsan cum timore sententiam in me fertis quam ego accipiam".">Spalony żywcem. Związany z knebłem w ustach.</div>
+      </div>
+    </div>
+
+    <div class="bruno-monument">
+      <svg viewBox="0 0 100 200" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="120" width="20" height="80" fill="currentColor" opacity="0.3"/>
+        <rect x="35" y="115" width="30" height="8" fill="currentColor" opacity="0.5"/>
+        <ellipse cx="50" cy="60" rx="12" ry="18" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M 38,75 L 38,115 L 62,115 L 62,75 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="42" y1="55" x2="42" y2="65" stroke="currentColor" stroke-width="1"/>
+        <line x1="58" y1="55" x2="58" y2="65" stroke="currentColor" stroke-width="1"/>
+      </svg>
+      <p data-pl="Pomnik Bruna na Campo de' Fiori (Ettore Ferrari, 1889) stoi do dziś — patrząc w stronę Watykanu." data-en="The monument to Bruno on Campo de' Fiori (Ettore Ferrari, 1889) stands today — facing the Vatican.">
+        Pomnik Bruna na Campo de' Fiori (Ettore Ferrari, 1889) stoi do dziś — patrząc w stronę Watykanu.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PHILOSOPHY ========== -->
+<section class="bruno-section bruno-philosophy">
+  <div class="bruno-container">
+    <div class="section-num">III</div>
+    <h2 class="section-title" data-pl="Filozofia · wszechświat nieskończony, jeden, ożywiony" data-en="Philosophy · a universe infinite, one, animate">Filozofia · wszechświat nieskończony, jeden, ożywiony</h2>
+
+    <div class="philo-grid">
+      <div class="philo-card">
+        <div class="philo-icon">∞</div>
+        <h3 data-pl="Kosmologia" data-en="Cosmology">Kosmologia</h3>
+        <p data-pl="Pierwszy myśliciel po Mikołaju z Kuzy, który radykalnie wyprowadził konsekwencje z heliocentryzmu Kopernika: jeśli Ziemia nie jest centrum, to żadne ciało nie jest centrum. Wszechświat jest nieskończony, a w nim niezliczone światy — każda gwiazda jest słońcem, na niektórych być może żyją inne istoty. De l'infinito universo et mondi (1584) wyprzedzał o stulecia astronomiczną wiedzę." data-en="First thinker after Cusa to draw the radical consequences of Copernican heliocentrism: if Earth is not the centre, then no body is the centre. The universe is infinite with innumerable worlds. De l'infinito universo et mondi (1584) preceded astronomical knowledge by centuries.">
+          Pierwszy myśliciel po Mikołaju z Kuzy, który wyprowadził konsekwencje z heliocentryzmu: skoro Ziemia nie jest centrum, to żadne ciało nim nie jest. Wszechświat nieskończony, niezliczone światy.
+        </p>
+      </div>
+      <div class="philo-card">
+        <div class="philo-icon">⚭</div>
+        <h3 data-pl="Metafizyka" data-en="Metaphysics">Metafizyka</h3>
+        <p data-pl="Odrzucał arystotelesowski podział na sferę księżycową (zmienną) i niebieską (doskonałą). Cały wszechświat jest jeden, ożywiony (panpsychizm — wszystko ma duszę), boski. Bóg dla Bruna nie jest poza światem; jest jego wewnętrzną zasadą — anima mundi." data-en="Rejected Aristotle's split between sublunar (changeable) and celestial (perfect) spheres. The whole universe is one, animate (panpsychism), divine. God is not outside the world; he is its inner principle — anima mundi.">
+          Odrzuca podział arystotelesowski. Wszechświat jest jeden, ożywiony (panpsychizm), boski. Bóg jest wewnętrzną zasadą świata — anima mundi.
+        </p>
+      </div>
+      <div class="philo-card">
+        <div class="philo-icon">☥</div>
+        <h3 data-pl="Hermetyzm" data-en="Hermeticism">Hermetyzm</h3>
+        <p data-pl="Głęboko zanurzony w renesansowym hermetyzmie. Corpus Hermeticum w przekładzie Marsilia Ficina (1471) uważano wtedy za teksty starsze od Mojżesza. Hermetyzm głosił, że człowiek jest imago Dei i posiada potencjał do stania się magiem — uchwycenia struktury kosmosu i działania na nią." data-en="Deeply immersed in Renaissance hermeticism. Corpus Hermeticum, translated by Marsilio Ficino (1471), was thought older than Moses. Hermeticism preached that man is imago Dei and has the potential to become a mage — to grasp the cosmos's structure and act on it.">
+          Człowiek jest imago Dei. Posiada potencjał do stania się magiem — uchwycenia struktury kosmosu i działania na nią.
+        </p>
+      </div>
+    </div>
+
+    <p class="philo-conclusion" data-pl="To jest klucz do zrozumienia Bruna jako mnemonika. Sztuka pamięci nie jest dla niego trickiem na zapamiętywanie list. Jest drogą hermetycznej transformacji — sposobem na ułożenie umysłu jako mikrokosmosu odzwierciedlającego makrokosmos." data-en="This is the key to understanding Bruno as a mnemonist. The art of memory is for him not a trick for shopping lists. It is a path of hermetic transformation — a way to organize the mind as a microcosm reflecting the macrocosm.">
+      To jest klucz. Sztuka pamięci nie jest dla niego trickiem na zapamiętywanie list. Jest drogą hermetycznej transformacji — ułożenia umysłu jako mikrokosmosu odzwierciedlającego makrokosmos.
+    </p>
+  </div>
+</section>
+
+<!-- ========== WORKS ========== -->
+<section class="bruno-section bruno-works">
+  <div class="bruno-container">
+    <div class="section-num">IV</div>
+    <h2 class="section-title" data-pl="Główne dzieła mnemoniczne" data-en="Main mnemonic works">Główne dzieła mnemoniczne</h2>
+
+    <div class="works-list">
+      <article class="work">
+        <header class="work-head">
+          <h3>De umbris idearum</h3>
+          <span class="work-meta">Paryż · 1582</span>
+        </header>
+        <p class="work-tag" data-pl="„O cieniach idei"" data-en="„On the shadows of ideas"">„O cieniach idei"</p>
+        <p data-pl="Pierwsze i strukturalnie najambitniejsze dzieło mnemoniczne. Tytuł zawiera tezę: nie pamiętamy idei (form Platońskich) bezpośrednio — pamiętamy ich cienie (umbrae) rzucane w świecie zmysłów. Sztuka pamięci to umiejętność odpowiedniego ustawienia tych cieni. Pierwsza wersja kół pamięci. Dedykowane Henrykowi III." data-en="The first and structurally most ambitious mnemonic work. Title contains the thesis: we do not remember ideas (Platonic forms) directly — we remember their shadows (umbrae) cast in the sensual world. First version of memory wheels. Dedicated to Henry III.">
+          Pierwsze i strukturalnie najambitniejsze dzieło. Teza: pamiętamy nie idee, lecz ich cienie. Pierwsza wersja kół pamięci. Dedykowane Henrykowi III.
+        </p>
+      </article>
+
+      <article class="work">
+        <header class="work-head">
+          <h3>Cantus Circaeus</h3>
+          <span class="work-meta">Paryż · 1582</span>
+        </header>
+        <p class="work-tag" data-pl="„Pieśń Kirke"" data-en="„The song of Circe"">„Pieśń Kirke"</p>
+        <p data-pl="Dialog, w którym czarodziejka Kirke recytuje magiczne pieśni odpowiadające planetom i zwierzętom. Mnemotechnika splata się z incantacją — magicznym śpiewem. Wyobrażenia mają moc nie tylko zapamiętywania, ale wpływania na rzeczywistość." data-en="A dialogue in which the sorceress Circe recites magical songs corresponding to planets and animals. Mnemonics weaves with incantation. Images have the power not only to remember but to influence reality.">
+          Mnemotechnika splata się z magicznym śpiewem. Wyobrażenia mają moc nie tylko zapamiętywania, ale wpływania na rzeczywistość.
+        </p>
+      </article>
+
+      <article class="work">
+        <header class="work-head">
+          <h3>Sigillus sigillorum</h3>
+          <span class="work-meta">Londyn · 1583</span>
+        </header>
+        <p class="work-tag" data-pl="„Pieczęć pieczęci"" data-en="„Seal of seals"">„Pieczęć pieczęci"</p>
+        <p data-pl="Traktat o „pieczęciach" — symbolicznych obrazach, które koncentrują w sobie znaczenia kosmiczne. Pieczęć jest metafizyczną figurą, w której zbiegają się sieci skojarzeń." data-en="On „seals" — symbolic images concentrating cosmic meanings. The seal is a metaphysical figure where networks of associations converge.">
+          Symboliczne obrazy koncentrujące znaczenia kosmiczne. Pieczęć jest metafizyczną figurą.
+        </p>
+      </article>
+
+      <article class="work">
+        <header class="work-head">
+          <h3>Ars reminiscendi</h3>
+          <span class="work-meta">Londyn · 1583</span>
+        </header>
+        <p class="work-tag" data-pl="„Sztuka przypominania"" data-en="„The art of recollection"">„Sztuka przypominania"</p>
+        <p data-pl="Praktyczny podręcznik mnemoniczny — najbardziej „użytkowe" z dzieł Bruna." data-en="A practical mnemonic manual — the most „utilitarian" of Bruno's works.">
+          Praktyczny podręcznik mnemoniczny.
+        </p>
+      </article>
+
+      <article class="work highlight">
+        <header class="work-head">
+          <h3>Lampas triginta statuarum</h3>
+          <span class="work-meta">Wittenberga · 1587</span>
+        </header>
+        <p class="work-tag" data-pl="„Lampa trzydziestu posągów"" data-en="„Lamp of thirty statues"">„Lampa trzydziestu posągów"</p>
+        <p data-pl="Jedno z najgłębszych dzieł. Trzydzieści posągów-figur (Apollo, Wenus, Saturn, Chaos, Otchłań, Ojciec, Syn, Duch...) reprezentuje strukturę bytu. Pamiętając te posągi w odpowiednim porządku, mnemonik odbudowuje w umyśle ontologię." data-en="One of the deepest works. Thirty statue-figures (Apollo, Venus, Saturn, Chaos, Abyss, Father, Son, Spirit...) represent the structure of being. Remembering them in order, the mnemonist rebuilds ontology in the mind.">
+          Trzydzieści posągów-figur reprezentuje strukturę bytu. Pamiętając je w odpowiednim porządku, mnemonik odbudowuje w umyśle ontologię.
+        </p>
+      </article>
+
+      <article class="work">
+        <header class="work-head">
+          <h3>De imaginum compositione</h3>
+          <span class="work-meta">Frankfurt · 1591</span>
+        </header>
+        <p class="work-tag" data-pl="„O kompozycji obrazów, znaków i idei"" data-en="„On the composition of images, signs and ideas"">„O kompozycji obrazów, znaków i idei"</p>
+        <p data-pl="Późne, bardzo gęste dzieło. Bruno systematyzuje swoją teorię obrazu mnemonicznego: jak obraz ma być skonstruowany, by działał poznawczo i magicznie." data-en="Late, very dense work. Bruno systematizes his theory of the mnemonic image: how an image must be constructed to work cognitively and magically.">
+          Pełna teoria obrazu mnemonicznego: jak obraz ma być skonstruowany, by działał poznawczo i magicznie.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== WHEELS — INTERACTIVE ========== -->
+<section class="bruno-section bruno-wheels">
+  <div class="bruno-container">
+    <div class="section-num">V</div>
+    <h2 class="section-title" data-pl="Koła pamięci · maszyna myśli i kosmosu" data-en="Memory wheels · machine of thought and cosmos">Koła pamięci · maszyna myśli i kosmosu</h2>
+
+    <div class="wheels-grid">
+      <div class="wheels-text">
+        <p data-pl="Najsłynniejszym narzędziem Bruna są obrotowe koła (rotae). Wzorowane na Ars Magna Ramona Lulla (1232–1316) — katalońskiego mistyka, który skonstruował maszynę kombinatoryczną z obrotowych dysków. Bruno przejmuje ideę i zmienia jej zastosowanie." data-en="Bruno's most famous tool are the rotating wheels (rotae). Modelled on Ramon Lull's Ars Magna (13th c.) — a Catalan mystic who built a combinatorial machine of rotating disks. Bruno takes the idea and changes its application.">
+          Najsłynniejszym narzędziem Bruna są obrotowe koła (rotae). Wzorowane na Ars Magna Ramona Lulla. Bruno przejmuje ideę i zmienia jej zastosowanie.
+        </p>
+        <p data-pl="Wheels were simultaneously machines of memory, magic, logic, and cognition. Frances Yates argued they prefigured both Leibniz's combinatorics and modern associative networks." data-en="Frances Yates argued Bruno's wheels were simultaneously: a mnemonic machine (image generator), a magical machine (planetary attractor), a logical machine (combinatorial generator), and a cognitive machine (instrument for „cosmic thinking")." class="hidden-pl">
+          Wheels were simultaneously machines of memory, magic, logic, and cognition.
+        </p>
+        <ul class="wheels-list">
+          <li data-pl="Koło zewnętrzne — 30 liter (alfabet rozszerzony o greckie)" data-en="Outer wheel — 30 letters (extended alphabet with Greek)">Koło zewnętrzne — 30 liter (alfabet rozszerzony o greckie)</li>
+          <li data-pl="Koła wewnętrzne — obrazy, planety, znaki zodiaku, dekany" data-en="Inner wheels — images, planets, zodiac signs, decans">Koła wewnętrzne — obrazy, planety, znaki zodiaku, dekany</li>
+          <li data-pl="Centrum — figury archetypowe" data-en="Centre — archetypal figures">Centrum — figury archetypowe</li>
+          <li data-pl="Miliony unikatowych „adresów" — prefiguracja indeksowanej bazy danych" data-en="Millions of unique „addresses" — a foreshadowing of an indexed database">Miliony unikatowych „adresów" — prefiguracja indeksowanej bazy danych</li>
+        </ul>
+        <p class="wheels-note" data-pl="W tym sensie Bruno antycypuje zarówno Leibniza (Ars combinatoria, 1666 — bezpośrednio inspirowane Lullem i Brunonem), jak i współczesne sieci asocjacyjne." data-en="In this sense Bruno anticipates both Leibniz (Ars combinatoria, 1666 — directly inspired by Lull and Bruno) and modern associative networks.">
+          Bruno antycypuje Leibniza i współczesne sieci asocjacyjne.
+        </p>
+      </div>
+
+      <div class="wheels-visual">
+        <a href="../portal/games/wheel.html" class="wheels-cta">
+          <span class="cta-eyebrow" data-pl="Eksperyment" data-en="Experiment">Eksperyment</span>
+          <span class="cta-title" data-pl="Wejdź do interaktywnego koła Bruna →" data-en="Enter the interactive Bruno wheel →">Wejdź do interaktywnego koła Bruna →</span>
+        </a>
+        <svg viewBox="0 0 400 400" class="wheels-illustration">
+          <g fill="none" stroke="currentColor">
+            <circle cx="200" cy="200" r="190" stroke-width="0.5"/>
+            <circle cx="200" cy="200" r="150" stroke-width="1"/>
+            <circle cx="200" cy="200" r="110" stroke-width="0.5"/>
+            <circle cx="200" cy="200" r="70" stroke-width="1"/>
+            <circle cx="200" cy="200" r="30" stroke-width="0.5"/>
+          </g>
+          <g font-family="Cormorant Garamond" font-size="14" text-anchor="middle" fill="currentColor">
+            <text x="200" y="20" dy="0.35em">A</text>
+            <text x="290" y="40" dy="0.35em">B</text>
+            <text x="360" y="110" dy="0.35em">C</text>
+            <text x="380" y="200" dy="0.35em">D</text>
+            <text x="360" y="290" dy="0.35em">E</text>
+            <text x="290" y="360" dy="0.35em">F</text>
+            <text x="200" y="380" dy="0.35em">G</text>
+            <text x="110" y="360" dy="0.35em">H</text>
+            <text x="40" y="290" dy="0.35em">I</text>
+            <text x="20" y="200" dy="0.35em">L</text>
+            <text x="40" y="110" dy="0.35em">M</text>
+            <text x="110" y="40" dy="0.35em">N</text>
+          </g>
+          <g font-family="serif" font-size="20" text-anchor="middle" fill="#c8401f">
+            <text x="200" y="80" dy="0.35em">☉</text>
+            <text x="320" y="200" dy="0.35em">☽</text>
+            <text x="200" y="320" dy="0.35em">♀</text>
+            <text x="80" y="200" dy="0.35em">♂</text>
+          </g>
+          <text x="200" y="200" dy="0.35em" text-anchor="middle" font-family="serif" font-size="36" fill="#c8401f">∞</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== UMBRAE ========== -->
+<section class="bruno-section bruno-umbrae">
+  <div class="bruno-container">
+    <div class="section-num">VI</div>
+    <h2 class="section-title" data-pl="Umbrae idearum · czym są cienie idei" data-en="Umbrae idearum · what shadows of ideas mean">Umbrae idearum · czym są cienie idei</h2>
+
+    <p class="umbrae-lead" data-pl="Centralny koncept Bruna. Nie pamiętamy rzeczywistości bezpośrednio. Każdy obraz w pamięci jest umbrą — cieniem idei nadrzędnej." data-en="A central Brunonian concept. We do not remember reality directly. Each image in memory is a umbra — shadow of a higher idea.">
+      Centralny koncept Bruna. Nie pamiętamy rzeczywistości bezpośrednio. Każdy obraz w pamięci jest umbrą — cieniem idei nadrzędnej.
+    </p>
+
+    <div class="umbrae-implications">
+      <div class="ui-item">
+        <div class="ui-num">1</div>
+        <p data-pl="Pamięć nie jest pasywnym lustrem rzeczywistości. Jest aktywnym ekranem, na którym idee rzucają cienie." data-en="Memory is not a passive mirror of reality. It is an active screen on which ideas cast shadows.">Pamięć nie jest pasywnym lustrem. Jest aktywnym ekranem, na którym idee rzucają cienie.</p>
+      </div>
+      <div class="ui-item">
+        <div class="ui-num">2</div>
+        <p data-pl="Sztuka pamięci to nauka zarządzania tymi cieniami — układania ich tak, by przez ich konfigurację dostać się z powrotem do idei." data-en="The art of memory is the science of managing those shadows — arranging them so their configuration leads back to the ideas.">Sztuka pamięci to nauka zarządzania cieniami — układania ich tak, by dostać się do idei.</p>
+      </div>
+      <div class="ui-item">
+        <div class="ui-num">3</div>
+        <p data-pl="Im bardziej archetypowy obraz, tym silniejszy „cień" — i głębsze powiązanie z nadrzędną ideą." data-en="The more archetypal the image, the stronger its „shadow" — and the deeper its link to the higher idea.">Im bardziej archetypowy obraz, tym silniejszy cień i głębsze powiązanie z ideą.</p>
+      </div>
+    </div>
+
+    <p class="umbrae-conclusion" data-pl="To dlatego Bruno wybiera obrazy z mitologii (Apollo, Diana, Saturn), z astrologii (planety, dekany), z bestiariusza (lew, orzeł, smok). Te obrazy są częścią kolektywnego skarbca symbolicznego ludzkości. W tym sensie Bruno antycypuje koncepcję archetypów Carla Gustava Junga." data-en="This is why Bruno chooses images from mythology (Apollo, Diana, Saturn), astrology (planets, decans), bestiary (lion, eagle, dragon). These images are part of the collective symbolic treasury of humanity. In this Bruno anticipates Carl Gustav Jung's concept of archetypes.">
+      Bruno wybiera obrazy z mitologii, astrologii, bestiariusza — z kolektywnego skarbca symbolicznego ludzkości. Antycypuje archetypy Junga.
+    </p>
+  </div>
+</section>
+
+<!-- ========== MEMORY+MAGIC ========== -->
+<section class="bruno-section bruno-magic">
+  <div class="bruno-container">
+    <div class="section-num">VII</div>
+    <h2 class="section-title" data-pl="Pamięć i magia · dlaczego były nierozłączne" data-en="Memory and magic · why they were inseparable">Pamięć i magia · dlaczego były nierozłączne</h2>
+
+    <p class="magic-lead" data-pl="Dla nas dziś „pamięć" i „magia" to dwie różne dziedziny. Dla Bruna były tym samym." data-en="For us today „memory" and „magic" are different domains. For Bruno they were the same.">
+      Dla nas dziś „pamięć" i „magia" to dwie różne dziedziny. Dla Bruna były tym samym.
+    </p>
+
+    <p data-pl="W modelu hermetycznym właściwie skonstruowany obraz ma moc:" data-en="In the hermetic model a properly constructed image has the power to:">W modelu hermetycznym właściwie skonstruowany obraz ma moc:</p>
+
+    <ol class="magic-powers">
+      <li data-pl="Zapamiętywać (podstawowa funkcja mnemoniczna)" data-en="Remember (basic mnemonic function)"><strong>Zapamiętywać</strong> — podstawowa funkcja mnemoniczna.</li>
+      <li data-pl="Przyciągać wpływy (jeśli obraz Saturna jest dobrze „wymierzony", przyciąga energie saturniczne)" data-en="Attract influences (a well-aimed Saturn image attracts Saturnian energies)"><strong>Przyciągać wpływy</strong> — jeśli obraz Saturna jest dobrze „wymierzony", przyciąga energie saturniczne.</li>
+      <li data-pl="Wpływać na rzeczywistość — przez sympatie kosmiczne (rdzeń magii naturalnej i talizmanicznej)" data-en="Influence reality — through cosmic sympathies (the core of natural and talismanic magic)"><strong>Wpływać na rzeczywistość</strong> — przez sympatie kosmiczne, rdzeń magii naturalnej.</li>
+      <li data-pl="Transformować mnemonika — umysł ułożony jak kosmos staje się „mentalnie kosmiczny" (droga do deificatio)" data-en="Transform the mnemonist — a mind ordered like the cosmos becomes „mentally cosmic" (path to deificatio)"><strong>Transformować mnemonika</strong> — umysł ułożony jak kosmos staje się „mentalnie kosmiczny" (droga do deificatio).</li>
+    </ol>
+
+    <div class="magic-quote">
+      <p data-pl="To dlatego inkwizycja go zabiła. Nie tylko za herezję kosmologiczną. Przede wszystkim za to, że jego sztuka pamięci była de facto programem nowej religii — religii umysłu, gdzie człowiek-mag staje się partnerem boskości, a nie jej poddanym." data-en="That is why the Inquisition killed him. Not only for cosmological heresy. Above all because his art of memory was de facto a programme of a new religion — a religion of mind in which the mage-man becomes a partner of divinity, not its subject.">
+        To dlatego inkwizycja go zabiła. Nie tylko za herezję kosmologiczną. Przede wszystkim za to, że jego sztuka pamięci była de facto programem nowej religii — religii umysłu.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INFLUENCE ========== -->
+<section class="bruno-section bruno-influence">
+  <div class="bruno-container">
+    <div class="section-num">VIII</div>
+    <h2 class="section-title" data-pl="Wpływ · od XVII wieku po dzisiaj" data-en="Influence · from the 17th century to today">Wpływ · od XVII wieku po dzisiaj</h2>
+
+    <div class="influence-timeline">
+      <div class="ift-row">
+        <div class="ift-period">XVII w.</div>
+        <div class="ift-content"><strong>Athanasius Kircher, Robert Fludd, Tommaso Campanella</strong>. <strong>Gottfried Wilhelm Leibniz</strong> w <em>Dissertatio de arte combinatoria</em> (1666) bezpośrednio nawiązuje do Lulla i Bruna. Filozofia kombinatoryczna prowadzi prostą linią do współczesnej logiki matematycznej i informatyki.</div>
+      </div>
+      <div class="ift-row">
+        <div class="ift-period">XVIII—XIX</div>
+        <div class="ift-content"><strong>Hegel</strong> poświęca mu paragrafy w <em>Wykładach z historii filozofii</em>. Niemiecki idealizm widzi w nim prekursora.</div>
+      </div>
+      <div class="ift-row highlight">
+        <div class="ift-period">1889</div>
+        <div class="ift-content">Republika Włoska wystawia mu pomnik na Campo de' Fiori. Kościół katolicki protestuje.</div>
+      </div>
+      <div class="ift-row">
+        <div class="ift-period">XX w.</div>
+        <div class="ift-content"><strong>Frances A. Yates</strong> · <em>Giordano Bruno and the Hermetic Tradition</em> (1964) i <em>The Art of Memory</em> (1966) — przełomowe monografie, które wprowadziły Bruna do mainstreamu historii idei. Argumentowała, że Bruno reprezentował alternatywną drogę nauki nowożytnej, zatopioną przez kartezjanizm.</div>
+      </div>
+      <div class="ift-row">
+        <div class="ift-period">XXI w.</div>
+        <div class="ift-content"><strong>Hilary Gatti</strong>, <strong>Ioan Couliano</strong>, <strong>Lina Bolzoni</strong> — coraz nowsze tomy krytyczne. Bruno stale obecny w kulturze: powieści, opery, filmy. W ezoteryce — odniesienie obowiązkowe.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== LESSONS ========== -->
+<section class="bruno-section bruno-lessons">
+  <div class="bruno-container">
+    <div class="section-num">IX</div>
+    <h2 class="section-title" data-pl="Co z Bruna jest aktualne dla dzisiejszego mnemonika" data-en="What of Bruno is current for today's mnemonist">Co z Bruna jest aktualne dla dzisiejszego mnemonika</h2>
+
+    <div class="lessons-grid">
+      <div class="lesson">
+        <div class="lesson-num">1</div>
+        <h3 data-pl="Obraz musi być żywy" data-en="Image must be alive">Obraz musi być żywy</h3>
+        <p data-pl="Bruno wymagał, by mnemoniczny obraz był istotny, dynamiczny, emocjonalnie naładowany. Nigdy statyczny. Współczesna mnemotechnika to potwierdza." data-en="Bruno demanded the mnemonic image be substantial, dynamic, emotionally charged. Never static. Modern mnemonics confirms this.">
+          Mnemoniczny obraz musi być istotny, dynamiczny, emocjonalnie naładowany. Nigdy statyczny.
+        </p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-num">2</div>
+        <h3 data-pl="Archetypy działają silniej" data-en="Archetypes work stronger">Archetypy działają silniej</h3>
+        <p data-pl="Gdy budujesz pałac pamięci, używaj postaci silnie zakorzenionych w kulturowym imaginarium (mitologia, znane historie, bohaterowie filmów). Działają na głębszym poziomie." data-en="When you build a memory palace, use figures rooted in cultural imagination (mythology, well-known stories, film heroes). They act on a deeper level.">
+          Postaci z mitologii, znanych historii, filmów działają głębiej niż prywatne skojarzenia.
+        </p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-num">3</div>
+        <h3 data-pl="Struktura kosmiczna pomaga" data-en="Cosmic structure helps">Struktura kosmiczna pomaga</h3>
+        <p data-pl="Bruno dzielił rzeczywistość na sfery (planety, żywioły, świat zmysłowy/intelektualny). Możesz dziś używać dowolnej struktury, ale świadomość, że struktura wzmacnia pamięć, jest brunońska." data-en="Bruno divided reality into spheres. Today you can use any structure, but the awareness that structure strengthens memory is Brunonian.">
+          Świadomość, że struktura wzmacnia pamięć, jest brunońska.
+        </p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-num">4</div>
+        <h3 data-pl="Łącz pamięć ze znaczeniem" data-en="Link memory to meaning">Łącz pamięć ze znaczeniem</h3>
+        <p data-pl="Bruno nie zapamiętywał bez celu. Każdy obraz miał miejsce w wielkiej narracji świata. Współczesny ekwiwalent: nie buduj pałaców na zapas. Buduj je dla wiedzy, którą chcesz inkorporować w siebie." data-en="Bruno did not memorize purposelessly. Each image had a place in the great narrative of the world. Modern equivalent: don't build palaces just-in-case. Build them for knowledge you want to incorporate.">
+          Buduj pałace dla wiedzy, którą chcesz inkorporować w siebie.
+        </p>
+      </div>
+      <div class="lesson">
+        <div class="lesson-num">5</div>
+        <h3 data-pl="Praktyka jako transformacja" data-en="Practice as transformation">Praktyka jako transformacja</h3>
+        <p data-pl="Bruno traktował mnemotechnikę jako drogę osobistej transformacji. Po latach praktyki nie jesteś tym samym człowiekiem — myślisz inaczej, widzisz inaczej. Ten egzystencjalny wymiar — często pominięty — jest centralny dla Bruna." data-en="Bruno treated mnemonics as a path of personal transformation. After years of practice you are not the same person — you think differently, see differently. This existential dimension — often missed — is central.">
+          Po latach praktyki nie jesteś tym samym człowiekiem. Myślisz inaczej, widzisz inaczej.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== READING ========== -->
+<section class="bruno-section bruno-reading">
+  <div class="bruno-container">
+    <div class="section-num">X</div>
+    <h2 class="section-title" data-pl="Sugestie do dalszej lektury" data-en="Suggested further reading">Sugestie do dalszej lektury</h2>
+
+    <div class="reading-grid">
+      <div class="reading-col">
+        <h3 class="reading-cat" data-pl="Klasyka" data-en="Classic">Klasyka</h3>
+        <ul class="reading-list">
+          <li><strong>Frances A. Yates</strong>, <em>The Art of Memory</em> (Routledge, 1966) — rozdziały XIII—XIV poświęcone Brunowi. Polski przekład PIW.</li>
+          <li><strong>Frances A. Yates</strong>, <em>Giordano Bruno and the Hermetic Tradition</em> (1964). Polski przekład PIW.</li>
+          <li><strong>Hilary Gatti</strong>, <em>Giordano Bruno and Renaissance Science</em> (Cornell, 1999).</li>
+        </ul>
+      </div>
+      <div class="reading-col">
+        <h3 class="reading-cat" data-pl="Współczesne studia" data-en="Modern studies">Współczesne studia</h3>
+        <ul class="reading-list">
+          <li><strong>Ioan Couliano</strong>, <em>Eros and Magic in the Renaissance</em> (Chicago, 1987).</li>
+          <li><strong>Mary Carruthers</strong>, <em>The Book of Memory</em> (Cambridge, 1990).</li>
+          <li><strong>Lina Bolzoni</strong>, <em>La stanza della memoria</em> (Einaudi, 1995).</li>
+        </ul>
+      </div>
+      <div class="reading-col">
+        <h3 class="reading-cat" data-pl="Wydania PL" data-en="Polish editions">Wydania PL</h3>
+        <ul class="reading-list">
+          <li><em>Pisma filozoficzne</em> Bruna — PIW, kilka tomów (przekłady m.in. Anny Nowickiej-Jeżowej, Wojciecha Olszewskiego).</li>
+          <li><em>Dialogi włoskie</em> — różne wydania.</li>
+          <li><em>Lampa trzydziestu posągów</em> — fragmenty w antologiach ezoteryki renesansu.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== QUOTES ========== -->
+<section class="bruno-section bruno-quotes">
+  <div class="bruno-container">
+    <div class="section-num">XI</div>
+    <h2 class="section-title" data-pl="Cytaty dla mnemonika" data-en="Quotes for the mnemonist">Cytaty dla mnemonika</h2>
+
+    <div class="quotes-grid">
+      <blockquote class="bq">
+        <p lang="la">„Memoria est rerum thesaurus."</p>
+        <cite data-pl="Pamięć jest skarbcem rzeczy." data-en="Memory is the treasury of things.">Pamięć jest skarbcem rzeczy.</cite>
+      </blockquote>
+      <blockquote class="bq">
+        <p lang="la">„Imago est sigillum signaculum signorum."</p>
+        <cite data-pl="Obraz jest pieczęcią pieczęci, znakiem znaków." data-en="The image is the seal of seals, the sign of signs.">Obraz jest pieczęcią pieczęci, znakiem znaków.</cite>
+      </blockquote>
+      <blockquote class="bq">
+        <p lang="la">„Universum est unum, immensum, infinitum."</p>
+        <cite data-pl="Wszechświat jest jeden, niezmierzony, nieskończony." data-en="The universe is one, immense, infinite.">Wszechświat jest jeden, niezmierzony, nieskończony.</cite>
+      </blockquote>
+      <blockquote class="bq">
+        <p lang="la">„Mens enim humana, ut speculum, omnia capit."</p>
+        <cite data-pl="Umysł ludzki bowiem, jak zwierciadło, ogarnia wszystko." data-en="The human mind, like a mirror, contains all things.">Umysł ludzki bowiem, jak zwierciadło, ogarnia wszystko.</cite>
+      </blockquote>
+    </div>
+
+    <div class="bruno-final">
+      <p class="final-quote" data-pl="„Wszystkie rzeczy zwieszają się i zależą od jedności."" data-en="„All things hang and depend upon unity."">
+        „Wszystkie rzeczy zwieszają się i zależą od jedności."
+      </p>
+      <cite>— Bruno, <em>De la causa, principio et uno</em>, 1584</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NAV ========== -->
+<section class="bruno-section bruno-nav">
+  <div class="bruno-container">
+    <nav class="chapter-nav">
+      <a href="viewer.html?doc=12-sciezka-osobista">
+        <span class="nav-label">← <span data-pl="poprzedni" data-en="previous">poprzedni</span></span>
+        <span class="nav-title" data-pl="Ścieżka osobista" data-en="Personal path">Ścieżka osobista</span>
+      </a>
+      <a href="index.html">
+        <span class="nav-label" data-pl="powrót do" data-en="back to">powrót do</span>
+        <span class="nav-title" data-pl="Spis kompendium" data-en="Compendium index">Spis kompendium</span>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<script src="kompendium.js"></script>
+<script>
+// progress bar
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+}, { passive: true });
+</script>
+</body>
+</html>

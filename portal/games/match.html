@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Memory Match</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em data-pl="Gra" data-en="Game">Gra</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">01 · Memory Match</div>
+      <h1 class="game-title" data-pl="Memory Match" data-en="Memory Match">Memory Match</h1>
+      <p class="game-instructions" data-pl="Klasyczne łączenie par. Kliknij dwie karty, by je odsłonić. Znajdź wszystkie pary w jak najmniejszej liczbie ruchów." data-en="Classic pair matching. Click two cards to flip them. Find all pairs in the fewest moves possible.">Klasyczne łączenie par. Kliknij dwie karty, by je odsłonić. Znajdź wszystkie pary w jak najmniejszej liczbie ruchów.</p>
+    </div>
+
+    <div class="game-controls">
+      <select class="select" id="diff">
+        <option value="4" data-pl="łatwy · 8 par" data-en="easy · 8 pairs">łatwy · 8 par</option>
+        <option value="6" data-pl="średni · 18 par" data-en="medium · 18 pairs">średni · 18 par</option>
+        <option value="8" data-pl="trudny · 32 par" data-en="hard · 32 pairs">trudny · 32 par</option>
+      </select>
+      <button class="btn primary" id="newGame" data-pl="Nowa gra" data-en="New game">Nowa gra</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Ruchy" data-en="Moves">Ruchy</span><span class="val" id="moves">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Pary" data-en="Pairs">Pary</span><span class="val" id="pairs">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Czas" data-en="Time">Czas</span><span class="val" id="time">0:00</span></div>
+      <div class="stat-item"><span class="label" data-pl="Najlepszy wynik" data-en="Best score">Najlepszy wynik</span><span class="val" id="best">—</span></div>
+    </div>
+
+    <div class="message" id="msg" data-pl="Wybierz poziom i kliknij Nowa gra." data-en="Pick a level and click New game.">Wybierz poziom i kliknij Nowa gra.</div>
+
+    <div class="match-board" id="board"></div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function() {
+  const SYMBOLS = ['☉','☽','☿','♀','♂','♃','♄','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓','★','✦','✧','✪','⌘','⌬','◉','◈','◆','▲','▼','●','○'];
+
+  const board = document.getElementById('board');
+  const movesEl = document.getElementById('moves');
+  const pairsEl = document.getElementById('pairs');
+  const timeEl = document.getElementById('time');
+  const bestEl = document.getElementById('best');
+  const msg = document.getElementById('msg');
+  const diff = document.getElementById('diff');
+  const newBtn = document.getElementById('newGame');
+
+  let state = null;
+  let timerInterval;
+
+  const updateTime = () => {
+    if (!state) return;
+    const sec = Math.floor((Date.now() - state.startTime) / 1000);
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    timeEl.textContent = `${m}:${String(s).padStart(2, '0')}`;
+  };
+
+  const updateBest = () => {
+    const cols = diff.value;
+    const best = MNEMO.getBestScore('match-' + cols);
+    bestEl.textContent = best !== null ? best : '—';
+  };
+
+  const startGame = () => {
+    clearInterval(timerInterval);
+    const cols = parseInt(diff.value, 10);
+    const pairs = (cols * cols) / 2;
+    const symbols = MNEMO.shuffle(SYMBOLS).slice(0, pairs);
+    const cards = MNEMO.shuffle([...symbols, ...symbols]);
+    state = {
+      cols,
+      pairs,
+      cards,
+      flipped: [],
+      matched: 0,
+      moves: 0,
+      startTime: Date.now(),
+      lock: false
+    };
+    board.dataset.cols = cols;
+    board.innerHTML = cards.map((sym, i) => `
+      <div class="tile" data-idx="${i}" data-sym="${sym}">
+        <div class="tile-inner">
+          <div class="tile-face tile-back"></div>
+          <div class="tile-face tile-front">${sym}</div>
+        </div>
+      </div>
+    `).join('');
+    movesEl.textContent = '0';
+    pairsEl.textContent = `0 / ${pairs}`;
+    timeEl.textContent = '0:00';
+    msg.textContent = MNEMO.t('Klikaj karty. Powodzenia.', 'Click cards. Good luck.');
+    msg.className = 'message';
+    timerInterval = setInterval(updateTime, 200);
+    updateBest();
+
+    board.querySelectorAll('.tile').forEach(tile => {
+      tile.addEventListener('click', () => onTileClick(tile));
+    });
+  };
+
+  const onTileClick = (tile) => {
+    if (!state || state.lock) return;
+    if (tile.classList.contains('flipped') || tile.classList.contains('matched')) return;
+
+    tile.classList.add('flipped');
+    state.flipped.push(tile);
+
+    if (state.flipped.length === 2) {
+      state.lock = true;
+      state.moves++;
+      movesEl.textContent = state.moves;
+      const [a, b] = state.flipped;
+      if (a.dataset.sym === b.dataset.sym) {
+        setTimeout(() => {
+          a.classList.add('matched');
+          b.classList.add('matched');
+          a.classList.remove('flipped');
+          b.classList.remove('flipped');
+          state.matched++;
+          pairsEl.textContent = `${state.matched} / ${state.pairs}`;
+          state.flipped = [];
+          state.lock = false;
+          if (state.matched === state.pairs) endGame();
+        }, 400);
+      } else {
+        setTimeout(() => {
+          a.classList.remove('flipped');
+          b.classList.remove('flipped');
+          state.flipped = [];
+          state.lock = false;
+        }, 800);
+      }
+    }
+  };
+
+  const endGame = () => {
+    clearInterval(timerInterval);
+    const sec = Math.floor((Date.now() - state.startTime) / 1000);
+    const score = Math.max(0, 1000 - state.moves * 5 - sec * 2);
+    MNEMO.saveScore('match-' + state.cols, score);
+    msg.className = 'message success';
+    msg.textContent = MNEMO.t(
+      `Brawo! ${state.pairs} par w ${state.moves} ruchach. Wynik: ${score} pkt.`,
+      `Great! ${state.pairs} pairs in ${state.moves} moves. Score: ${score} pts.`
+    );
+    updateBest();
+  };
+
+  newBtn.addEventListener('click', startGame);
+  diff.addEventListener('change', updateBest);
+  updateBest();
+  MNEMO.onLangChange(() => updateBest());
+})();
+</script>
+</body>
+</html>

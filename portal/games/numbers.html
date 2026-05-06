@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Number-Shape</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em data-pl="Gra" data-en="Game">Gra</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">03 · Number-Shape</div>
+      <h1 class="game-title" data-pl="Number-Shape" data-en="Number-Shape">Number-Shape</h1>
+      <p class="game-instructions" data-pl="System zakładkowy: każdej cyfrze przypisany jest obraz o jej kształcie. Naucz się par cyfra → obraz, potem przeprowadź sprawdzian." data-en="The peg system: each digit gets an image of its shape. Learn the digit → image pairs, then test yourself.">System zakładkowy: każdej cyfrze przypisany jest obraz o jej kształcie. Naucz się par, potem przeprowadź sprawdzian.</p>
+    </div>
+
+    <div class="game-controls">
+      <button class="btn primary" id="newGame" data-pl="Nowy zestaw" data-en="New round">Nowy zestaw</button>
+      <button class="btn" id="reverse" data-pl="Tryb: cyfra → obraz" data-en="Mode: digit → image">Tryb: cyfra → obraz</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Pytanie" data-en="Question">Pytanie</span><span class="val" id="qNum">— / 10</span></div>
+      <div class="stat-item"><span class="label" data-pl="Trafienia" data-en="Hits">Trafienia</span><span class="val" id="hits">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Najlepsze" data-en="Best">Najlepsze</span><span class="val" id="best">—</span></div>
+    </div>
+
+    <div class="message" id="msg" data-pl="Kliknij Nowy zestaw, by zacząć." data-en="Click New round to start.">Kliknij Nowy zestaw, by zacząć.</div>
+
+    <div class="trainer">
+      <div class="prompt-card">
+        <div class="prompt-label" id="promptLabel" data-pl="Cyfra" data-en="Digit">Cyfra</div>
+        <div class="prompt-value" id="promptValue">—</div>
+      </div>
+      <div class="answer-options" id="opts"></div>
+    </div>
+
+    <div style="margin-top: 60px;">
+      <h3 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vermillion); margin-bottom: 14px;" data-pl="Tabela referencyjna" data-en="Reference table">Tabela referencyjna</h3>
+      <div class="major-table">
+        <div class="major-cell"><div class="digit">0</div><div class="cons" data-pl="piłka" data-en="ball">piłka</div></div>
+        <div class="major-cell"><div class="digit">1</div><div class="cons" data-pl="ołówek" data-en="pencil">ołówek</div></div>
+        <div class="major-cell"><div class="digit">2</div><div class="cons" data-pl="łabędź" data-en="swan">łabędź</div></div>
+        <div class="major-cell"><div class="digit">3</div><div class="cons" data-pl="serce ↓" data-en="heart ↓">serce ↓</div></div>
+        <div class="major-cell"><div class="digit">4</div><div class="cons" data-pl="żaglówka" data-en="sailboat">żaglówka</div></div>
+        <div class="major-cell"><div class="digit">5</div><div class="cons" data-pl="wąż / hak" data-en="snake / hook">wąż / hak</div></div>
+        <div class="major-cell"><div class="digit">6</div><div class="cons" data-pl="lizak" data-en="lollipop">lizak</div></div>
+        <div class="major-cell"><div class="digit">7</div><div class="cons" data-pl="flaga" data-en="flag">flaga</div></div>
+        <div class="major-cell"><div class="digit">8</div><div class="cons" data-pl="bałwan" data-en="snowman">bałwan</div></div>
+        <div class="major-cell"><div class="digit">9</div><div class="cons" data-pl="balon" data-en="balloon">balon</div></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function() {
+  const PEGS = [
+    { d: 0, pl: 'piłka', en: 'ball' },
+    { d: 1, pl: 'ołówek', en: 'pencil' },
+    { d: 2, pl: 'łabędź', en: 'swan' },
+    { d: 3, pl: 'serce odwrócone', en: 'inverted heart' },
+    { d: 4, pl: 'żaglówka', en: 'sailboat' },
+    { d: 5, pl: 'wąż / hak', en: 'snake / hook' },
+    { d: 6, pl: 'lizak', en: 'lollipop' },
+    { d: 7, pl: 'flaga', en: 'flag' },
+    { d: 8, pl: 'bałwan', en: 'snowman' },
+    { d: 9, pl: 'balon', en: 'balloon' }
+  ];
+  const TOTAL = 10;
+
+  const promptLabel = document.getElementById('promptLabel');
+  const promptValue = document.getElementById('promptValue');
+  const opts = document.getElementById('opts');
+  const qNum = document.getElementById('qNum');
+  const hitsEl = document.getElementById('hits');
+  const bestEl = document.getElementById('best');
+  const msg = document.getElementById('msg');
+  const newBtn = document.getElementById('newGame');
+  const reverseBtn = document.getElementById('reverse');
+
+  let state = null;
+  let mode = 'd2i'; // digit → image
+
+  const updateBest = () => {
+    const best = MNEMO.getBestScore('numbers-' + mode);
+    bestEl.textContent = best !== null ? best + '/' + TOTAL : '—';
+  };
+  updateBest();
+
+  const startGame = () => {
+    const queue = MNEMO.shuffle(Array.from({length: TOTAL}, (_, i) => i % 10));
+    state = { queue, idx: 0, hits: 0 };
+    msg.className = 'message';
+    msg.textContent = MNEMO.t('Wybierz właściwą odpowiedź. Bez stresu.', 'Pick the right answer. No stress.');
+    nextQuestion();
+  };
+
+  const nextQuestion = () => {
+    if (state.idx >= TOTAL) return endGame();
+    qNum.textContent = `${state.idx + 1} / ${TOTAL}`;
+    const correctDigit = state.queue[state.idx];
+    const correctPeg = PEGS[correctDigit];
+    const distractors = MNEMO.shuffle(PEGS.filter(p => p.d !== correctDigit)).slice(0, 3);
+    const choices = MNEMO.shuffle([correctPeg, ...distractors]);
+
+    if (mode === 'd2i') {
+      promptLabel.textContent = MNEMO.t('Cyfra', 'Digit');
+      promptValue.textContent = correctDigit;
+      opts.innerHTML = choices.map(c => `<button class="answer-option" data-d="${c.d}">${MNEMO.t(c.pl, c.en)}</button>`).join('');
+    } else {
+      promptLabel.textContent = MNEMO.t('Obraz', 'Image');
+      promptValue.textContent = MNEMO.t(correctPeg.pl, correctPeg.en);
+      opts.innerHTML = choices.map(c => `<button class="answer-option" data-d="${c.d}">${c.d}</button>`).join('');
+    }
+
+    opts.querySelectorAll('.answer-option').forEach(btn => {
+      btn.addEventListener('click', () => onAnswer(btn, correctDigit));
+    });
+  };
+
+  const onAnswer = (btn, correctDigit) => {
+    const isCorrect = parseInt(btn.dataset.d, 10) === correctDigit;
+    btn.classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) {
+      opts.querySelector(`[data-d="${correctDigit}"]`)?.classList.add('correct');
+    } else {
+      state.hits++;
+      hitsEl.textContent = state.hits;
+    }
+    opts.querySelectorAll('.answer-option').forEach(b => b.style.pointerEvents = 'none');
+    state.idx++;
+    setTimeout(nextQuestion, 700);
+  };
+
+  const endGame = () => {
+    qNum.textContent = `${TOTAL} / ${TOTAL}`;
+    msg.className = state.hits === TOTAL ? 'message success' : 'message';
+    msg.textContent = MNEMO.t(
+      `Koniec rundy. Trafienia: ${state.hits} z ${TOTAL}.`,
+      `Round complete. Hits: ${state.hits} out of ${TOTAL}.`
+    );
+    promptValue.textContent = '✓';
+    opts.innerHTML = '';
+    MNEMO.saveScore('numbers-' + mode, state.hits);
+    updateBest();
+  };
+
+  reverseBtn.addEventListener('click', () => {
+    mode = mode === 'd2i' ? 'i2d' : 'd2i';
+    reverseBtn.textContent = mode === 'd2i' ? MNEMO.t('Tryb: cyfra → obraz', 'Mode: digit → image') : MNEMO.t('Tryb: obraz → cyfra', 'Mode: image → digit');
+    updateBest();
+    if (state) startGame();
+  });
+  reverseBtn.textContent = MNEMO.t('Tryb: cyfra → obraz', 'Mode: digit → image');
+
+  newBtn.addEventListener('click', startGame);
+  MNEMO.onLangChange(() => {
+    updateBest();
+    reverseBtn.textContent = mode === 'd2i' ? MNEMO.t('Tryb: cyfra → obraz', 'Mode: digit → image') : MNEMO.t('Tryb: obraz → cyfra', 'Mode: image → digit');
+  });
+})();
+</script>
+</body>
+</html>

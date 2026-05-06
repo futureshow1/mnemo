@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Łańcuch skojarzeń</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em data-pl="Gra" data-en="Game">Gra</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">05 · Chain of associations</div>
+      <h1 class="game-title" data-pl="Łańcuch skojarzeń" data-en="Chain of associations">Łańcuch skojarzeń</h1>
+      <p class="game-instructions" data-pl="Pięć losowych słów. Twoja historia. Trening narracji jako mnemoniki — fakty zorganizowane jako historia są pamiętane 7× lepiej." data-en="Five random words. Your story. Training narrative as mnemonics — facts as story are remembered 7× better.">Pięć losowych słów. Twoja historia. Trening narracji jako mnemoniki — fakty jako historia są pamiętane 7× lepiej.</p>
+    </div>
+
+    <div class="game-controls">
+      <select class="select" id="diff">
+        <option value="5" data-pl="łatwy · 5 słów" data-en="easy · 5 words">łatwy · 5 słów</option>
+        <option value="8" data-pl="średni · 8 słów" data-en="medium · 8 words">średni · 8 słów</option>
+        <option value="12" data-pl="trudny · 12 słów" data-en="hard · 12 words">trudny · 12 słów</option>
+      </select>
+      <button class="btn primary" id="newGame" data-pl="Losuj słowa" data-en="Draw words">Losuj słowa</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Faza" data-en="Phase">Faza</span><span class="val" id="phase" data-pl="—" data-en="—">—</span></div>
+      <div class="stat-item"><span class="label" data-pl="Trafienia" data-en="Hits">Trafienia</span><span class="val" id="hits">—</span></div>
+      <div class="stat-item"><span class="label" data-pl="Najlepsze" data-en="Best">Najlepsze</span><span class="val" id="best">—</span></div>
+    </div>
+
+    <div class="message" id="msg" data-pl="Wybierz poziom i kliknij Losuj słowa." data-en="Pick level and click Draw words.">Wybierz poziom i kliknij Losuj słowa.</div>
+
+    <div class="chain-words" id="words"></div>
+
+    <div id="storySection" style="display:none;">
+      <h3 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vermillion); margin: 30px 0 12px;" data-pl="Twoja historia" data-en="Your story">Twoja historia</h3>
+      <textarea class="chain-input" id="story" data-pl="Napisz krótką, absurdalną historię łączącą słowa w kolejności. Im dziwniej, tym lepiej..." data-en="Write a short, absurd story linking the words in order. The stranger, the better..."></textarea>
+      <button class="btn primary" id="readyBtn" data-pl="Gotowe — sprawdź pamięć" data-en="Ready — test recall">Gotowe — sprawdź pamięć</button>
+    </div>
+
+    <div id="recallSection" style="display:none;">
+      <h3 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vermillion); margin: 30px 0 12px;" data-pl="Wpisz słowa w kolejności" data-en="Enter words in order">Wpisz słowa w kolejności</h3>
+      <div class="chain-recall" id="recall"></div>
+      <button class="btn primary" id="checkBtn" data-pl="Sprawdź" data-en="Check">Sprawdź</button>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function() {
+  const WORDS_PL = ['latarnia','krokodyl','sernik','podkowa','atrament','jaskółka','tornado','kompas','zegar','marmolada','wiolonczela','żaglówka','kaktus','płaszcz','kapelusz','żarówka','perfumy','armata','dzwon','wiatrak','dynia','żyrafa','telegraf','ślimak','bursztyn','marchew','węgiel','obrazek','mikroskop','jezioro','gepard','flet','korzeń','spinacz','pomidor','pszczoła','chmura','rakieta','beczka','książka','baza','pingwin','kostka','lupa','filiżanka'];
+  const WORDS_EN = ['lantern','crocodile','cheesecake','horseshoe','ink','swallow','tornado','compass','clock','marmalade','cello','sailboat','cactus','coat','hat','lightbulb','perfume','cannon','bell','windmill','pumpkin','giraffe','telegraph','snail','amber','carrot','coal','picture','microscope','lake','cheetah','flute','root','clip','tomato','bee','cloud','rocket','barrel','book','base','penguin','dice','magnifier','teacup'];
+
+  const wordsEl = document.getElementById('words');
+  const storySection = document.getElementById('storySection');
+  const story = document.getElementById('story');
+  const recallSection = document.getElementById('recallSection');
+  const recallEl = document.getElementById('recall');
+  const phaseEl = document.getElementById('phase');
+  const hitsEl = document.getElementById('hits');
+  const bestEl = document.getElementById('best');
+  const msg = document.getElementById('msg');
+  const diff = document.getElementById('diff');
+  const newBtn = document.getElementById('newGame');
+  const readyBtn = document.getElementById('readyBtn');
+  const checkBtn = document.getElementById('checkBtn');
+
+  let state = null;
+
+  const getWords = () => MNEMO.lang() === 'en' ? WORDS_EN : WORDS_PL;
+
+  const updateBest = () => {
+    const cnt = diff.value;
+    const best = MNEMO.getBestScore('chain-' + cnt);
+    bestEl.textContent = best !== null ? best + '/' + cnt : '—';
+  };
+  updateBest();
+
+  const startGame = () => {
+    const cnt = parseInt(diff.value, 10);
+    const words = MNEMO.shuffle(getWords()).slice(0, cnt);
+    state = { cnt, words, hits: 0, phase: 'study' };
+    wordsEl.innerHTML = words.map(w => `<div class="chain-word">${w}</div>`).join('');
+    storySection.style.display = 'block';
+    recallSection.style.display = 'none';
+    story.value = '';
+    story.placeholder = story.getAttribute('data-' + MNEMO.lang());
+    phaseEl.textContent = MNEMO.t('Buduj historię', 'Build story');
+    hitsEl.textContent = '—';
+    msg.className = 'message';
+    msg.textContent = MNEMO.t('Stwórz absurdalną, żywą historię łączącą słowa w kolejności. Im dziwniejsza, tym lepsza.', 'Build an absurd, vivid story linking the words in order. The stranger, the better.');
+  };
+
+  readyBtn.addEventListener('click', () => {
+    state.phase = 'recall';
+    storySection.style.display = 'none';
+    wordsEl.innerHTML = '';
+    recallSection.style.display = 'block';
+    recallEl.innerHTML = state.words.map((_, i) => `<input class="recall-input" data-idx="${i}" placeholder="${i+1}">`).join('');
+    phaseEl.textContent = MNEMO.t('Odtwarzaj', 'Recall');
+    msg.textContent = MNEMO.t('Wpisz słowa w tej samej kolejności co wcześniej.', 'Type the words in the same order as before.');
+    recallEl.querySelector('input')?.focus();
+    recallEl.querySelectorAll('input').forEach((inp, i, arr) => {
+      inp.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && i < arr.length - 1) { e.preventDefault(); arr[i+1].focus(); }
+        if (e.key === 'Enter' && i === arr.length - 1) { e.preventDefault(); checkBtn.click(); }
+      });
+    });
+  });
+
+  checkBtn.addEventListener('click', () => {
+    state.hits = 0;
+    recallEl.querySelectorAll('input').forEach((inp) => {
+      const idx = parseInt(inp.dataset.idx, 10);
+      const guess = inp.value.trim().toLowerCase();
+      const correct = state.words[idx].toLowerCase();
+      if (guess === correct) {
+        inp.classList.add('correct');
+        state.hits++;
+      } else {
+        inp.classList.add('wrong');
+        inp.value = guess + ' → ' + correct;
+      }
+    });
+    hitsEl.textContent = state.hits;
+    msg.className = state.hits === state.cnt ? 'message success' : 'message';
+    msg.textContent = MNEMO.t(
+      `Trafienia: ${state.hits} z ${state.cnt}. ${state.hits === state.cnt ? 'Doskonała narracja.' : 'Spróbuj jeszcze raz z mocniejszymi obrazami.'}`,
+      `Hits: ${state.hits} out of ${state.cnt}. ${state.hits === state.cnt ? 'Perfect narrative.' : 'Try again with stronger images.'}`
+    );
+    MNEMO.saveScore('chain-' + state.cnt, state.hits);
+    updateBest();
+    phaseEl.textContent = MNEMO.t('Gotowe', 'Done');
+  });
+
+  newBtn.addEventListener('click', startGame);
+  diff.addEventListener('change', updateBest);
+  MNEMO.onLangChange(() => { updateBest(); if (story) story.placeholder = story.getAttribute('data-' + MNEMO.lang()); });
+})();
+</script>
+</body>
+</html>

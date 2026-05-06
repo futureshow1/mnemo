@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · System Major</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em data-pl="Gra" data-en="Game">Gra</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">04 · Major System</div>
+      <h1 class="game-title" data-pl="System Major" data-en="Major System">System Major</h1>
+      <p class="game-instructions" data-pl="Każdej cyfrze przypisana jest spółgłoska. Naucz się tabeli, potem przeprowadź sprawdzian. To fundament dla zapamiętywania liczb wielocyfrowych." data-en="Each digit is mapped to a consonant. Learn the table, then test yourself. The foundation for memorizing long numbers.">Każdej cyfrze przypisana jest spółgłoska. Naucz się tabeli, potem przeprowadź sprawdzian.</p>
+    </div>
+
+    <div class="game-controls">
+      <button class="btn primary" id="newGame" data-pl="Nowy zestaw" data-en="New round">Nowy zestaw</button>
+      <button class="btn" id="reverse" data-pl="Tryb: cyfra → spółgłoska" data-en="Mode: digit → consonant">Tryb: cyfra → spółgłoska</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Pytanie" data-en="Question">Pytanie</span><span class="val" id="qNum">— / 10</span></div>
+      <div class="stat-item"><span class="label" data-pl="Trafienia" data-en="Hits">Trafienia</span><span class="val" id="hits">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Najlepsze" data-en="Best">Najlepsze</span><span class="val" id="best">—</span></div>
+    </div>
+
+    <div class="message" id="msg" data-pl="Kliknij Nowy zestaw, by zacząć." data-en="Click New round to start.">Kliknij Nowy zestaw, by zacząć.</div>
+
+    <div class="trainer">
+      <div class="prompt-card">
+        <div class="prompt-label" id="promptLabel" data-pl="Cyfra" data-en="Digit">Cyfra</div>
+        <div class="prompt-value" id="promptValue">—</div>
+      </div>
+      <div class="answer-options" id="opts"></div>
+    </div>
+
+    <div style="margin-top: 60px;">
+      <h3 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vermillion); margin-bottom: 14px;" data-pl="Tabela Major" data-en="Major table">Tabela Major</h3>
+      <div class="major-table">
+        <div class="major-cell"><div class="digit">0</div><div class="cons">s, z</div></div>
+        <div class="major-cell"><div class="digit">1</div><div class="cons">t, d</div></div>
+        <div class="major-cell"><div class="digit">2</div><div class="cons">n</div></div>
+        <div class="major-cell"><div class="digit">3</div><div class="cons">m</div></div>
+        <div class="major-cell"><div class="digit">4</div><div class="cons">r</div></div>
+        <div class="major-cell"><div class="digit">5</div><div class="cons">l</div></div>
+        <div class="major-cell"><div class="digit">6</div><div class="cons">j, sz, cz</div></div>
+        <div class="major-cell"><div class="digit">7</div><div class="cons">k, g</div></div>
+        <div class="major-cell"><div class="digit">8</div><div class="cons">f, w</div></div>
+        <div class="major-cell"><div class="digit">9</div><div class="cons">p, b</div></div>
+      </div>
+      <p style="margin-top: 20px; font-family: var(--serif); font-style: italic; color: var(--ink-mute); font-size: 14px;" data-pl="Mnemonika: 1 jak kreska t. 2 — n ma dwie kreski pionowe. 3 — m ma trzy. 4 — ostatnia litera słowa „cztery" / „four". 5 — rzymskie L = 50. 6 — j to lustrzane 6. 7 — K to dwie 7-ki. 8 — pisane f ma dwie pętle. 9 — p i b to lustrzane odbicia." data-en="Memory aids: 1 like a t-stroke. 2 — n has two vertical strokes. 3 — m has three. 4 — last letter of „four". 5 — Roman L = 50. 6 — j mirrors 6. 7 — K is two 7s. 8 — cursive f has two loops. 9 — p and b mirror.">Mnemonika: 1 jak kreska t. 2 — n ma dwie kreski. 3 — m ma trzy. 4 — ostatnia litera „cztery". 5 — rzymskie L = 50. 6 — j lustro 6. 7 — K to dwie 7-ki. 8 — f ma dwie pętle. 9 — p i b to lustra.</p>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function() {
+  const MAJOR = [
+    { d: 0, c: 's, z' },
+    { d: 1, c: 't, d' },
+    { d: 2, c: 'n' },
+    { d: 3, c: 'm' },
+    { d: 4, c: 'r' },
+    { d: 5, c: 'l' },
+    { d: 6, c: 'j, sz, cz' },
+    { d: 7, c: 'k, g' },
+    { d: 8, c: 'f, w' },
+    { d: 9, c: 'p, b' }
+  ];
+  const TOTAL = 10;
+
+  const promptLabel = document.getElementById('promptLabel');
+  const promptValue = document.getElementById('promptValue');
+  const opts = document.getElementById('opts');
+  const qNum = document.getElementById('qNum');
+  const hitsEl = document.getElementById('hits');
+  const bestEl = document.getElementById('best');
+  const msg = document.getElementById('msg');
+  const newBtn = document.getElementById('newGame');
+  const reverseBtn = document.getElementById('reverse');
+
+  let state = null;
+  let mode = 'd2c';
+
+  const updateBest = () => {
+    const best = MNEMO.getBestScore('major-' + mode);
+    bestEl.textContent = best !== null ? best + '/' + TOTAL : '—';
+  };
+  updateBest();
+
+  const startGame = () => {
+    const queue = MNEMO.shuffle(MAJOR.map(m => m.d));
+    state = { queue, idx: 0, hits: 0 };
+    msg.className = 'message';
+    msg.textContent = MNEMO.t('Wybierz właściwą odpowiedź.', 'Pick the right answer.');
+    nextQuestion();
+  };
+
+  const nextQuestion = () => {
+    if (state.idx >= TOTAL) return endGame();
+    qNum.textContent = `${state.idx + 1} / ${TOTAL}`;
+    const correctDigit = state.queue[state.idx];
+    const correctMaj = MAJOR[correctDigit];
+    const distractors = MNEMO.shuffle(MAJOR.filter(m => m.d !== correctDigit)).slice(0, 3);
+    const choices = MNEMO.shuffle([correctMaj, ...distractors]);
+
+    if (mode === 'd2c') {
+      promptLabel.textContent = MNEMO.t('Cyfra', 'Digit');
+      promptValue.textContent = correctDigit;
+      opts.innerHTML = choices.map(c => `<button class="answer-option" data-d="${c.d}">${c.c}</button>`).join('');
+    } else {
+      promptLabel.textContent = MNEMO.t('Spółgłoska(-ki)', 'Consonant(s)');
+      promptValue.innerHTML = `<span style="font-size: 0.6em">${correctMaj.c}</span>`;
+      opts.innerHTML = choices.map(c => `<button class="answer-option" data-d="${c.d}">${c.d}</button>`).join('');
+    }
+
+    opts.querySelectorAll('.answer-option').forEach(btn => {
+      btn.addEventListener('click', () => onAnswer(btn, correctDigit));
+    });
+  };
+
+  const onAnswer = (btn, correctDigit) => {
+    const isCorrect = parseInt(btn.dataset.d, 10) === correctDigit;
+    btn.classList.add(isCorrect ? 'correct' : 'wrong');
+    if (!isCorrect) {
+      opts.querySelector(`[data-d="${correctDigit}"]`)?.classList.add('correct');
+    } else {
+      state.hits++;
+      hitsEl.textContent = state.hits;
+    }
+    opts.querySelectorAll('.answer-option').forEach(b => b.style.pointerEvents = 'none');
+    state.idx++;
+    setTimeout(nextQuestion, 700);
+  };
+
+  const endGame = () => {
+    qNum.textContent = `${TOTAL} / ${TOTAL}`;
+    msg.className = state.hits === TOTAL ? 'message success' : 'message';
+    msg.textContent = MNEMO.t(
+      `Koniec rundy. Trafienia: ${state.hits} z ${TOTAL}.`,
+      `Round complete. Hits: ${state.hits} out of ${TOTAL}.`
+    );
+    promptValue.textContent = '✓';
+    opts.innerHTML = '';
+    MNEMO.saveScore('major-' + mode, state.hits);
+    updateBest();
+  };
+
+  reverseBtn.addEventListener('click', () => {
+    mode = mode === 'd2c' ? 'c2d' : 'd2c';
+    reverseBtn.textContent = mode === 'd2c' ? MNEMO.t('Tryb: cyfra → spółgłoska', 'Mode: digit → consonant') : MNEMO.t('Tryb: spółgłoska → cyfra', 'Mode: consonant → digit');
+    updateBest();
+    if (state) startGame();
+  });
+
+  newBtn.addEventListener('click', startGame);
+  MNEMO.onLangChange(() => {
+    updateBest();
+    reverseBtn.textContent = mode === 'd2c' ? MNEMO.t('Tryb: cyfra → spółgłoska', 'Mode: digit → consonant') : MNEMO.t('Tryb: spółgłoska → cyfra', 'Mode: consonant → digit');
+  });
+})();
+</script>
+</body>
+</html>

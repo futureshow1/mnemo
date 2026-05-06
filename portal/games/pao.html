@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · PAO trainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+<style>
+.pao-builder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 30px 0;
+}
+.pao-slot {
+  border: 1.5px solid var(--ink);
+  background: var(--paper-deep);
+  padding: 24px;
+  text-align: center;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s var(--ease);
+}
+.pao-slot.active { background: var(--ink); color: var(--paper); border-color: var(--vermillion); }
+.pao-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+}
+.pao-slot.active .pao-label { color: var(--gold); }
+.pao-digit {
+  font-family: var(--serif);
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 500;
+  color: var(--vermillion);
+}
+.pao-slot.active .pao-digit { color: var(--gold); }
+.pao-content {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  flex: 1;
+  display: grid;
+  place-items: center;
+}
+.pao-content em { font-style: italic; color: var(--vermillion); }
+.pao-slot.active .pao-content em { color: var(--gold); }
+
+.pao-image {
+  margin-top: 30px;
+  padding: 30px;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--vermillion);
+}
+.pao-image-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 12px;
+}
+.pao-image-text {
+  font-family: var(--serif);
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.pao-quiz {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.pao-quiz-q {
+  padding: 24px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  text-align: center;
+}
+.pao-quiz-q .q-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 12px;
+}
+.pao-quiz-q .q-prompt {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.pao-quiz-q input {
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 18px;
+  text-align: center;
+  padding: 12px;
+  border: 1px solid var(--rule);
+  background: var(--paper-deep);
+  outline: none;
+}
+.pao-quiz-q input:focus { border-color: var(--vermillion); }
+.pao-quiz-q.correct input { background: #d4ebd6; border-color: #2d8a3e; }
+.pao-quiz-q.wrong input { background: #f3d6cb; border-color: var(--vermillion); }
+
+.pao-table-section { margin-top: 60px; }
+.pao-table-mini {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+.pao-row {
+  padding: 14px;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  font-size: 12px;
+  font-family: var(--mono);
+}
+.pao-row .digits {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--vermillion);
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+@media (max-width: 800px) {
+  .pao-builder { grid-template-columns: 1fr; }
+  .pao-quiz { grid-template-columns: 1fr; }
+  .pao-table-mini { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em>PAO</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">07 · Person · Action · Object</div>
+      <h1 class="game-title" data-pl="System PAO" data-en="PAO System">System PAO</h1>
+      <p class="game-instructions" data-pl="Standard zawodowy memory sports. Każda para cyfr (00–99) = osoba + akcja + obiekt. Sześć cyfr = jeden obraz (osoba pierwszej pary, akcja drugiej, obiekt trzeciej). Tu trener z 20 gotowymi PAO + budowanie własnych obrazów dla losowych 6-cyfrowych liczb." data-en="Memory sport's professional standard. Each pair of digits (00–99) = a person + action + object. Six digits = one image (first pair's person, second's action, third's object). Trainer with 20 ready PAO entries and image-building for random 6-digit numbers.">
+        Każda para cyfr = osoba + akcja + obiekt. Sześć cyfr = jeden obraz.
+      </p>
+    </div>
+
+    <div class="game-controls">
+      <button class="btn primary" id="newSix" data-pl="Losuj 6 cyfr" data-en="Draw 6 digits">Losuj 6 cyfr</button>
+      <button class="btn" id="reveal" data-pl="Pokaż obraz PAO" data-en="Reveal PAO image">Pokaż obraz PAO</button>
+      <button class="btn" id="quizMe" data-pl="Quiz PAO" data-en="Quiz me">Quiz PAO</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Wylosowane" data-en="Drawn">Wylosowane</span><span class="val" id="genCount">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Trafienia w quizie" data-en="Quiz hits">Trafienia w quizie</span><span class="val" id="hits">0 / 0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Najlepsze" data-en="Best">Najlepsze</span><span class="val" id="best">—</span></div>
+    </div>
+
+    <div class="message" id="msg" data-pl="Kliknij „Losuj 6 cyfr", a system pokaże ci, jak rozłożyć liczbę na 3 pary i połączyć w jeden obraz mnemoniczny." data-en="Click „Draw 6 digits" — the system will show how to split the number into 3 pairs and combine into one mnemonic image.">
+      Kliknij Losuj 6 cyfr.
+    </div>
+
+    <div class="pao-builder">
+      <div class="pao-slot" id="slot1">
+        <div class="pao-label" data-pl="Para 1 · OSOBA" data-en="Pair 1 · PERSON">Para 1 · OSOBA</div>
+        <div class="pao-digit" id="d1">—</div>
+        <div class="pao-content" id="c1">—</div>
+      </div>
+      <div class="pao-slot" id="slot2">
+        <div class="pao-label" data-pl="Para 2 · AKCJA" data-en="Pair 2 · ACTION">Para 2 · AKCJA</div>
+        <div class="pao-digit" id="d2">—</div>
+        <div class="pao-content" id="c2">—</div>
+      </div>
+      <div class="pao-slot" id="slot3">
+        <div class="pao-label" data-pl="Para 3 · OBIEKT" data-en="Pair 3 · OBJECT">Para 3 · OBIEKT</div>
+        <div class="pao-digit" id="d3">—</div>
+        <div class="pao-content" id="c3">—</div>
+      </div>
+    </div>
+
+    <div class="pao-image" id="paoImage" style="display:none;">
+      <div class="pao-image-label" data-pl="Twoja scena PAO" data-en="Your PAO scene">Twoja scena PAO</div>
+      <div class="pao-image-text" id="paoImageText"></div>
+    </div>
+
+    <div class="pao-quiz" id="paoQuiz" style="display:none;">
+      <div class="pao-quiz-q" id="qPerson">
+        <div class="q-label" data-pl="OSOBA dla" data-en="PERSON for">OSOBA dla</div>
+        <div class="q-prompt" id="pq1">—</div>
+        <input type="text" id="iq1" placeholder="…">
+      </div>
+      <div class="pao-quiz-q" id="qAction">
+        <div class="q-label" data-pl="AKCJA dla" data-en="ACTION for">AKCJA dla</div>
+        <div class="q-prompt" id="pq2">—</div>
+        <input type="text" id="iq2" placeholder="…">
+      </div>
+      <div class="pao-quiz-q" id="qObject" style="grid-column: 1 / -1;">
+        <div class="q-label" data-pl="OBIEKT dla" data-en="OBJECT for">OBIEKT dla</div>
+        <div class="q-prompt" id="pq3">—</div>
+        <input type="text" id="iq3" placeholder="…">
+      </div>
+      <button class="btn primary" id="checkQuiz" style="grid-column: 1 / -1;" data-pl="Sprawdź" data-en="Check">Sprawdź</button>
+    </div>
+
+    <div class="pao-table-section">
+      <h3 style="font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--vermillion); margin-bottom: 18px;" data-pl="Tabela referencyjna · 20 par PAO" data-en="Reference · 20 PAO pairs">Tabela referencyjna · 20 par PAO</h3>
+      <div class="pao-table-mini" id="paoTable"></div>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function(){
+  // sample PAO — 20 entries, easily extensible
+  const PAO = {
+    '00': { person: { pl: 'Ozzy Osbourne', en: 'Ozzy Osbourne' }, action: { pl: 'krzyczy', en: 'screams' }, object: { pl: 'mikrofon', en: 'microphone' } },
+    '01': { person: { pl: 'David Bowie', en: 'David Bowie' }, action: { pl: 'śpiewa', en: 'sings' }, object: { pl: 'gitara', en: 'guitar' } },
+    '07': { person: { pl: 'James Bond', en: 'James Bond' }, action: { pl: 'strzela', en: 'shoots' }, object: { pl: 'martini', en: 'martini' } },
+    '11': { person: { pl: 'Lewis Carroll', en: 'Lewis Carroll' }, action: { pl: 'pisze', en: 'writes' }, object: { pl: 'lustro', en: 'mirror' } },
+    '13': { person: { pl: 'Albert Einstein', en: 'Albert Einstein' }, action: { pl: 'pisze równanie', en: 'writes equation' }, object: { pl: 'tablica', en: 'blackboard' } },
+    '17': { person: { pl: 'Anna Karenina', en: 'Anna Karenina' }, action: { pl: 'wsiada', en: 'boards' }, object: { pl: 'pociąg', en: 'train' } },
+    '23': { person: { pl: 'Madonna', en: 'Madonna' }, action: { pl: 'tańczy', en: 'dances' }, object: { pl: 'krzyż', en: 'cross' } },
+    '27': { person: { pl: 'Bill Gates', en: 'Bill Gates' }, action: { pl: 'klika', en: 'clicks' }, object: { pl: 'laptop', en: 'laptop' } },
+    '33': { person: { pl: 'Marlon Brando', en: 'Marlon Brando' }, action: { pl: 'głaszcze', en: 'strokes' }, object: { pl: 'kot', en: 'cat' } },
+    '38': { person: { pl: 'Marie Curie', en: 'Marie Curie' }, action: { pl: 'miesza', en: 'stirs' }, object: { pl: 'probówka', en: 'test tube' } },
+    '42': { person: { pl: 'Douglas Adams', en: 'Douglas Adams' }, action: { pl: 'wskazuje', en: 'points at' }, object: { pl: 'ręcznik', en: 'towel' } },
+    '47': { person: { pl: 'Jodie Foster', en: 'Jodie Foster' }, action: { pl: 'celuje', en: 'aims' }, object: { pl: 'łuk', en: 'bow' } },
+    '50': { person: { pl: 'Elvis Presley', en: 'Elvis Presley' }, action: { pl: 'kręci biodrami', en: 'swivels hips' }, object: { pl: 'gitara', en: 'guitar' } },
+    '55': { person: { pl: 'Lara Croft', en: 'Lara Croft' }, action: { pl: 'wspina się', en: 'climbs' }, object: { pl: 'lina', en: 'rope' } },
+    '64': { person: { pl: 'Spider-Man', en: 'Spider-Man' }, action: { pl: 'wystrzeliwuje sieć', en: 'shoots web' }, object: { pl: 'pajęczyna', en: 'web' } },
+    '69': { person: { pl: 'John Lennon', en: 'John Lennon' }, action: { pl: 'gra', en: 'plays' }, object: { pl: 'pianino', en: 'piano' } },
+    '72': { person: { pl: 'Mozart', en: 'Mozart' }, action: { pl: 'dyryguje', en: 'conducts' }, object: { pl: 'batuta', en: 'baton' } },
+    '77': { person: { pl: 'Han Solo', en: 'Han Solo' }, action: { pl: 'pilotuje', en: 'pilots' }, object: { pl: 'Sokół', en: 'Falcon' } },
+    '88': { person: { pl: 'Doc Brown', en: 'Doc Brown' }, action: { pl: 'odpala', en: 'launches' }, object: { pl: 'DeLorean', en: 'DeLorean' } },
+    '99': { person: { pl: 'Wayne Gretzky', en: 'Wayne Gretzky' }, action: { pl: 'strzela bramkę', en: 'scores' }, object: { pl: 'krążek', en: 'puck' } }
+  };
+  const KEYS = Object.keys(PAO);
+
+  const dEl = [document.getElementById('d1'), document.getElementById('d2'), document.getElementById('d3')];
+  const cEl = [document.getElementById('c1'), document.getElementById('c2'), document.getElementById('c3')];
+  const slotEl = [document.getElementById('slot1'), document.getElementById('slot2'), document.getElementById('slot3')];
+  const msg = document.getElementById('msg');
+  const paoImage = document.getElementById('paoImage');
+  const paoImageText = document.getElementById('paoImageText');
+  const paoQuiz = document.getElementById('paoQuiz');
+  let state = null;
+  let stats = { quizDone: 0, quizHits: 0 };
+
+  const updateBest = () => {
+    const best = MNEMO.getBestScore('pao');
+    document.getElementById('best').textContent = best !== null ? best : '—';
+  };
+  updateBest();
+
+  const renderTable = () => {
+    const L = MNEMO.lang();
+    document.getElementById('paoTable').innerHTML = KEYS.map(k => {
+      const e = PAO[k];
+      return `<div class="pao-row"><div class="digits">${k}</div>${e.person[L]} · <em>${e.action[L]}</em> · ${e.object[L]}</div>`;
+    }).join('');
+  };
+  renderTable();
+
+  const drawSix = () => {
+    const L = MNEMO.lang();
+    // pick 3 pairs at random from PAO
+    const picks = [KEYS[Math.floor(Math.random() * KEYS.length)], KEYS[Math.floor(Math.random() * KEYS.length)], KEYS[Math.floor(Math.random() * KEYS.length)]];
+    state = { picks };
+    picks.forEach((p, i) => {
+      const e = PAO[p];
+      dEl[i].textContent = p;
+      const part = i === 0 ? e.person[L] : i === 1 ? e.action[L] : e.object[L];
+      cEl[i].textContent = part;
+      slotEl[i].classList.remove('active');
+    });
+    paoImage.style.display = 'none';
+    paoQuiz.style.display = 'none';
+    state.gen = (state.gen || 0) + 1;
+    document.getElementById('genCount').textContent = (parseInt(document.getElementById('genCount').textContent, 10) + 1);
+    msg.className = 'message';
+    msg.textContent = MNEMO.t(
+      `Liczba: ${picks.join('')}. Para 1 → OSOBA. Para 2 → AKCJA. Para 3 → OBIEKT. Stwórz scenę.`,
+      `Number: ${picks.join('')}. Pair 1 → PERSON. Pair 2 → ACTION. Pair 3 → OBJECT. Build the scene.`
+    );
+  };
+
+  document.getElementById('newSix').addEventListener('click', drawSix);
+
+  document.getElementById('reveal').addEventListener('click', () => {
+    if (!state) return;
+    const L = MNEMO.lang();
+    const e1 = PAO[state.picks[0]], e2 = PAO[state.picks[1]], e3 = PAO[state.picks[2]];
+    paoImage.style.display = 'block';
+    paoImageText.innerHTML = `<strong>${e1.person[L]}</strong> ${e2.action[L]} <strong>${e3.object[L]}</strong>.`;
+  });
+
+  document.getElementById('quizMe').addEventListener('click', () => {
+    if (!state) { drawSix(); }
+    paoQuiz.style.display = 'grid';
+    paoImage.style.display = 'none';
+    document.getElementById('pq1').textContent = state.picks[0];
+    document.getElementById('pq2').textContent = state.picks[1];
+    document.getElementById('pq3').textContent = state.picks[2];
+    ['iq1','iq2','iq3'].forEach(id => { document.getElementById(id).value = ''; document.getElementById(id).parentElement.classList.remove('correct','wrong'); });
+    document.getElementById('iq1').focus();
+  });
+
+  document.getElementById('checkQuiz').addEventListener('click', () => {
+    const L = MNEMO.lang();
+    const e1 = PAO[state.picks[0]], e2 = PAO[state.picks[1]], e3 = PAO[state.picks[2]];
+    const correct1 = e1.person[L].toLowerCase();
+    const correct2 = e2.action[L].toLowerCase();
+    const correct3 = e3.object[L].toLowerCase();
+    const v1 = document.getElementById('iq1').value.trim().toLowerCase();
+    const v2 = document.getElementById('iq2').value.trim().toLowerCase();
+    const v3 = document.getElementById('iq3').value.trim().toLowerCase();
+    let hits = 0;
+    [['qPerson', v1, correct1], ['qAction', v2, correct2], ['qObject', v3, correct3]].forEach(([id, val, cor]) => {
+      const el = document.getElementById(id);
+      el.classList.remove('correct','wrong');
+      if (val === cor || cor.includes(val) && val.length >= 3) { el.classList.add('correct'); hits++; }
+      else el.classList.add('wrong');
+    });
+    stats.quizDone++; stats.quizHits += hits;
+    document.getElementById('hits').textContent = `${stats.quizHits} / ${stats.quizDone * 3}`;
+    msg.className = hits === 3 ? 'message success' : 'message';
+    msg.textContent = MNEMO.t(`Trafienia: ${hits}/3.`, `Hits: ${hits}/3.`);
+    MNEMO.saveScore('pao', stats.quizHits);
+    updateBest();
+  });
+
+  MNEMO.onLangChange(() => { renderTable(); updateBest(); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Koło Bruna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+<style>
+.wheel-page {
+  background: var(--ink);
+  color: var(--paper);
+  min-height: 100vh;
+}
+.wheel-page .game-topbar {
+  background: color-mix(in srgb, var(--ink) 90%, transparent);
+  border-bottom-color: color-mix(in srgb, var(--paper) 15%, transparent);
+}
+.wheel-page .back-link { color: color-mix(in srgb, var(--paper) 70%, transparent); }
+.wheel-page .game-brand { color: var(--paper); }
+.wheel-page .lang-toggle, .wheel-page .theme-toggle { border-color: color-mix(in srgb, var(--paper) 25%, transparent); }
+.wheel-page .game-eyebrow { color: var(--vermillion); }
+.wheel-page .game-title { color: var(--paper); }
+.wheel-page .game-instructions { color: color-mix(in srgb, var(--paper) 70%, transparent); }
+.wheel-page .game-header { border-bottom-color: color-mix(in srgb, var(--paper) 25%, transparent); }
+.wheel-page .stats-bar { background: color-mix(in srgb, var(--paper) 5%, transparent); border-color: color-mix(in srgb, var(--paper) 15%, transparent); }
+.wheel-page .stat-item .label { color: color-mix(in srgb, var(--paper) 60%, transparent); }
+.wheel-page .stat-item .val { color: var(--gold); }
+.wheel-page .message { background: color-mix(in srgb, var(--paper) 5%, transparent); border-color: var(--vermillion); color: color-mix(in srgb, var(--paper) 90%, transparent); }
+.wheel-page .btn { color: var(--paper); border-color: color-mix(in srgb, var(--paper) 40%, transparent); }
+.wheel-page .btn:hover { background: var(--paper); color: var(--ink); }
+.wheel-page .btn.primary { background: var(--vermillion); border-color: var(--vermillion); }
+.wheel-page .btn.primary:hover { background: var(--vermillion-deep); border-color: var(--vermillion-deep); }
+.wheel-page .select { background: var(--ink); color: var(--paper); border-color: color-mix(in srgb, var(--paper) 40%, transparent); }
+
+.wheel-stage {
+  display: grid;
+  grid-template-columns: 520px 1fr;
+  gap: 60px;
+  margin-top: 40px;
+  align-items: start;
+}
+@media (max-width: 1100px) {
+  .wheel-stage { grid-template-columns: 1fr; }
+}
+
+.wheel-canvas {
+  position: relative;
+  width: 520px; height: 520px;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 60px color-mix(in srgb, var(--vermillion) 30%, transparent));
+}
+.wheel-canvas svg {
+  width: 100%; height: 100%;
+}
+.wheel-canvas .ring {
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: 260px 260px;
+}
+.wheel-canvas .ring text {
+  font-family: var(--serif);
+  fill: var(--gold);
+  font-size: 16px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  cursor: pointer;
+  transition: fill 0.2s;
+}
+.wheel-canvas .ring text:hover { fill: var(--vermillion); }
+.wheel-canvas .ring text.selected { fill: var(--vermillion); font-weight: 600; font-size: 22px; }
+.wheel-canvas .ring-inner text { fill: color-mix(in srgb, var(--paper) 80%, transparent); }
+.wheel-canvas .ring-inner text.selected { fill: var(--vermillion); }
+.wheel-canvas .ring circle { fill: none; stroke: color-mix(in srgb, var(--gold) 50%, transparent); stroke-width: 0.5; }
+
+.wheel-canvas .pointer {
+  position: absolute;
+  top: -10px; left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 18px solid var(--vermillion);
+  z-index: 2;
+}
+.wheel-canvas .center-dot {
+  fill: var(--vermillion);
+}
+.wheel-canvas .center-text {
+  font-family: var(--serif);
+  fill: var(--paper);
+  font-size: 36px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.wheel-result {
+  background: color-mix(in srgb, var(--paper) 5%, transparent);
+  border: 1px solid color-mix(in srgb, var(--paper) 20%, transparent);
+  padding: 30px;
+  margin-top: 30px;
+}
+.result-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 20px;
+}
+.result-combination {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 500;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+}
+.result-combination .sep { color: color-mix(in srgb, var(--paper) 30%, transparent); margin: 0 12px; }
+.result-meaning {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 20px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--paper) 85%, transparent);
+  border-left: 2px solid var(--vermillion);
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+.result-instruction {
+  font-size: 14px;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--paper) 65%, transparent);
+}
+
+.history-section {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 15%, transparent);
+}
+.history-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 20px;
+}
+.history-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+.history-item {
+  font-family: var(--serif);
+  font-size: 18px;
+  padding: 8px 14px;
+  border: 1px solid color-mix(in srgb, var(--paper) 25%, transparent);
+  color: var(--gold);
+  letter-spacing: 0.04em;
+}
+
+.bruno-quote-bar {
+  margin-top: 60px;
+  padding: 30px 0;
+  text-align: center;
+  border-top: 1px solid color-mix(in srgb, var(--paper) 15%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--paper) 15%, transparent);
+}
+.bruno-quote-bar p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: color-mix(in srgb, var(--paper) 85%, transparent);
+  max-width: 720px;
+  margin: 0 auto 8px;
+}
+.bruno-quote-bar cite {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+</style>
+</head>
+<body class="wheel-page">
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em>Wheel</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">06 · Bruno · Rota memoriae</div>
+      <h1 class="game-title" data-pl="Koło Bruna" data-en="Bruno's wheel">Koło Bruna</h1>
+      <p class="game-instructions" data-pl="Trzy obrotowe koła kombinatoryczne — wzorowane na rotae Giordana Bruna z De umbris idearum (1582). Każda kombinacja: litera × planeta × figura archetypiczna = ponad 7 900 unikatowych „adresów" pamięci. Krótkie kliknięcie obraca koło. Spróbuj zapamiętać kombinację jako jeden obraz." data-en="Three rotating combinatorial wheels — modelled on Giordano Bruno's rotae from De umbris idearum (1582). Each combination: letter × planet × archetype = over 7,900 unique memory „addresses". Click to spin. Try to memorize each combination as a single image.">
+        Trzy obrotowe koła kombinatoryczne. Każda kombinacja = unikatowy adres pamięci.
+      </p>
+    </div>
+
+    <div class="game-controls">
+      <button class="btn primary" id="spinAll" data-pl="Obróć wszystkie koła" data-en="Spin all wheels">Obróć wszystkie koła</button>
+      <button class="btn" id="spinOuter" data-pl="↻ litera" data-en="↻ letter">↻ litera</button>
+      <button class="btn" id="spinMid" data-pl="↻ planeta" data-en="↻ planet">↻ planeta</button>
+      <button class="btn" id="spinInner" data-pl="↻ figura" data-en="↻ figure">↻ figura</button>
+      <button class="btn" id="reset" data-pl="reset" data-en="reset">reset</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Kombinacje" data-en="Combinations">Kombinacje</span><span class="val" id="totalCombos">7 920</span></div>
+      <div class="stat-item"><span class="label" data-pl="Wylosowane" data-en="Generated">Wylosowane</span><span class="val" id="genCount">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Litery × Planety × Figury" data-en="Letters × Planets × Figures">Litery × Planety × Figury</span><span class="val">30 × 22 × 12</span></div>
+    </div>
+
+    <div class="wheel-stage">
+      <div class="wheel-canvas" id="wheelCanvas">
+        <div class="pointer"></div>
+        <svg viewBox="0 0 520 520">
+          <!-- rings drawn dynamically -->
+          <g class="ring ring-outer" id="ringOuter"></g>
+          <g class="ring ring-mid" id="ringMid"></g>
+          <g class="ring ring-inner" id="ringInner"></g>
+          <circle cx="260" cy="260" r="240" />
+          <circle cx="260" cy="260" r="180" />
+          <circle cx="260" cy="260" r="120" />
+          <circle cx="260" cy="260" r="60" />
+          <circle cx="260" cy="260" r="20" class="center-dot"/>
+          <text x="260" y="260" class="center-text">∞</text>
+        </svg>
+      </div>
+
+      <div class="wheel-side">
+        <div class="wheel-result">
+          <div class="result-eyebrow" data-pl="Bieżąca kombinacja" data-en="Current combination">Bieżąca kombinacja</div>
+          <div class="result-combination" id="comboDisplay">
+            <span id="cLetter">—</span><span class="sep">·</span><span id="cPlanet">—</span><span class="sep">·</span><span id="cFigure">—</span>
+          </div>
+          <div class="result-meaning" id="meaning" data-pl="Obróć koła, by wygenerować pierwszą kombinację. Każda jest unikatowym „mikrosymbolem" — jak współczesny embedding." data-en="Spin the wheels to generate the first combination. Each is a unique „microsymbol" — like a modern embedding.">
+            Obróć koła, by wygenerować pierwszą kombinację.
+          </div>
+          <div class="result-instruction" id="instruction" data-pl="Wyobraź sobie obraz łączący trzy elementy. Im bardziej żywy i absurdalny — tym lepiej." data-en="Imagine an image combining all three elements. The more vivid and absurd — the better.">
+            Wyobraź sobie obraz łączący trzy elementy.
+          </div>
+        </div>
+
+        <div class="history-section">
+          <div class="history-title" data-pl="Historia tej sesji" data-en="Session history">Historia tej sesji</div>
+          <ul class="history-list" id="history"></ul>
+        </div>
+
+        <div class="bruno-quote-bar">
+          <p data-pl="„Koła Bruna były równocześnie maszyną mnemoniczną, magiczną, logiczną i poznawczą — antycypują Leibniza i sieci asocjacyjne." data-en="„Bruno's wheels were simultaneously a mnemonic, magical, logical, and cognitive machine — anticipating Leibniz and associative networks.">
+            „Koła Bruna były równocześnie maszyną mnemoniczną, magiczną, logiczną i poznawczą — antycypują Leibniza i sieci asocjacyjne."
+          </p>
+          <cite data-pl="— Frances A. Yates, The Art of Memory" data-en="— Frances A. Yates, The Art of Memory">— Frances A. Yates, The Art of Memory</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function(){
+  const OUTER = ['A','B','C','D','E','F','G','H','I','L','M','N','O','P','Q','R','S','T','V','X','Y','Z','Α','Β','Γ','Δ','Ε','Ζ','Η','Θ'];
+  const MID = ['☉','☽','☿','♀','♂','♃','♄','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓','⚹','☄','★'];
+  const INNER = ['▲','▼','◆','●','■','○','△','▽','◇','□','▢','⬢'];
+
+  const PLANET_NAMES = {
+    pl: { '☉':'Słońce','☽':'Księżyc','☿':'Merkury','♀':'Wenus','♂':'Mars','♃':'Jowisz','♄':'Saturn','♈':'Aries','♉':'Byk','♊':'Bliźnięta','♋':'Rak','♌':'Lew','♍':'Panna','♎':'Waga','♏':'Skorpion','♐':'Strzelec','♑':'Koziorożec','♒':'Wodnik','♓':'Ryby','⚹':'Sextylia','☄':'Kometa','★':'Gwiazda' },
+    en: { '☉':'Sun','☽':'Moon','☿':'Mercury','♀':'Venus','♂':'Mars','♃':'Jupiter','♄':'Saturn','♈':'Aries','♉':'Taurus','♊':'Gemini','♋':'Cancer','♌':'Leo','♍':'Virgo','♎':'Libra','♏':'Scorpio','♐':'Sagittarius','♑':'Capricorn','♒':'Aquarius','♓':'Pisces','⚹':'Sextile','☄':'Comet','★':'Star' }
+  };
+  const FIGURE_NAMES = {
+    pl: { '▲':'Apollo (góra, ogień, władza)','▼':'Diana (dół, woda, łowy)','◆':'Saturn (czas, melancholia)','●':'Słońce (jedność, blask)','■':'Ziemia (substancja, fundament)','○':'Księżyc (zmiana, nocna wędrówka)','△':'Ogień (ruch, transformacja)','▽':'Woda (przepływ, intuicja)','◇':'Powietrze (myśl, przekaz)','□':'Materia (porządek, geometria)','▢':'Forma (granica, definicja)','⬢':'Eter (wszechświat, harmonia)' },
+    en: { '▲':'Apollo (mountain, fire, power)','▼':'Diana (depth, water, hunt)','◆':'Saturn (time, melancholy)','●':'Sun (unity, radiance)','■':'Earth (substance, foundation)','○':'Moon (change, night journey)','△':'Fire (motion, transformation)','▽':'Water (flow, intuition)','◇':'Air (thought, message)','□':'Matter (order, geometry)','▢':'Form (limit, definition)','⬢':'Aether (universe, harmony)' }
+  };
+
+  // Build SVG rings dynamically
+  const ringOuter = document.getElementById('ringOuter');
+  const ringMid = document.getElementById('ringMid');
+  const ringInner = document.getElementById('ringInner');
+
+  function drawRing(g, items, radius, idxAttr) {
+    const cx = 260, cy = 260;
+    items.forEach((item, i) => {
+      const angle = (i / items.length) * Math.PI * 2 - Math.PI / 2;
+      const x = cx + Math.cos(angle) * radius;
+      const y = cy + Math.sin(angle) * radius;
+      const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      t.setAttribute('x', x);
+      t.setAttribute('y', y);
+      t.setAttribute('data-item', item);
+      t.setAttribute('data-idx', i);
+      t.textContent = item;
+      g.appendChild(t);
+    });
+  }
+  drawRing(ringOuter, OUTER, 220);
+  drawRing(ringMid, MID, 150);
+  drawRing(ringInner, INNER, 90);
+
+  const state = { outer: null, mid: null, inner: null, count: 0, history: [], rotations: { outer: 0, mid: 0, inner: 0 } };
+
+  function highlightSelected() {
+    [['ringOuter', state.outer, OUTER], ['ringMid', state.mid, MID], ['ringInner', state.inner, INNER]].forEach(([gid, sel, items]) => {
+      const g = document.getElementById(gid);
+      g.querySelectorAll('text').forEach(t => t.classList.remove('selected'));
+      if (sel !== null) {
+        const el = g.querySelector(`[data-idx="${sel}"]`);
+        if (el) el.classList.add('selected');
+      }
+    });
+  }
+
+  function rotateRingTo(ringId, targetIdx, totalItems) {
+    // We rotate ring so that targetIdx aligns with top (12 o'clock)
+    // Each item is 360/totalItems deg apart; first item is at top.
+    const anglePerItem = 360 / totalItems;
+    // current rotation accumulator
+    state.rotations[ringId.replace('ring', '').toLowerCase()] += 720; // add full extra spin for visual
+    const desired = -targetIdx * anglePerItem;
+    // We add multiple full rotations to make it spin visually
+    const baseRotation = state.rotations[ringId.replace('ring', '').toLowerCase()];
+    const finalRotation = baseRotation + desired;
+    state.rotations[ringId.replace('ring', '').toLowerCase()] = finalRotation;
+    document.getElementById(ringId).style.transform = `rotate(${finalRotation}deg)`;
+  }
+
+  function pickRandom(arr) { return Math.floor(Math.random() * arr.length); }
+
+  function spin(which) {
+    if (which === 'outer' || which === 'all') {
+      state.outer = pickRandom(OUTER);
+      rotateRingTo('ringOuter', state.outer, OUTER.length);
+    }
+    if (which === 'mid' || which === 'all') {
+      state.mid = pickRandom(MID);
+      rotateRingTo('ringMid', state.mid, MID.length);
+    }
+    if (which === 'inner' || which === 'all') {
+      state.inner = pickRandom(INNER);
+      rotateRingTo('ringInner', state.inner, INNER.length);
+    }
+    setTimeout(() => {
+      highlightSelected();
+      updateDisplay();
+    }, 1700);
+  }
+
+  function updateDisplay() {
+    if (state.outer === null || state.mid === null || state.inner === null) return;
+    const L = MNEMO.lang();
+    const letter = OUTER[state.outer];
+    const planet = MID[state.mid];
+    const figure = INNER[state.inner];
+    const planetName = PLANET_NAMES[L][planet] || '';
+    const figureName = FIGURE_NAMES[L][figure] || '';
+
+    document.getElementById('cLetter').textContent = letter;
+    document.getElementById('cPlanet').textContent = planet;
+    document.getElementById('cFigure').textContent = figure;
+
+    document.getElementById('meaning').innerHTML = `${MNEMO.t('Litera', 'Letter')} <strong>${letter}</strong> · ${planetName} (${planet}) · ${figureName} (${figure})`;
+    document.getElementById('instruction').textContent = MNEMO.t(
+      `Wyobraź sobie obraz łączący „${letter}", „${planetName}" i „${figureName.split(' (')[0]}". Im żywszy i absurdalniejszy — tym lepiej.`,
+      `Imagine an image combining „${letter}", „${planetName}" and „${figureName.split(' (')[0]}". The more vivid and absurd — the better.`
+    );
+
+    state.count++;
+    document.getElementById('genCount').textContent = state.count;
+
+    state.history.unshift(`${letter} · ${planet} · ${figure}`);
+    state.history = state.history.slice(0, 12);
+    document.getElementById('history').innerHTML = state.history.map(h => `<li class="history-item">${h}</li>`).join('');
+  }
+
+  document.getElementById('spinAll').addEventListener('click', () => spin('all'));
+  document.getElementById('spinOuter').addEventListener('click', () => spin('outer'));
+  document.getElementById('spinMid').addEventListener('click', () => spin('mid'));
+  document.getElementById('spinInner').addEventListener('click', () => spin('inner'));
+  document.getElementById('reset').addEventListener('click', () => {
+    state.outer = null; state.mid = null; state.inner = null; state.count = 0; state.history = [];
+    document.getElementById('ringOuter').style.transform = '';
+    document.getElementById('ringMid').style.transform = '';
+    document.getElementById('ringInner').style.transform = '';
+    state.rotations = { outer: 0, mid: 0, inner: 0 };
+    document.getElementById('cLetter').textContent = '—';
+    document.getElementById('cPlanet').textContent = '—';
+    document.getElementById('cFigure').textContent = '—';
+    document.getElementById('meaning').textContent = MNEMO.t('Obróć koła, by wygenerować pierwszą kombinację.', 'Spin the wheels to generate the first combination.');
+    document.getElementById('instruction').textContent = MNEMO.t('Wyobraź sobie obraz łączący trzy elementy.', 'Imagine an image combining all three elements.');
+    document.getElementById('genCount').textContent = '0';
+    document.getElementById('history').innerHTML = '';
+    highlightSelected();
+  });
+
+  // click directly on ring text to manually pick
+  document.querySelectorAll('.ring text').forEach(t => {
+    t.addEventListener('click', (e) => {
+      const idx = parseInt(t.getAttribute('data-idx'), 10);
+      const ringEl = t.closest('.ring');
+      let ringName;
+      if (ringEl.id === 'ringOuter') { state.outer = idx; rotateRingTo('ringOuter', idx, OUTER.length); }
+      else if (ringEl.id === 'ringMid') { state.mid = idx; rotateRingTo('ringMid', idx, MID.length); }
+      else if (ringEl.id === 'ringInner') { state.inner = idx; rotateRingTo('ringInner', idx, INNER.length); }
+      setTimeout(() => { highlightSelected(); updateDisplay(); }, 1700);
+    });
+  });
+
+  MNEMO.onLangChange(() => {
+    if (state.outer !== null && state.mid !== null && state.inner !== null) updateDisplay();
+  });
+})();
+</script>
+</body>
+</html>

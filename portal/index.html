@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO — Sztuka pamięci / The Art of Memory</title>
+<meta name="description" content="MNEMO — kompendium wiedzy, portal i gra o doskonaleniu pamięci. Bilingual PL/EN.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="cursor"></div>
+<div class="cursor-trail"></div>
+
+<div class="progress"></div>
+
+<header class="topbar">
+  <a href="#hero" class="brand">
+    <span class="brand-mark">▣</span>
+    <span class="brand-text">MNEMO</span>
+  </a>
+  <nav class="nav-main">
+    <a href="#manifesto" data-pl="Uwertura" data-en="Overture">Uwertura</a>
+    <a href="#principles" data-pl="Zasady" data-en="Principles">Zasady</a>
+    <a href="#timeline" data-pl="Historia" data-en="History">Historia</a>
+    <a href="#masters" data-pl="Mistrzowie" data-en="Masters">Mistrzowie</a>
+    <a href="#bruno" data-pl="Bruno" data-en="Bruno">Bruno</a>
+    <a href="#techniques" data-pl="Techniki" data-en="Techniques">Techniki</a>
+    <a href="#ages" data-pl="Wiek" data-en="Ages">Wiek</a>
+    <a href="#compendium" data-pl="Kompendium" data-en="Compendium">Kompendium</a>
+    <a href="games/" class="nav-cta" data-pl="Gra" data-en="Play">Gra</a>
+  </nav>
+  <div class="controls">
+    <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+      <span class="lang-pl">PL</span>
+      <span class="lang-sep">/</span>
+      <span class="lang-en">EN</span>
+    </button>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">◐</button>
+  </div>
+</header>
+
+<!-- HERO ============================================================ -->
+<section id="hero" class="hero">
+  <div class="chessboard-3d">
+    <div class="chessboard-floor">
+      <div class="chessboard-grid"></div>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span data-pl="Theatrum memoriae" data-en="Theatrum memoriae">Theatrum memoriae</span>
+      <span class="hero-divider">·</span>
+      <span data-pl="MMXXVI" data-en="MMXXVI">MMXXVI</span>
+    </div>
+    <h1 class="hero-title">
+      <span class="hero-letter">M</span><span class="hero-letter">N</span><span class="hero-letter">E</span><span class="hero-letter">M</span><span class="hero-letter">O</span>
+    </h1>
+    <p class="hero-subtitle">
+      <span data-pl="Sztuka pamięci. Od Symonidesa po dziś." data-en="The art of memory. From Simonides to today.">Sztuka pamięci. Od Symonidesa po dziś.</span>
+    </p>
+    <blockquote class="hero-quote">
+      <span data-pl="„Pamięć jest skarbcem wszystkich rzeczy." — Cyceron, De Oratore" data-en="„Memory is the treasury of all things." — Cicero, De Oratore">„Pamięć jest skarbcem wszystkich rzeczy." — Cyceron, De Oratore</span>
+    </blockquote>
+    <div class="hero-cta">
+      <a href="#manifesto" class="btn-primary" data-pl="Wejdź do teatru" data-en="Enter the theatre">Wejdź do teatru</a>
+      <a href="games/" class="btn-secondary" data-pl="Zagraj" data-en="Play">Zagraj</a>
+    </div>
+    <div class="hero-scroll">
+      <span data-pl="przewiń" data-en="scroll">przewiń</span>
+      <span class="hero-arrow">↓</span>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO ======================================================= -->
+<section id="manifesto" class="manifesto reveal">
+  <div class="container narrow">
+    <div class="section-num">01</div>
+    <h2 class="section-title" data-pl="Uwertura" data-en="Overture">Uwertura</h2>
+    <p class="manifest-lead">
+      <span data-pl="Pamięć nie jest magazynem." data-en="Memory is not a warehouse.">Pamięć nie jest magazynem.</span>
+      <span class="manifest-emphasis" data-pl="Jest teatrem." data-en="It is a theatre.">Jest teatrem.</span>
+    </p>
+    <p class="manifest-body">
+      <span data-pl="Tak rozumieli ją starożytni Grecy i Rzymianie. Tak rozumieli ją renesansowi humaniści, projektujący wyobrażone teatry pamięci jako mapy całego wszechświata. I tak — choć w innym języku — opisuje ją dziś neurobiologia: jako sieć powiązań między neuronami, którą można wzmacniać świadomym treningiem." data-en="So the ancient Greeks and Romans understood it. So Renaissance humanists understood it when they designed imagined memory theatres as maps of the entire universe. And so — in a different language — modern neuroscience describes it: as a network of links between neurons that can be strengthened by deliberate training.">
+        Tak rozumieli ją starożytni Grecy i Rzymianie. Tak rozumieli ją renesansowi humaniści, projektujący wyobrażone teatry pamięci jako mapy całego wszechświata. I tak — choć w innym języku — opisuje ją dziś neurobiologia: jako sieć powiązań między neuronami, którą można wzmacniać świadomym treningiem.
+      </span>
+    </p>
+    <p class="manifest-body">
+      <span data-pl="Mistrzowie pamięci mają taki sam mózg jak Ty. Skany fMRI to potwierdzają. Różni ich tylko jedno: poświęcili tysiące godzin na opanowanie technik liczących sobie 2 500 lat." data-en="Memory champions have the same brain you do. fMRI scans confirm it. They differ from you in only one thing: they spent thousands of hours mastering techniques 2,500 years old.">
+        Mistrzowie pamięci mają taki sam mózg jak Ty. Skany fMRI to potwierdzają. Różni ich tylko jedno: poświęcili tysiące godzin na opanowanie technik liczących sobie 2 500 lat.
+      </span>
+    </p>
+    <p class="manifest-body">
+      <span data-pl="MNEMO przywraca tę tradycję. Łączy klasyczną sztukę pamięci z nowoczesną nauką kognitywną. Pokazuje, jak działać. Daje narzędzia, których nikt Ci nie dał w szkole." data-en="MNEMO restores that tradition. It joins the classical art of memory with modern cognitive science. It shows how to act. It gives you tools no one gave you at school.">
+        MNEMO przywraca tę tradycję. Łączy klasyczną sztukę pamięci z nowoczesną nauką kognitywną. Pokazuje, jak działać. Daje narzędzia, których nikt Ci nie dał w szkole.
+      </span>
+    </p>
+    <div class="stats-grid">
+      <div class="stat">
+        <div class="stat-number" data-count="2500" data-suffix="+">0</div>
+        <div class="stat-label" data-pl="lat tradycji" data-en="years of tradition">lat tradycji</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="100000">0</div>
+        <div class="stat-label" data-pl="cyfr π — rekord Haraguchi" data-en="digits of π — Haraguchi's record">cyfr π — rekord Haraguchi</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="17">0</div>
+        <div class="stat-label" data-pl="sekund — talia kart Mullena" data-en="seconds — Mullen's deck of cards">sekund — talia kart Mullena</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number" data-count="50">0</div>
+        <div class="stat-label" data-pl="% więcej zapamiętania (testing effect)" data-en="% more retention (testing effect)">% więcej zapamiętania (testing effect)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 ZASAD ======================================================== -->
+<section id="principles" class="principles reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <h2 class="section-title" data-pl="Dwanaście zasad" data-en="Twelve principles">Dwanaście zasad</h2>
+      <p class="section-lead" data-pl="Każda technika to ich kombinacja. Poznaj rdzeń." data-en="Every technique is a combination. Learn the core.">Każda technika to ich kombinacja. Poznaj rdzeń.</p>
+    </div>
+    <div class="principles-grid">
+      <div class="principle"><div class="p-num">01</div><h3 data-pl="Wizualizacja" data-en="Visualization">Wizualizacja</h3><p data-pl="Mózg pamięta obrazy znacznie lepiej niż słowa. Im bardziej żywy, dziwny, ruchomy — tym lepiej." data-en="The brain remembers images far better than words. The more vivid, strange, moving — the better.">Mózg pamięta obrazy znacznie lepiej niż słowa.</p></div>
+      <div class="principle"><div class="p-num">02</div><h3 data-pl="Skojarzenie" data-en="Association">Skojarzenie</h3><p data-pl="Nowa informacja łapie się tylko wtedy, gdy ma do czego się przyczepić." data-en="New information sticks only when it has something to attach to.">Nowa informacja łapie się tylko wtedy, gdy ma do czego się przyczepić.</p></div>
+      <div class="principle"><div class="p-num">03</div><h3 data-pl="Lokalizacja" data-en="Location">Lokalizacja</h3><p data-pl="Pamięć przestrzenna jest filogenetycznie najstarsza. To dlatego pałac pamięci działa." data-en="Spatial memory is phylogenetically the oldest. That is why the memory palace works.">Pamięć przestrzenna jest filogenetycznie najstarsza.</p></div>
+      <div class="principle"><div class="p-num">04</div><h3 data-pl="Multisensoryczność" data-en="Multisensory">Multisensoryczność</h3><p data-pl="Mózg koduje w dwóch kanałach: werbalnym i obrazowym. Połącz je. Dorzuć dźwięk, smak, ruch." data-en="The brain encodes in two channels: verbal and visual. Combine them. Add sound, taste, movement.">Mózg koduje w dwóch kanałach: werbalnym i obrazowym.</p></div>
+      <div class="principle"><div class="p-num">05</div><h3 data-pl="Emocje" data-en="Emotion">Emocje</h3><p data-pl="Ciało migdałowate jest sąsiadem hipokampa. Emocje wzmacniają ślad pamięciowy." data-en="The amygdala neighbours the hippocampus. Emotions strengthen the trace.">Emocje wzmacniają ślad pamięciowy.</p></div>
+      <div class="principle"><div class="p-num">06</div><h3 data-pl="Narracja" data-en="Narrative">Narracja</h3><p data-pl="Fakty zorganizowane jako historia są pamiętane 7× lepiej niż jako lista." data-en="Facts organized as a story are remembered 7× better than as a list.">Fakty jako historia: 7× lepiej niż lista.</p></div>
+      <div class="principle"><div class="p-num">07</div><h3 data-pl="Aktywne odzyskiwanie" data-en="Active retrieval">Aktywne odzyskiwanie</h3><p data-pl="Każde przypomnienie wzmacnia ślad mocniej niż ponowne czytanie. Testing effect." data-en="Each retrieval strengthens more than rereading. The testing effect.">Każde przypomnienie wzmacnia ślad mocniej niż ponowne czytanie.</p></div>
+      <div class="principle"><div class="p-num">08</div><h3 data-pl="Powtórki rozproszone" data-en="Spaced repetition">Powtórki rozproszone</h3><p data-pl="Krzywa zapominania spłaszcza się przy każdym powtórzeniu w rosnących odstępach." data-en="The forgetting curve flattens with each repetition at expanding intervals.">Krzywa zapominania spłaszcza się przy powtórkach.</p></div>
+      <div class="principle"><div class="p-num">09</div><h3 data-pl="Przeplatanie" data-en="Interleaving">Przeplatanie</h3><p data-pl="Naprzemiennie różne typy problemów: trudniej dziś, +50–125% biegłości jutro." data-en="Alternate problem types: harder today, +50–125% mastery tomorrow.">Naprzemiennie różne problemy: +50–125% biegłości.</p></div>
+      <div class="principle"><div class="p-num">10</div><h3 data-pl="Głębia przetwarzania" data-en="Depth of processing">Głębia przetwarzania</h3><p data-pl="Pytaj „dlaczego?", „po co?", „z czym to się łączy?". To buduje sieć powiązań." data-en="Ask „why?", „what for?", „what links to what?". This builds the network.">Pytaj „dlaczego?". Buduj sieć powiązań.</p></div>
+      <div class="principle"><div class="p-num">11</div><h3 data-pl="Chunking" data-en="Chunking">Chunking</h3><p data-pl="7±2 elementów naraz. Grupuj. 1492-1789-1945-2001 zamiast 16 cyfr." data-en="7±2 items at once. Group. 1492-1789-1945-2001 instead of 16 digits.">Grupuj — 7±2 elementów naraz.</p></div>
+      <div class="principle"><div class="p-num">12</div><h3 data-pl="Elaboracja" data-en="Elaboration">Elaboracja</h3><p data-pl="Łącz nową wiedzę z istniejącą. Im gęstsza sieć, tym łatwiejsze odzyskiwanie." data-en="Link new to existing. The denser the network, the easier retrieval.">Łącz nową wiedzę z istniejącą.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE ======================================================== -->
+<section id="timeline" class="timeline reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">03</div>
+      <h2 class="section-title" data-pl="Linia czasu" data-en="Timeline">Linia czasu</h2>
+      <p class="section-lead" data-pl="2 500 lat od Symonidesa do Rajakumara." data-en="2,500 years from Simonides to Rajakumar.">2 500 lat od Symonidesa do Rajakumara.</p>
+    </div>
+    <div class="timeline-track">
+      <div class="timeline-line"></div>
+      <div class="tl-event"><div class="tl-date">~500 p.n.e.</div><div class="tl-name">Symonides z Keos</div><div class="tl-desc" data-pl="Odkrycie metody loci po katastrofie sali biesiadnej." data-en="Discovery of method of loci after the banquet hall collapse.">Odkrycie metody loci po katastrofie sali biesiadnej.</div></div>
+      <div class="tl-event"><div class="tl-date">~90 p.n.e.</div><div class="tl-name">Rhetorica ad Herennium</div><div class="tl-desc" data-pl="Najstarszy zachowany podręcznik mnemotechniki." data-en="The oldest surviving mnemonic manual.">Najstarszy zachowany podręcznik mnemotechniki.</div></div>
+      <div class="tl-event"><div class="tl-date">55 p.n.e.</div><div class="tl-name">Cyceron — De Oratore</div><div class="tl-desc" data-pl="Pamięć jako jedna z pięciu kanonów retoryki." data-en="Memory as one of the five canons of rhetoric.">Pamięć jako jeden z pięciu kanonów retoryki.</div></div>
+      <div class="tl-event"><div class="tl-date">~1270</div><div class="tl-name">Tomasz z Akwinu</div><div class="tl-desc" data-pl="Pamięć jako część cnoty roztropności (prudentia)." data-en="Memory as part of the virtue of prudence (prudentia).">Pamięć jako część cnoty roztropności.</div></div>
+      <div class="tl-event"><div class="tl-date">~1530</div><div class="tl-name">Giulio Camillo</div><div class="tl-desc" data-pl="L'Idea del Teatro — fizyczna konstrukcja całej wiedzy." data-en="L'Idea del Teatro — a physical construction of all knowledge.">L'Idea del Teatro — konstrukcja całej wiedzy.</div></div>
+      <div class="tl-event highlight"><div class="tl-date">1582</div><div class="tl-name">Giordano Bruno</div><div class="tl-desc" data-pl="De umbris idearum — koła pamięci, hermetyzm, pamięć jako droga do umysłu kosmicznego." data-en="De umbris idearum — memory wheels, hermeticism, memory as a path to the cosmic mind.">De umbris idearum — koła pamięci, hermetyzm.</div></div>
+      <div class="tl-event"><div class="tl-date">1596</div><div class="tl-name">Matteo Ricci</div><div class="tl-desc" data-pl="Jezuicki misjonarz uczy chińskich uczonych pałacu pamięci." data-en="Jesuit missionary teaches Chinese scholars the memory palace.">Pałac pamięci dla chińskich uczonych.</div></div>
+      <div class="tl-event"><div class="tl-date">1885</div><div class="tl-name">Hermann Ebbinghaus</div><div class="tl-desc" data-pl="Krzywa zapominania. Pierwsze eksperymenty psychologii pamięci." data-en="Forgetting curve. First experiments in memory psychology.">Krzywa zapominania.</div></div>
+      <div class="tl-event"><div class="tl-date">1956</div><div class="tl-name">George Miller</div><div class="tl-desc" data-pl="„7±2" — pojemność pamięci roboczej. Chunking." data-en="„7±2" — working memory capacity. Chunking.">„7±2" — pamięć robocza. Chunking.</div></div>
+      <div class="tl-event"><div class="tl-date">1968</div><div class="tl-name">Łuria — Szereszewski</div><div class="tl-desc" data-pl="Umysł mnemonisty: pamięć doskonała jako przekleństwo." data-en="The Mind of a Mnemonist: perfect memory as a curse.">Pamięć doskonała jako przekleństwo.</div></div>
+      <div class="tl-event highlight"><div class="tl-date">1985</div><div class="tl-name">Piotr Woźniak (PL)</div><div class="tl-desc" data-pl="SuperMemo — pierwsze cyfrowe wdrożenie spaced repetition. Algorytm SM-2 leży u podstaw Anki." data-en="SuperMemo — first digital spaced repetition. The SM-2 algorithm underlies Anki.">SuperMemo. Algorytm SM-2.</div></div>
+      <div class="tl-event"><div class="tl-date">1991</div><div class="tl-name">Tony Buzan</div><div class="tl-desc" data-pl="Pierwsze Mistrzostwa Świata Pamięci. Mapy myśli." data-en="First World Memory Championships. Mind maps.">Mistrzostwa Świata Pamięci. Mapy myśli.</div></div>
+      <div class="tl-event"><div class="tl-date">2006</div><div class="tl-name">Akira Haraguchi</div><div class="tl-desc" data-pl="100 000 cyfr π w 16 godzin." data-en="100,000 digits of π in 16 hours.">100 000 cyfr π w 16 godzin.</div></div>
+      <div class="tl-event"><div class="tl-date">2011</div><div class="tl-name">Joshua Foer</div><div class="tl-desc" data-pl="Moonwalking with Einstein — bestseller, popularyzacja mnemotechniki." data-en="Moonwalking with Einstein — bestseller, popularization of mnemonics.">Moonwalking with Einstein.</div></div>
+      <div class="tl-event"><div class="tl-date">2017</div><div class="tl-name">Dresler &amp; Konrad</div><div class="tl-desc" data-pl="Neuron: trening mnemoniczny zmienia funkcjonalną aktywację mózgu." data-en="Neuron: mnemonic training reshapes functional brain activation.">Mnemonika zmienia mózg.</div></div>
+      <div class="tl-event"><div class="tl-date">2025</div><div class="tl-name">Vishvaa Rajakumar</div><div class="tl-desc" data-pl="Mistrz świata 2025 (Mumbai). Pierwsza indywidualna wygrana z Indii." data-en="World champion 2025 (Mumbai). First individual win from India.">Mistrz świata 2025.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MASTERS ========================================================= -->
+<section id="masters" class="masters reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">04</div>
+      <h2 class="section-title" data-pl="Galeria mistrzów" data-en="Masters">Galeria mistrzów</h2>
+      <p class="section-lead" data-pl="Każda postać reprezentuje epokę i podejście." data-en="Each figure represents an era and approach.">Każda postać reprezentuje epokę i podejście.</p>
+    </div>
+    <div class="masters-grid" id="mastersGrid">
+      <!-- generated by JS -->
+    </div>
+  </div>
+</section>
+
+<div class="modal" id="masterModal" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<!-- BRUNO SPECIAL =================================================== -->
+<section id="bruno" class="bruno reveal">
+  <div class="container">
+    <div class="bruno-eyebrow">
+      <span data-pl="Patron osobny" data-en="A patron apart">Patron osobny</span>
+    </div>
+    <h2 class="bruno-title">Giordano <em>Bruno</em></h2>
+    <div class="bruno-dates">1548 · Nola — 1600 · Roma · Campo de' Fiori</div>
+    <blockquote class="bruno-quote">
+      <span data-pl="„Si vere et ad plenum scientiam habere desideramus, oportet ut ipsam transeamus realiter et per umbras." — De umbris idearum, 1582" data-en="„If we truly desire complete knowledge, we must actually pass through it — through shadows." — De umbris idearum, 1582">
+        „Si vere et ad plenum scientiam habere desideramus, oportet ut ipsam transeamus realiter et per umbras." — De umbris idearum, 1582
+      </span>
+    </blockquote>
+
+    <div class="bruno-grid">
+      <div class="bruno-text">
+        <p data-pl="Najradykalniejsza postać w historii sztuki pamięci. Dla Bruna mnemotechnika nie była ani sportem, ani retoryką. Była metafizyczną drogą — sposobem ułożenia umysłu tak, by odzwierciedlał strukturę wszechświata." data-en="The most radical figure in the history of the art of memory. For Bruno, mnemonics was neither sport nor rhetoric. It was a metaphysical path — a way to organize the mind so it would mirror the structure of the universe.">
+          Najradykalniejsza postać w historii sztuki pamięci. Dla Bruna mnemotechnika nie była ani sportem, ani retoryką. Była metafizyczną drogą — sposobem ułożenia umysłu tak, by odzwierciedlał strukturę wszechświata.
+        </p>
+        <p data-pl="Spalony żywcem na Campo de' Fiori 17 lutego 1600 — związany z knebłem w ustach. Inkwizycja zabiła go nie tylko za heliocentryzm i wieloświaty, ale za to, że jego sztuka pamięci była programem nowej religii — religii umysłu." data-en="Burned alive on Campo de' Fiori on 17 February 1600 — gagged so he could not speak. The Inquisition killed him not only for heliocentrism and multiple worlds, but because his art of memory was a programme of a new religion — a religion of the mind.">
+          Spalony żywcem na Campo de' Fiori 17 lutego 1600 — związany z knebłem w ustach. Inkwizycja zabiła go nie tylko za heliocentryzm i wieloświaty, ale za to, że jego sztuka pamięci była programem nowej religii — religii umysłu.
+        </p>
+        <p data-pl="Jego koła pamięci (rotae) — obrotowe dyski z literami, planetami, dekanami, archetypami — antycypują Leibniza, kombinatorykę, a w jakimś sensie współczesne sieci asocjacyjne. Frances Yates pokazała, że Bruno reprezentował alternatywną drogę nauki nowożytnej, zatopioną przez kartezjanizm." data-en="His memory wheels (rotae) — rotating disks with letters, planets, decans, archetypes — anticipate Leibniz, combinatorics, and in some sense modern associative networks. Frances Yates showed Bruno represented an alternative path of modern science, drowned by Cartesianism.">
+          Jego koła pamięci (rotae) — obrotowe dyski z literami, planetami, dekanami, archetypami — antycypują Leibniza, kombinatorykę, a w jakimś sensie współczesne sieci asocjacyjne. Frances Yates pokazała, że Bruno reprezentował alternatywną drogę nauki nowożytnej, zatopioną przez kartezjanizm.
+        </p>
+        <ul class="bruno-list">
+          <li data-pl="„Imago est sigillum signaculum signorum." — obraz jest pieczęcią pieczęci, znakiem znaków." data-en="„Imago est sigillum signaculum signorum." — the image is the seal of seals, the sign of signs.">„Imago est sigillum signaculum signorum." — obraz jest pieczęcią pieczęci.</li>
+          <li data-pl="Umbrae idearum: nie pamiętamy idei wprost. Pamiętamy ich cienie." data-en="Umbrae idearum: we do not remember ideas directly. We remember their shadows.">Umbrae idearum: nie pamiętamy idei wprost — tylko ich cienie.</li>
+          <li data-pl="Praktyka jako transformacja. Po latach treningu nie jesteś tym samym człowiekiem." data-en="Practice as transformation. After years of training you are not the same person.">Praktyka jako transformacja — egzystencjalny wymiar pamięci.</li>
+        </ul>
+        <a href="../kompendium/bruno.html" class="btn-secondary bruno-cta" data-pl="Pełna monografia →" data-en="Full monograph →">Pełna monografia →</a>
+      </div>
+
+      <div class="bruno-wheel-container">
+        <div class="bruno-wheel" id="brunoWheel">
+          <div class="wheel-ring wheel-outer">
+            <span style="--i:0">A</span><span style="--i:1">B</span><span style="--i:2">C</span><span style="--i:3">D</span><span style="--i:4">E</span><span style="--i:5">F</span><span style="--i:6">G</span><span style="--i:7">H</span><span style="--i:8">I</span><span style="--i:9">L</span><span style="--i:10">M</span><span style="--i:11">N</span><span style="--i:12">O</span><span style="--i:13">P</span><span style="--i:14">Q</span><span style="--i:15">R</span><span style="--i:16">S</span><span style="--i:17">T</span><span style="--i:18">V</span><span style="--i:19">X</span><span style="--i:20">Y</span><span style="--i:21">Z</span><span style="--i:22">Α</span><span style="--i:23">Β</span><span style="--i:24">Γ</span><span style="--i:25">Δ</span><span style="--i:26">Ε</span><span style="--i:27">Ζ</span><span style="--i:28">Η</span><span style="--i:29">Θ</span>
+          </div>
+          <div class="wheel-ring wheel-mid">
+            <span style="--i:0">☉</span><span style="--i:1">☽</span><span style="--i:2">☿</span><span style="--i:3">♀</span><span style="--i:4">♂</span><span style="--i:5">♃</span><span style="--i:6">♄</span><span style="--i:7">♈</span><span style="--i:8">♉</span><span style="--i:9">♊</span><span style="--i:10">♋</span><span style="--i:11">♌</span><span style="--i:12">♍</span><span style="--i:13">♎</span><span style="--i:14">♏</span><span style="--i:15">♐</span><span style="--i:16">♑</span><span style="--i:17">♒</span><span style="--i:18">♓</span><span style="--i:19">⚹</span><span style="--i:20">☄</span><span style="--i:21">★</span>
+          </div>
+          <div class="wheel-ring wheel-inner">
+            <span style="--i:0">▲</span><span style="--i:1">▼</span><span style="--i:2">◆</span><span style="--i:3">●</span><span style="--i:4">■</span><span style="--i:5">○</span><span style="--i:6">△</span><span style="--i:7">▽</span><span style="--i:8">◇</span><span style="--i:9">□</span><span style="--i:10">▢</span><span style="--i:11">⬢</span>
+          </div>
+          <div class="wheel-center">∞</div>
+        </div>
+        <div class="wheel-controls">
+          <button id="wheelSpin" data-pl="Obróć koło" data-en="Spin the wheel">Obróć koło</button>
+          <button id="wheelReset" data-pl="Reset" data-en="Reset">Reset</button>
+        </div>
+        <div class="wheel-output" id="wheelOutput" data-pl="Kombinacja symboli czeka..." data-en="A combination awaits...">Kombinacja symboli czeka...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNIQUES ====================================================== -->
+<section id="techniques" class="techniques reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">05</div>
+      <h2 class="section-title" data-pl="Techniki" data-en="Techniques">Techniki</h2>
+      <p class="section-lead" data-pl="Filtruj wedle trudności i zastosowania." data-en="Filter by difficulty and application.">Filtruj wedle trudności i zastosowania.</p>
+    </div>
+    <div class="filters">
+      <button class="filter active" data-filter="all" data-pl="Wszystkie" data-en="All">Wszystkie</button>
+      <button class="filter" data-filter="beginner" data-pl="Początek" data-en="Beginner">Początek</button>
+      <button class="filter" data-filter="intermediate" data-pl="Średnio" data-en="Intermediate">Średnio</button>
+      <button class="filter" data-filter="advanced" data-pl="Zaawansowane" data-en="Advanced">Zaawansowane</button>
+      <button class="filter" data-filter="numbers" data-pl="Liczby" data-en="Numbers">Liczby</button>
+      <button class="filter" data-filter="language" data-pl="Języki" data-en="Languages">Języki</button>
+      <button class="filter" data-filter="lists" data-pl="Listy" data-en="Lists">Listy</button>
+    </div>
+    <div class="techniques-grid" id="techniquesGrid">
+      <!-- JS-rendered -->
+    </div>
+  </div>
+</section>
+
+<!-- AGES ============================================================ -->
+<section id="ages" class="ages reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">06</div>
+      <h2 class="section-title" data-pl="Wiek" data-en="Age groups">Wiek</h2>
+      <p class="section-lead" data-pl="Pięć ścieżek dla pięciu pokoleń." data-en="Five paths for five generations.">Pięć ścieżek dla pięciu pokoleń.</p>
+    </div>
+    <div class="ages-grid">
+      <div class="age-card" data-age="children">
+        <div class="age-range">6—12</div>
+        <h3 data-pl="Dzieci" data-en="Children">Dzieci</h3>
+        <p data-pl="Multisensoryczność, gry, rymowanki. Mini-pałac w pokoju zabaw. Krótkie sesje, dużo śmiechu." data-en="Multisensory, games, rhymes. Mini-palace in the playroom. Short sessions, lots of laughter.">Multisensoryczność, gry, rymowanki. Mini-pałac w pokoju zabaw.</p>
+      </div>
+      <div class="age-card" data-age="pupils">
+        <div class="age-range">13—18</div>
+        <h3 data-pl="Uczniowie" data-en="Pupils">Uczniowie</h3>
+        <p data-pl="Anki na maturę. Mini-pałace dla dat i wzorów. Mapy myśli, Cornell notes. Active recall zamiast biernego czytania." data-en="Anki for the matriculation. Mini-palaces for dates and formulas. Mind maps, Cornell notes. Active recall instead of passive reading.">Anki na maturę. Mini-pałace dla dat i wzorów. Mapy myśli.</p>
+      </div>
+      <div class="age-card" data-age="students">
+        <div class="age-range">18—25</div>
+        <h3 data-pl="Studenci" data-en="Students">Studenci</h3>
+        <p data-pl="Pełen system: SuperMemo + pałace dla anatomii + PAO dla statystyk + Feynman dla zrozumienia." data-en="Full system: SuperMemo + palaces for anatomy + PAO for statistics + Feynman for understanding.">SuperMemo, pałace dla anatomii, PAO, Feynman.</p>
+      </div>
+      <div class="age-card" data-age="adults">
+        <div class="age-range">25—50</div>
+        <h3 data-pl="Dorośli" data-en="Adults">Dorośli</h3>
+        <p data-pl="Mikro-sesje 10 min Anki. Linkword dla języków. Pałac dla wystąpień. Face-Feature-Link dla imion." data-en="Micro-sessions 10 min Anki. Linkword for languages. Palace for talks. Face-Feature-Link for names.">Mikro-sesje, języki, prezentacje, imiona.</p>
+      </div>
+      <div class="age-card" data-age="seniors">
+        <div class="age-range">50+</div>
+        <h3 data-pl="Seniorzy" data-en="Seniors">Seniorzy</h3>
+        <p data-pl="Aerobowy ruch + nauka nowej umiejętności + grupa. Plastyczność jest do końca życia." data-en="Aerobic exercise + learning new skill + group. Plasticity is lifelong.">Ruch + nauka nowego + grupa. Plastyczność jest do końca życia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPENDIUM ====================================================== -->
+<section id="compendium" class="compendium reveal">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-num">07</div>
+      <h2 class="section-title" data-pl="Kompendium" data-en="Compendium">Kompendium</h2>
+      <p class="section-lead" data-pl="Pełna baza wiedzy w 14 sekcjach. PL i EN." data-en="Full knowledge base in 14 sections. PL and EN.">Pełna baza wiedzy w 14 sekcjach. PL i EN.</p>
+    </div>
+    <div class="compendium-cta">
+      <a href="../kompendium/" class="btn-primary" data-pl="Wejdź do kompendium →" data-en="Enter the compendium →">Wejdź do kompendium →</a>
+      <a href="../kompendium/bruno.html" class="btn-secondary" data-pl="Monografia Bruno →" data-en="Bruno monograph →">Monografia Bruno →</a>
+    </div>
+    <div class="compendium-grid">
+      <div class="comp-col">
+        <h3 class="comp-lang">Polski · 14</h3>
+        <ol class="comp-list">
+          <li><a href="../kompendium/viewer.html?doc=00-wprowadzenie">00 · Wprowadzenie</a></li>
+          <li><a href="../kompendium/viewer.html?doc=01-historia">01 · Historia sztuki pamięci</a></li>
+          <li><a href="../kompendium/viewer.html?doc=02-nauka-o-pamieci">02 · Nauka o pamięci</a></li>
+          <li><a href="../kompendium/viewer.html?doc=03-zasady">03 · Dwanaście zasad</a></li>
+          <li><a href="../kompendium/viewer.html?doc=04-techniki-klasyczne">04 · Klasyczne mnemotechniki</a></li>
+          <li><a href="../kompendium/viewer.html?doc=05-metody-wspolczesne">05 · Współczesne metody uczenia się</a></li>
+          <li><a href="../kompendium/viewer.html?doc=06-mistrzowie">06 · Mistrzowie pamięci</a></li>
+          <li><a href="../kompendium/viewer.html?doc=07-styl-zycia">07 · Styl życia</a></li>
+          <li><a href="../kompendium/viewer.html?doc=08-aplikacja-wiekowa">08 · Aplikacja wiekowa</a></li>
+          <li><a href="../kompendium/viewer.html?doc=09-pulapki-mity">09 · Pułapki i mity</a></li>
+          <li><a href="../kompendium/viewer.html?doc=10-cwiczenia">10 · Ćwiczenia praktyczne</a></li>
+          <li><a href="../kompendium/viewer.html?doc=11-narzedzia">11 · Narzędzia cyfrowe</a></li>
+          <li><a href="../kompendium/viewer.html?doc=12-sciezka-osobista">12 · Ścieżka osobista</a></li>
+          <li class="highlight"><a href="../kompendium/bruno.html">13 · Giordano Bruno (monografia)</a></li>
+        </ol>
+      </div>
+      <div class="comp-col">
+        <h3 class="comp-lang">English · 9</h3>
+        <ol class="comp-list">
+          <li><a href="../kompendium/viewer.html?doc=00-introduction&lang=en">00 · Introduction</a></li>
+          <li><a href="../kompendium/viewer.html?doc=01-history&lang=en">01 · A history of the art of memory</a></li>
+          <li><a href="../kompendium/viewer.html?doc=02-science&lang=en">02 · The science of memory</a></li>
+          <li><a href="../kompendium/viewer.html?doc=03-principles&lang=en">03 · Twelve principles</a></li>
+          <li><a href="../kompendium/viewer.html?doc=04-techniques&lang=en">04 · Classical and modern techniques</a></li>
+          <li><a href="../kompendium/viewer.html?doc=05-masters&lang=en">05 · Masters — a gallery</a></li>
+          <li><a href="../kompendium/viewer.html?doc=06-lifestyle-age-pitfalls&lang=en">06 · Lifestyle, age groups, pitfalls</a></li>
+          <li><a href="../kompendium/viewer.html?doc=07-exercises-tools-path&lang=en">07 · Exercises, tools, personal path</a></li>
+          <li class="highlight"><a href="../kompendium/bruno.html?lang=en">13 · Giordano Bruno (monograph)</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GAME CTA ======================================================== -->
+<section id="game-cta" class="game-cta reveal">
+  <div class="container narrow">
+    <div class="section-num">08</div>
+    <h2 class="game-title" data-pl="Gra solo" data-en="Solo game">Gra solo</h2>
+    <p class="game-lead" data-pl="Dziewięć ćwiczeń. Wszystko w przeglądarce. Bez logowania, bez śledzenia, bez reklam." data-en="Nine exercises. All in the browser. No login, no tracking, no ads.">Dziewięć ćwiczeń. Wszystko w przeglądarce. Bez logowania, bez śledzenia, bez reklam.</p>
+    <div class="game-tiles">
+      <a href="games/match.html" class="game-tile">
+        <div class="gt-icon">▣</div>
+        <div class="gt-name" data-pl="Memory Match" data-en="Memory Match">Memory Match</div>
+        <div class="gt-desc" data-pl="Klasyczne łączenie par. Trening pamięci roboczej." data-en="Classic pair matching. Working memory training.">Klasyczne łączenie par.</div>
+      </a>
+      <a href="games/palace.html" class="game-tile">
+        <div class="gt-icon">⌂</div>
+        <div class="gt-name" data-pl="Pałac pamięci" data-en="Memory Palace">Pałac pamięci</div>
+        <div class="gt-desc" data-pl="Umieść symbole w siatce, zapamiętaj, odtwórz." data-en="Place symbols on the grid, memorize, recall.">Umieść symbole. Zapamiętaj. Odtwórz.</div>
+      </a>
+      <a href="games/numbers.html" class="game-tile">
+        <div class="gt-icon">№</div>
+        <div class="gt-name" data-pl="Number-Shape" data-en="Number-Shape">Number-Shape</div>
+        <div class="gt-desc" data-pl="Trener systemu zakładkowego dla cyfr 0–9." data-en="Trainer for the peg system, digits 0–9.">Cyfra → kształt. Refleks.</div>
+      </a>
+      <a href="games/major.html" class="game-tile">
+        <div class="gt-icon">M</div>
+        <div class="gt-name" data-pl="System Major" data-en="Major System">System Major</div>
+        <div class="gt-desc" data-pl="Trener mapowania cyfra → spółgłoska." data-en="Trainer for digit → consonant mapping.">Cyfra → spółgłoska. Tabela.</div>
+      </a>
+      <a href="games/chain.html" class="game-tile">
+        <div class="gt-icon">∞</div>
+        <div class="gt-name" data-pl="Łańcuch" data-en="Chain">Łańcuch skojarzeń</div>
+        <div class="gt-desc" data-pl="Twórz historie z losowych słów. Storytelling." data-en="Build stories from random words. Storytelling.">Storytelling z losowych słów.</div>
+      </a>
+      <a href="games/wheel.html" class="game-tile gt-bruno">
+        <div class="gt-icon">◉</div>
+        <div class="gt-name" data-pl="Koło Bruna" data-en="Bruno's wheel">Koło Bruna</div>
+        <div class="gt-desc" data-pl="Trzy obrotowe koła kombinatoryczne. 7 920 unikatowych adresów." data-en="Three rotating combinatorial wheels. 7,920 unique addresses.">Maszyna kombinatoryczna z 1582.</div>
+      </a>
+      <a href="games/pao.html" class="game-tile">
+        <div class="gt-icon">P·A·O</div>
+        <div class="gt-name" data-pl="System PAO" data-en="PAO System">System PAO</div>
+        <div class="gt-desc" data-pl="Standard zawodowy. 6 cyfr = 1 obraz." data-en="Memory sport standard. 6 digits = 1 image.">Standard zawodowy. 6 cyfr = 1 obraz.</div>
+      </a>
+      <a href="games/pi.html" class="game-tile">
+        <div class="gt-icon">π</div>
+        <div class="gt-name" data-pl="Cyfry π" data-en="Digits of π">Cyfry π</div>
+        <div class="gt-desc" data-pl="Klasyk. Cel od 10 do 200 cyfr. Zobacz gdzie pomyliłeś." data-en="The classic. From 10 to 200 digits. See where you erred.">Klasyk. 10 → 200 cyfr.</div>
+      </a>
+      <a href="games/faces.html" class="game-tile">
+        <div class="gt-icon">☻</div>
+        <div class="gt-name" data-pl="Imiona i twarze" data-en="Names and faces">Imiona i twarze</div>
+        <div class="gt-desc" data-pl="Najczęstsza luka pamięci. Face-Feature-Link." data-en="Most common memory gap. Face-Feature-Link.">Face-Feature-Link.</div>
+      </a>
+    </div>
+    <a href="games/" class="btn-primary game-go" data-pl="Wejdź do gry →" data-en="Enter the game →">Wejdź do gry →</a>
+  </div>
+</section>
+
+<!-- FOOTER ========================================================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <span class="brand-mark">▣</span>
+          <span class="brand-text">MNEMO</span>
+        </div>
+        <p class="footer-tagline" data-pl="Sztuka pamięci. Od Symonidesa po dziś." data-en="The art of memory. From Simonides to today.">Sztuka pamięci. Od Symonidesa po dziś.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-pl="Źródła" data-en="Sources">Źródła</h4>
+        <ul>
+          <li>Frances A. Yates, <em>The Art of Memory</em></li>
+          <li>Joshua Foer, <em>Moonwalking with Einstein</em></li>
+          <li>Cicero, <em>De Oratore</em></li>
+          <li>Giordano Bruno, <em>De umbris idearum</em></li>
+          <li>Brown, Roediger, McDaniel, <em>Make It Stick</em></li>
+          <li>Dresler i Konrad, <em>Neuron</em>, 2017</li>
+          <li>Ebbinghaus, <em>Über das Gedächtnis</em></li>
+          <li>Anki, SuperMemo, Memory League</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-pl="Inspiracje" data-en="Inspirations">Inspiracje graficzne</h4>
+        <ul>
+          <li>Huncwot</li>
+          <li>MamaStudio</li>
+          <li>Webby Awards</li>
+          <li>Renesansowa perspektywa (Alberti, Vermeer)</li>
+          <li>Szachownica jako siatka loci</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-pl="Skróty klawiszowe" data-en="Keyboard">Skróty klawiszowe</h4>
+        <ul class="kbd-list">
+          <li><kbd>L</kbd> — <span data-pl="język" data-en="language">język</span></li>
+          <li><kbd>T</kbd> — <span data-pl="motyw" data-en="theme">motyw</span></li>
+          <li><kbd>1</kbd>—<kbd>8</kbd> — <span data-pl="sekcje" data-en="sections">sekcje</span></li>
+          <li><kbd>G</kbd> — <span data-pl="gra" data-en="game">gra</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-pl="MNEMO · 2026 · Open project. Built with Claude Code." data-en="MNEMO · 2026 · Open project. Built with Claude Code.">MNEMO · 2026 · Open project. Built with Claude Code.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

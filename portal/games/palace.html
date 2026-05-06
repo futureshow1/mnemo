@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Pałac pamięci</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em data-pl="Gra" data-en="Game">Gra</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">02 · Memory Palace</div>
+      <h1 class="game-title" data-pl="Pałac pamięci" data-en="Memory Palace">Pałac pamięci</h1>
+      <p class="game-instructions" data-pl="Szachownica jest Twoją siatką loci. Zapamiętaj symbole na polach (15 sekund), potem odtwórz w kolejności od pola 1 do 25." data-en="The chessboard is your grid of loci. Memorize the symbols on the cells (15 seconds), then recall in order from cell 1 to 25.">Szachownica jest Twoją siatką loci. Zapamiętaj symbole na polach, potem odtwórz w kolejności.</p>
+    </div>
+
+    <div class="game-controls">
+      <select class="select" id="diff">
+        <option value="5" data-pl="łatwy · 5 symboli" data-en="easy · 5 symbols">łatwy · 5 symboli</option>
+        <option value="8" data-pl="średni · 8 symboli" data-en="medium · 8 symbols">średni · 8 symboli</option>
+        <option value="12" data-pl="trudny · 12 symboli" data-en="hard · 12 symbols">trudny · 12 symboli</option>
+      </select>
+      <button class="btn primary" id="newGame" data-pl="Nowa gra" data-en="New game">Nowa gra</button>
+      <button class="btn" id="reveal" disabled data-pl="Pokaż odpowiedź" data-en="Reveal answer">Pokaż odpowiedź</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Faza" data-en="Phase">Faza</span><span class="val" id="phase" data-pl="—" data-en="—">—</span></div>
+      <div class="stat-item"><span class="label" data-pl="Trafienia" data-en="Hits">Trafienia</span><span class="val" id="hits">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Czas pamiętania" data-en="Memorize time">Czas pamiętania</span><span class="val" id="timer">15</span></div>
+      <div class="stat-item"><span class="label" data-pl="Najlepsze" data-en="Best">Najlepsze</span><span class="val" id="best">—</span></div>
+    </div>
+
+    <div class="message" id="msg" data-pl="Wybierz poziom i kliknij Nowa gra." data-en="Pick a level and click New game.">Wybierz poziom i kliknij Nowa gra.</div>
+
+    <div class="palace-board" id="board"></div>
+
+    <div id="recallSection" style="display:none;">
+      <h3 style="margin-top:30px; font-family: var(--serif); font-size: 24px;" data-pl="Klikaj puste pola po kolei (1, 2, 3...) i wybieraj symbol, który tam był." data-en="Click empty cells in order (1, 2, 3...) and pick the symbol that was there.">Klikaj puste pola po kolei i wybieraj symbol.</h3>
+      <div class="palace-symbols" id="symbols"></div>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function() {
+  const SYMBOLS = ['☉','☽','☿','♀','♂','♃','♄','♈','♉','♊','♋','♌','♍','♎','♏','♐','♑','♒','♓','★','✦','✪'];
+  const board = document.getElementById('board');
+  const symbolsEl = document.getElementById('symbols');
+  const recallSection = document.getElementById('recallSection');
+  const msg = document.getElementById('msg');
+  const phaseEl = document.getElementById('phase');
+  const hitsEl = document.getElementById('hits');
+  const timerEl = document.getElementById('timer');
+  const bestEl = document.getElementById('best');
+  const diff = document.getElementById('diff');
+  const newBtn = document.getElementById('newGame');
+  const revealBtn = document.getElementById('reveal');
+
+  let state = null;
+  let timerInterval;
+
+  const updateBest = () => {
+    const cnt = diff.value;
+    const best = MNEMO.getBestScore('palace-' + cnt);
+    bestEl.textContent = best !== null ? best + '/' + cnt : '—';
+  };
+  updateBest();
+
+  const renderBoard = (revealAll = false) => {
+    board.innerHTML = Array.from({length: 25}, (_, i) => {
+      const sym = state.placement[i];
+      const guessed = state.guessed[i];
+      let display = '';
+      let cls = '';
+      if (revealAll && sym) { display = sym; cls = 'symbol'; }
+      else if (state.phase === 'memorize' && sym) { display = sym; cls = 'symbol'; }
+      else if (state.phase === 'recall' && guessed) {
+        display = guessed.sym;
+        cls = guessed.sym === sym ? 'correct' : 'wrong';
+      } else if (state.phase === 'recall' && i === state.currentCell) {
+        cls = 'highlight';
+      }
+      return `<div class="palace-cell ${cls}" data-idx="${i}"><span class="pos">${i+1}</span>${display}</div>`;
+    }).join('');
+    if (state.phase === 'recall') {
+      board.querySelectorAll('.palace-cell').forEach(cell => {
+        cell.addEventListener('click', () => onCellClick(parseInt(cell.dataset.idx, 10)));
+      });
+    }
+  };
+
+  const startGame = () => {
+    clearInterval(timerInterval);
+    const cnt = parseInt(diff.value, 10);
+    const positions = MNEMO.shuffle([...Array(25).keys()]).slice(0, cnt);
+    const symbols = MNEMO.shuffle(SYMBOLS).slice(0, cnt);
+    const placement = Array(25).fill(null);
+    positions.forEach((p, i) => { placement[p] = symbols[i]; });
+    state = {
+      cnt, placement, symbols,
+      guessed: Array(25).fill(null),
+      hits: 0,
+      phase: 'memorize',
+      currentCell: null,
+      memSec: cnt < 8 ? 12 : cnt < 12 ? 18 : 25
+    };
+    phaseEl.textContent = MNEMO.t('Zapamiętaj', 'Memorize');
+    msg.textContent = MNEMO.t('Patrz uważnie. Powiązuj symbole z numerami pól.', 'Look carefully. Link symbols to cell numbers.');
+    msg.className = 'message';
+    hitsEl.textContent = '0';
+    revealBtn.disabled = true;
+    recallSection.style.display = 'none';
+    renderBoard();
+
+    let remaining = state.memSec;
+    timerEl.textContent = remaining;
+    timerInterval = setInterval(() => {
+      remaining--;
+      timerEl.textContent = remaining;
+      if (remaining <= 0) startRecall();
+    }, 1000);
+  };
+
+  const startRecall = () => {
+    clearInterval(timerInterval);
+    state.phase = 'recall';
+    state.currentCell = state.placement.findIndex(s => s !== null);
+    phaseEl.textContent = MNEMO.t('Odtwórz', 'Recall');
+    timerEl.textContent = '—';
+    msg.textContent = MNEMO.t('Pole oznaczone na złoto. Wybierz symbol z poniższego rzędu.', 'The cell marked in gold. Pick a symbol from the row below.');
+    revealBtn.disabled = false;
+    recallSection.style.display = 'block';
+    renderBoard();
+    renderSymbols();
+  };
+
+  const renderSymbols = () => {
+    symbolsEl.innerHTML = state.symbols.map(s => `<button class="palace-sym" data-sym="${s}">${s}</button>`).join('');
+    symbolsEl.querySelectorAll('.palace-sym').forEach(btn => {
+      btn.addEventListener('click', () => onSymbolClick(btn.dataset.sym, btn));
+    });
+  };
+
+  const onCellClick = (idx) => {
+    if (state.placement[idx] === null) return;
+    if (state.guessed[idx]) return;
+    state.currentCell = idx;
+    renderBoard();
+  };
+
+  const onSymbolClick = (sym, btn) => {
+    if (state.currentCell === null) return;
+    const correct = state.placement[state.currentCell] === sym;
+    state.guessed[state.currentCell] = { sym, correct };
+    if (correct) {
+      state.hits++;
+      hitsEl.textContent = state.hits;
+    }
+    btn.classList.add('used');
+    // find next unguessed cell
+    const next = state.placement.findIndex((s, i) => s !== null && !state.guessed[i]);
+    state.currentCell = next === -1 ? null : next;
+    renderBoard();
+    if (state.currentCell === null) endGame();
+  };
+
+  const endGame = () => {
+    state.phase = 'done';
+    phaseEl.textContent = MNEMO.t('Gotowe', 'Done');
+    msg.className = state.hits === state.cnt ? 'message success' : 'message';
+    msg.textContent = MNEMO.t(
+      `Trafiłeś ${state.hits} z ${state.cnt}.`,
+      `You got ${state.hits} out of ${state.cnt}.`
+    );
+    MNEMO.saveScore('palace-' + state.cnt, state.hits);
+    updateBest();
+    revealBtn.disabled = false;
+  };
+
+  revealBtn.addEventListener('click', () => {
+    renderBoard(true);
+  });
+
+  newBtn.addEventListener('click', startGame);
+  diff.addEventListener('change', updateBest);
+  MNEMO.onLangChange(() => { updateBest(); if (state) phaseEl.textContent = state.phase === 'memorize' ? MNEMO.t('Zapamiętaj', 'Memorize') : state.phase === 'recall' ? MNEMO.t('Odtwórz', 'Recall') : MNEMO.t('Gotowe', 'Done'); });
+})();
+</script>
+</body>
+</html>

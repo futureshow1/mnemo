@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Imiona i twarze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="games.css">
+<style>
+.faces-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 30px;
+}
+@media (max-width: 800px) { .faces-grid { grid-template-columns: repeat(2, 1fr); } }
+
+.face-card {
+  background: var(--paper-deep);
+  border: 1.5px solid var(--ink);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.face-svg {
+  width: 100%;
+  height: 140px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  display: grid; place-items: center;
+}
+.face-svg svg { width: 80px; height: 80px; }
+.face-name {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.face-feature {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+}
+.face-card.test .face-name {
+  color: transparent;
+  background: var(--ink);
+  user-select: none;
+}
+.face-card.revealed { background: color-mix(in srgb, var(--vermillion) 8%, transparent); }
+
+.test-input {
+  width: 100%;
+  font-family: var(--serif);
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  outline: none;
+}
+.test-input:focus { border-color: var(--vermillion); }
+.test-input.correct { background: #d4ebd6; border-color: #2d8a3e; }
+.test-input.wrong { background: #f3d6cb; border-color: var(--vermillion); }
+
+.face-mnemonic {
+  margin-top: 10px;
+  padding: 10px;
+  background: var(--paper);
+  border-left: 2px solid var(--gold);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 13px;
+  text-align: left;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.method-explainer {
+  margin: 30px 0;
+  padding: 28px;
+  background: var(--paper-deep);
+  border-left: 3px solid var(--vermillion);
+}
+.method-explainer h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+.method-steps {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+@media (max-width: 700px) { .method-steps { grid-template-columns: 1fr 1fr; } }
+.method-step {
+  padding: 14px;
+  background: var(--paper);
+  border-top: 2px solid var(--vermillion);
+}
+.method-step .step-num {
+  font-family: var(--serif);
+  font-size: 24px;
+  color: var(--vermillion);
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.method-step .step-name {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 8px;
+}
+.method-step .step-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+</style>
+</head>
+<body>
+
+<header class="game-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="powrót do menu" data-en="back to menu">powrót do menu</span></a>
+  <a href="index.html" class="game-brand">MNEMO · <em>Faces</em></a>
+  <div class="g-controls">
+    <button class="lang-toggle" id="langToggle"><span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span></button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<main class="game-page">
+  <div class="container">
+    <div class="game-header">
+      <div class="game-eyebrow">09 · Face · Feature · Link</div>
+      <h1 class="game-title" data-pl="Imiona i twarze" data-en="Names and faces">Imiona i twarze</h1>
+      <p class="game-instructions" data-pl="Najczęstszy „brak pamięci" w życiu codziennym: zapomniane imię. Klasyczna metoda: znajdź charakterystyczną cechę twarzy → przekształć imię w obraz → połącz cechę z obrazem. Tu trener z 8 twarzami." data-en="The most common „memory lapse" in daily life: a forgotten name. Classical method: find a distinctive facial feature → transform the name into an image → link the feature with the image. Trainer with 8 faces.">
+        Najczęstszy brak pamięci: imię. Cecha twarzy + obraz imienia + link.
+      </p>
+    </div>
+
+    <div class="method-explainer">
+      <h3 data-pl="Metoda Face-Feature-Link" data-en="Face-Feature-Link method">Metoda Face-Feature-Link</h3>
+      <ol class="method-steps">
+        <li class="method-step">
+          <div class="step-num">1</div>
+          <div class="step-name" data-pl="OBSERWUJ" data-en="OBSERVE">OBSERWUJ</div>
+          <div class="step-desc" data-pl="Jedna cecha — najbardziej wystająca (nos, brwi, broda, fryzura)." data-en="One feature — the most prominent (nose, brows, beard, hair).">Jedna cecha — najbardziej wystająca.</div>
+        </li>
+        <li class="method-step">
+          <div class="step-num">2</div>
+          <div class="step-name" data-pl="ZAMIEŃ" data-en="TRANSFORM">ZAMIEŃ</div>
+          <div class="step-desc" data-pl="Imię → obraz dźwiękowo podobny (Karol → koral, Anna → ananas)." data-en="Name → image sounding similar (Karol → coral, Anna → pineapple).">Imię → obraz dźwiękowo podobny.</div>
+        </li>
+        <li class="method-step">
+          <div class="step-num">3</div>
+          <div class="step-name" data-pl="POŁĄCZ" data-en="LINK">POŁĄCZ</div>
+          <div class="step-desc" data-pl="Cecha + obraz + akcja absurdalna („Karol z koralem na nosie")." data-en="Feature + image + absurd action („Karol with coral on his nose").">Cecha + obraz + akcja absurdalna.</div>
+        </li>
+        <li class="method-step">
+          <div class="step-num">4</div>
+          <div class="step-name" data-pl="POWTÓRZ" data-en="REVIEW">POWTÓRZ</div>
+          <div class="step-desc" data-pl="W myślach przejdź ponownie po 1 min, 5 min, 1 dzień." data-en="Mentally rehearse after 1 min, 5 min, 1 day.">Powtórz po 1 min, 5 min, 1 dzień.</div>
+        </li>
+      </ol>
+    </div>
+
+    <div class="game-controls">
+      <button class="btn primary" id="newSet" data-pl="Nowy zestaw twarzy" data-en="New face set">Nowy zestaw twarzy</button>
+      <button class="btn" id="testMode" data-pl="Tryb testu (ukryj imiona)" data-en="Test mode (hide names)">Tryb testu (ukryj imiona)</button>
+      <button class="btn" id="reveal" data-pl="Pokaż wszystkie" data-en="Reveal all">Pokaż wszystkie</button>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item"><span class="label" data-pl="Zestawy" data-en="Sets">Zestawy</span><span class="val" id="setsDone">0</span></div>
+      <div class="stat-item"><span class="label" data-pl="Ostatni wynik" data-en="Last score">Ostatni wynik</span><span class="val" id="lastScore">— / —</span></div>
+      <div class="stat-item"><span class="label" data-pl="Najlepsze" data-en="Best">Najlepsze</span><span class="val" id="best">—</span></div>
+    </div>
+
+    <div class="message" id="msg" data-pl="Spójrz na 8 twarzy. Każda ma imię i cechę. Spróbuj zapamiętać metodą Face-Feature-Link." data-en="Look at 8 faces. Each has a name and a feature. Try to memorize using Face-Feature-Link.">
+      Spójrz na 8 twarzy. Zapamiętaj.
+    </div>
+
+    <div class="faces-grid" id="facesGrid"></div>
+
+    <div class="game-controls" id="checkControls" style="display:none;">
+      <button class="btn primary" id="checkAll" data-pl="Sprawdź wszystkie" data-en="Check all">Sprawdź wszystkie</button>
+    </div>
+  </div>
+</main>
+
+<script src="games.js"></script>
+<script>
+(function(){
+  // 16 sample faces with features and mnemonic suggestions
+  const FACES = [
+    { name: 'Karol', feature: { pl: 'wąsy', en: 'moustache' }, mn: { pl: 'Karol z koralem zaczepionym o wąsy.', en: 'Karol with coral hanging from his moustache.' }, svg: 'face-1' },
+    { name: 'Anna', feature: { pl: 'okrągłe okulary', en: 'round glasses' }, mn: { pl: 'Anna nosi okulary z plasterków ananasa.', en: 'Anna wears glasses made of pineapple slices.' }, svg: 'face-2' },
+    { name: 'Marek', feature: { pl: 'broda', en: 'beard' }, mn: { pl: 'Marek ma marchewkę wplecioną w brodę.', en: 'Marek has a carrot woven into his beard.' }, svg: 'face-3' },
+    { name: 'Ewa', feature: { pl: 'piegi', en: 'freckles' }, mn: { pl: 'Każda piega Ewy to pestka jabłka.', en: 'Each of Ewa\'s freckles is an apple seed.' }, svg: 'face-4' },
+    { name: 'Tomasz', feature: { pl: 'gęste brwi', en: 'thick eyebrows' }, mn: { pl: 'Brwi Tomka jak dwie gąsienice na tomahawku.', en: 'Tom\'s brows like two caterpillars on a tomahawk.' }, svg: 'face-5' },
+    { name: 'Maria', feature: { pl: 'czarne włosy', en: 'black hair' }, mn: { pl: 'Maria z mariasz-kartami we włosach.', en: 'Maria with playing cards in her hair.' }, svg: 'face-6' },
+    { name: 'Jan', feature: { pl: 'krzywy nos', en: 'crooked nose' }, mn: { pl: 'Jan ma nos w kształcie litery J (Janosik z fajką).', en: 'Jan has a nose shaped like J — like Janosik\'s pipe.' }, svg: 'face-7' },
+    { name: 'Zofia', feature: { pl: 'niebieskie oczy', en: 'blue eyes' }, mn: { pl: 'Oczy Zosi to dwa zafarbowane na niebiesko zegary.', en: 'Zofia\'s eyes are two clocks dyed blue.' }, svg: 'face-8' },
+    { name: 'Piotr', feature: { pl: 'okulary kwadratowe', en: 'square glasses' }, mn: { pl: 'Piotr trzyma piłkę w okularze.', en: 'Piotr holds a pita-pizza in his glasses.' }, svg: 'face-1' },
+    { name: 'Kasia', feature: { pl: 'kucyk', en: 'ponytail' }, mn: { pl: 'Kasia ma kosz na kucyku.', en: 'Kasia has a basket on her ponytail.' }, svg: 'face-4' },
+    { name: 'Adam', feature: { pl: 'duże uszy', en: 'big ears' }, mn: { pl: 'Adam zjada jabłko uchem.', en: 'Adam eats an apple through his ear.' }, svg: 'face-5' },
+    { name: 'Beata', feature: { pl: 'kolczyki kółka', en: 'hoop earrings' }, mn: { pl: 'Beata ma w kółkach miniaturowe baterie.', en: 'Beata has tiny batteries in her hoops.' }, svg: 'face-6' },
+    { name: 'Robert', feature: { pl: 'łysina', en: 'bald head' }, mn: { pl: 'Robert robi parking na swojej głowie (robota).', en: 'Robert builds a parking lot on his head (robot).' }, svg: 'face-7' },
+    { name: 'Joanna', feature: { pl: 'długa szyja', en: 'long neck' }, mn: { pl: 'Joanna jak żyrafa, jodełka na szyi.', en: 'Joanna like a giraffe, a fir tree on her neck.' }, svg: 'face-2' },
+    { name: 'Michał', feature: { pl: 'wystające kości policzkowe', en: 'high cheekbones' }, mn: { pl: 'Michał ma na policzkach miecze (Michał Anioł).', en: 'Michał has swords on cheeks (Michelangelo).' }, svg: 'face-3' },
+    { name: 'Aleksandra', feature: { pl: 'kręcone włosy', en: 'curly hair' }, mn: { pl: 'Ola ma alarm w lokach.', en: 'Aleksandra has an alarm in her curls.' }, svg: 'face-8' }
+  ];
+
+  // SVG face templates — 8 distinct, abstract
+  const SVG_TEMPLATES = {
+    'face-1': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="36" r="2.5" fill="currentColor"/><circle cx="50" cy="36" r="2.5" fill="currentColor"/><path d="M 27 32 Q 30 28 33 32 M 47 32 Q 50 28 53 32" stroke="currentColor" fill="none" stroke-width="1.2"/><path d="M 30 48 Q 40 56 50 48" stroke="currentColor" fill="none" stroke-width="1.5"/><path d="M 28 52 Q 40 53 52 52" stroke="currentColor" fill="none" stroke-width="2"/></svg>`,
+    'face-2': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="36" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="50" cy="36" r="6" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="36" y1="36" x2="44" y2="36" stroke="currentColor" stroke-width="1"/><circle cx="30" cy="36" r="1.5" fill="currentColor"/><circle cx="50" cy="36" r="1.5" fill="currentColor"/><path d="M 30 50 Q 40 56 50 50" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>`,
+    'face-3': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="34" r="2.5" fill="currentColor"/><circle cx="50" cy="34" r="2.5" fill="currentColor"/><line x1="40" y1="38" x2="40" y2="50" stroke="currentColor" stroke-width="1.5"/><path d="M 25 56 Q 40 70 55 56 L 55 64 Q 40 76 25 64 Z" fill="currentColor" opacity="0.7"/></svg>`,
+    'face-4': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="28" cy="35" r="2" fill="currentColor"/><circle cx="38" cy="38" r="1" fill="currentColor"/><circle cx="32" cy="48" r="1" fill="currentColor"/><circle cx="50" cy="35" r="2" fill="currentColor"/><circle cx="46" cy="42" r="1" fill="currentColor"/><circle cx="52" cy="48" r="1" fill="currentColor"/><path d="M 30 56 Q 40 60 50 56" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>`,
+    'face-5': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M 22 30 Q 30 25 38 30" stroke="currentColor" fill="none" stroke-width="3"/><path d="M 42 30 Q 50 25 58 30" stroke="currentColor" fill="none" stroke-width="3"/><circle cx="30" cy="36" r="2" fill="currentColor"/><circle cx="50" cy="36" r="2" fill="currentColor"/><path d="M 30 52 Q 40 58 50 52" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>`,
+    'face-6': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M 8 20 Q 16 8 30 12 Q 40 4 50 12 Q 64 8 72 20 Q 70 30 60 32 L 20 32 Q 10 30 8 20 Z" fill="currentColor"/><circle cx="30" cy="42" r="2" fill="currentColor"/><circle cx="50" cy="42" r="2" fill="currentColor"/><path d="M 32 56 Q 40 60 48 56" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>`,
+    'face-7': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="36" r="2" fill="currentColor"/><circle cx="50" cy="36" r="2" fill="currentColor"/><path d="M 41 38 L 47 50 L 43 52 Z" fill="currentColor"/><path d="M 30 58 Q 40 62 50 58" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>`,
+    'face-8': `<svg viewBox="0 0 80 80"><circle cx="40" cy="40" r="32" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="30" cy="36" r="3" fill="#5a8acc"/><circle cx="50" cy="36" r="3" fill="#5a8acc"/><circle cx="30" cy="36" r="1" fill="#0e0e0d"/><circle cx="50" cy="36" r="1" fill="#0e0e0d"/><path d="M 30 52 Q 40 58 50 52" stroke="currentColor" fill="none" stroke-width="1.5"/></svg>`
+  };
+
+  const grid = document.getElementById('facesGrid');
+  const msg = document.getElementById('msg');
+  let currentSet = [];
+  let mode = 'study';
+  let setsDone = 0;
+
+  const updateBest = () => {
+    const best = MNEMO.getBestScore('faces');
+    document.getElementById('best').textContent = best !== null ? best + ' / 8' : '—';
+  };
+  updateBest();
+
+  const renderSet = () => {
+    const L = MNEMO.lang();
+    grid.innerHTML = currentSet.map((f, i) => `
+      <div class="face-card ${mode === 'test' ? 'test' : ''}" data-idx="${i}">
+        <div class="face-svg">${SVG_TEMPLATES[f.svg] || SVG_TEMPLATES['face-1']}</div>
+        <div class="face-feature">${f.feature[L]}</div>
+        <div class="face-name">${f.name}</div>
+        ${mode === 'test' ? `<input type="text" class="test-input" data-idx="${i}" placeholder="${MNEMO.t('imię?', 'name?')}" autocomplete="off">` : ''}
+        ${mode === 'study' ? `<div class="face-mnemonic">${f.mn[L]}</div>` : ''}
+      </div>
+    `).join('');
+  };
+
+  const newSet = () => {
+    currentSet = [...FACES].sort(() => Math.random() - 0.5).slice(0, 8);
+    mode = 'study';
+    document.getElementById('checkControls').style.display = 'none';
+    renderSet();
+    msg.className = 'message';
+    msg.textContent = MNEMO.t('Nowy zestaw 8 twarzy. Dla każdej widzisz cechę i sugestię mnemoniczną. Zapamiętaj — potem włącz Tryb testu.', 'New set of 8 faces. For each you see a feature and a mnemonic suggestion. Memorize — then start Test mode.');
+  };
+
+  document.getElementById('newSet').addEventListener('click', newSet);
+  document.getElementById('reveal').addEventListener('click', () => {
+    mode = 'study';
+    renderSet();
+    document.getElementById('checkControls').style.display = 'none';
+  });
+  document.getElementById('testMode').addEventListener('click', () => {
+    if (currentSet.length === 0) { newSet(); return; }
+    mode = 'test';
+    renderSet();
+    document.getElementById('checkControls').style.display = 'flex';
+    msg.textContent = MNEMO.t('Wpisz imię dla każdej twarzy. Po wpisaniu — kliknij Sprawdź wszystkie.', 'Type the name for each face. When done — click Check all.');
+  });
+  document.getElementById('checkAll').addEventListener('click', () => {
+    let hits = 0;
+    document.querySelectorAll('.test-input').forEach((inp, i) => {
+      const correct = currentSet[i].name.toLowerCase();
+      const val = inp.value.trim().toLowerCase();
+      inp.classList.remove('correct', 'wrong');
+      if (val === correct) { inp.classList.add('correct'); hits++; }
+      else { inp.classList.add('wrong'); }
+      // also reveal correct name
+      const card = inp.closest('.face-card');
+      card.querySelector('.face-name').style.color = '';
+      card.querySelector('.face-name').style.background = '';
+    });
+    setsDone++;
+    document.getElementById('setsDone').textContent = setsDone;
+    document.getElementById('lastScore').textContent = `${hits} / 8`;
+    msg.className = hits === 8 ? 'message success' : 'message';
+    msg.textContent = MNEMO.t(`Trafienia: ${hits} z 8.`, `Hits: ${hits} of 8.`);
+    MNEMO.saveScore('faces', hits);
+    updateBest();
+  });
+
+  newSet();
+})();
+</script>
+</body>
+</html>
