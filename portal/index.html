@@ -293,35 +293,17 @@
       <h2 class="section-title" data-pl="Wiek" data-en="Age groups">Wiek</h2>
       <p class="section-lead" data-pl="Pięć ścieżek dla pięciu pokoleń." data-en="Five paths for five generations.">Pięć ścieżek dla pięciu pokoleń.</p>
     </div>
-    <div class="ages-grid">
-      <div class="age-card" data-age="children">
-        <div class="age-range">6—12</div>
-        <h3 data-pl="Dzieci" data-en="Children">Dzieci</h3>
-        <p data-pl="Multisensoryczność, gry, rymowanki. Mini-pałac w pokoju zabaw. Krótkie sesje, dużo śmiechu." data-en="Multisensory, games, rhymes. Mini-palace in the playroom. Short sessions, lots of laughter.">Multisensoryczność, gry, rymowanki. Mini-pałac w pokoju zabaw.</p>
-      </div>
-      <div class="age-card" data-age="pupils">
-        <div class="age-range">13—18</div>
-        <h3 data-pl="Uczniowie" data-en="Pupils">Uczniowie</h3>
-        <p data-pl="Anki na maturę. Mini-pałace dla dat i wzorów. Mapy myśli, Cornell notes. Active recall zamiast biernego czytania." data-en="Anki for the matriculation. Mini-palaces for dates and formulas. Mind maps, Cornell notes. Active recall instead of passive reading.">Anki na maturę. Mini-pałace dla dat i wzorów. Mapy myśli.</p>
-      </div>
-      <div class="age-card" data-age="students">
-        <div class="age-range">18—25</div>
-        <h3 data-pl="Studenci" data-en="Students">Studenci</h3>
-        <p data-pl="Pełen system: SuperMemo + pałace dla anatomii + PAO dla statystyk + Feynman dla zrozumienia." data-en="Full system: SuperMemo + palaces for anatomy + PAO for statistics + Feynman for understanding.">SuperMemo, pałace dla anatomii, PAO, Feynman.</p>
-      </div>
-      <div class="age-card" data-age="adults">
-        <div class="age-range">25—50</div>
-        <h3 data-pl="Dorośli" data-en="Adults">Dorośli</h3>
-        <p data-pl="Mikro-sesje 10 min Anki. Linkword dla języków. Pałac dla wystąpień. Face-Feature-Link dla imion." data-en="Micro-sessions 10 min Anki. Linkword for languages. Palace for talks. Face-Feature-Link for names.">Mikro-sesje, języki, prezentacje, imiona.</p>
-      </div>
-      <div class="age-card" data-age="seniors">
-        <div class="age-range">50+</div>
-        <h3 data-pl="Seniorzy" data-en="Seniors">Seniorzy</h3>
-        <p data-pl="Aerobowy ruch + nauka nowej umiejętności + grupa. Plastyczność jest do końca życia." data-en="Aerobic exercise + learning new skill + group. Plasticity is lifelong.">Ruch + nauka nowego + grupa. Plastyczność jest do końca życia.</p>
-      </div>
-    </div>
+    <div class="ages-grid" id="agesGrid"></div>
   </div>
 </section>
+
+<div class="modal modal-age" id="ageModal" aria-hidden="true">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card modal-card-wide">
+    <button class="modal-close" id="ageModalClose" aria-label="Close">×</button>
+    <div class="modal-content" id="ageModalContent"></div>
+  </div>
+</div>
 
 <!-- COMPENDIUM ====================================================== -->
 <section id="compendium" class="compendium reveal">
