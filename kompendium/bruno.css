@@ -235,6 +235,7 @@
   line-height: 1;
 }
 .bt-place {
+  grid-column: 2;
   font-family: var(--serif);
   font-size: 22px;
   font-weight: 500;
@@ -243,10 +244,12 @@
   padding-left: 30px;
 }
 .bt-desc {
+  grid-column: 2;
   font-size: 15px;
   color: var(--ink-mute);
   line-height: 1.55;
   padding-left: 30px;
+  margin-top: -2px;
 }
 
 .bruno-monument {
