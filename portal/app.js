@@ -617,7 +617,26 @@ const AGES = [
     dailyPlan: { pl: '2× dziennie po 15 min: rano lekka rozgrzewka pamięciowa (jedna gra, jedna rymowanka), po południu nauka właściwa (zadania szkolne metodą łańcucha lub mini-pałacu). Codziennie min. 60 min ruchu — bieg, taniec, jazda na rowerze. Sen: 9–11 godzin.', en: '2× daily for 15 min: morning warm-up (one game, one rhyme), afternoon proper study (school tasks via link or mini-palace). At least 60 min of movement daily — running, dancing, cycling. Sleep: 9–11 hours.' },
     example: { pl: 'Zosia (8 lat, Warszawa) uczy się tabliczki mnożenia przez rymowanki: „Pięć razy sześć — to trzydzieści, kicia łapie myszkę w gęstwinie". Po dwóch tygodniach — opanowane bez wkuwania. Tomek (10 lat) zapamiętał wszystkich 16 polskich królów Piastów łańcuchem absurdalnych obrazów: Mieszko I tańczy z Bolesławem Chrobrym na lodowisku, Bolesław jeździ na nim Mieszka II… Mama nie zna ich wszystkich.', en: 'Zosia (8, Warsaw) learns multiplication via rhymes: „Five times six — thirty marches, kitten catches mouse in arches". Two weeks — mastered without cramming. Tomek (10) memorized all 16 Polish Piast kings via a chain of absurd images: Mieszko I dances with Bolesław Chrobry on an ice rink, Bolesław rides Mieszko II… His mother doesn\'t know them all.' },
     pitfalls: { pl: 'Forsowanie skomplikowanych systemów (Major, PAO) zniechęca i osłabia samoocenę. Aplikacje bez nadzoru zamieniają się w grę. Ekran 1h przed snem = 30% mniej snu REM = mniejsza konsolidacja. Karanie za błędy buduje lęk przed nauką, który zostaje na 20 lat.', en: 'Forcing complex systems (Major, PAO) discourages and damages self-esteem. Unsupervised apps become games. Screen 1h before sleep = 30% less REM = poorer consolidation. Punishing mistakes builds fear of learning that lasts 20 years.' },
-    advice: { pl: 'Dla rodziców: graj WSPÓLNIE w gry pamięciowe (modelowanie), chwal proces nie wynik („widzę że ćwiczyłeś" — nie „jesteś mądry"). Trzymaj sen 9–11 godzin jako nienaruszalny rytuał. Czytajcie wieczorem na głos — to fundament wszystkich późniejszych mnemonik. Pamiętaj: dziecko, które polubiło naukę w wieku 8 lat, nie potrzebuje dyscypliny w wieku 18.', en: 'For parents: play memory games TOGETHER (modeling), praise the process not the outcome („I see you practiced" — not „you\'re smart"). Keep 9–11h sleep as an inviolable ritual. Read aloud in the evening — it\'s the foundation of all later mnemonics. Remember: a child who loves learning at 8 doesn\'t need discipline at 18.' }
+    advice: { pl: 'Dla rodziców: graj WSPÓLNIE w gry pamięciowe (modelowanie), chwal proces nie wynik („widzę że ćwiczyłeś" — nie „jesteś mądry"). Trzymaj sen 9–11 godzin jako nienaruszalny rytuał. Czytajcie wieczorem na głos — to fundament wszystkich późniejszych mnemonik. Pamiętaj: dziecko, które polubiło naukę w wieku 8 lat, nie potrzebuje dyscypliny w wieku 18.', en: 'For parents: play memory games TOGETHER (modeling), praise the process not the outcome („I see you practiced" — not „you\'re smart"). Keep 9–11h sleep as an inviolable ritual. Read aloud in the evening — it\'s the foundation of all later mnemonics. Remember: a child who loves learning at 8 doesn\'t need discipline at 18.' },
+    microAdvice: {
+      pl: [
+        { label: 'Dziś', text: '15 minut Memory Match z rodzicem (uśmiech ważniejszy niż wynik). Wieczorem — jedna nowa rymowanka.' },
+        { label: 'Co tydzień', text: 'Zbudujcie wspólnie jeden mini-pałac w pokoju zabaw (5 loci) i wpiszcie do niego listę zakupów na sobotę.' },
+        { label: 'Czego unikać', text: 'Ekran 1h przed snem (zabija REM), presji na „naukę", forsowania Major lub PAO — zniechęcają i niszczą poczucie sprawczości.' },
+        { label: 'Klucz', text: 'Krótkie sesje 15 min, dużo pochwał za PRÓBĘ (nie wynik), sen 9–11 godzin jako nienaruszalny rytuał.' }
+      ],
+      en: [
+        { label: 'Today', text: '15 minutes of Memory Match with a parent (a smile matters more than the score). In the evening — one new rhyme.' },
+        { label: 'Each week', text: 'Build a mini-palace together in the playroom (5 loci) and place Saturday\'s shopping list in it.' },
+        { label: 'Avoid', text: 'Screens 1h before sleep (they kill REM), pressure to „study", forcing Major or PAO — they discourage and destroy a sense of agency.' },
+        { label: 'Key', text: 'Short 15-min sessions, plenty of praise for the EFFORT (not the result), 9–11h sleep as an inviolable ritual.' }
+      ]
+    },
+    recommendedGames: [
+      { slug: 'match', why: { pl: 'Klasyczny trening pamięci roboczej i wzrokowej. 3–8 minut, trzy poziomy trudności — można zacząć od 4 par dla 6-latka.', en: 'Classic working- and visual-memory drill. 3–8 minutes, three difficulty levels — can start with 4 pairs for a 6-year-old.' } },
+      { slug: 'chain', why: { pl: 'Pięć losowych słów łączysz w jedną szaloną historię. Trening wyobraźni i narracji — najnaturalniejsza technika dla dzieci.', en: 'Link five random words into one wild story. Trains imagination and narrative — the most natural technique for children.' } },
+      { slug: 'numbers', why: { pl: 'Cyfra → kształt (1=świeca, 2=łabędź…). Bardzo wizualne, dla 9–12 lat — wstęp do późniejszych systemów.', en: 'Digit → shape (1=candle, 2=swan…). Very visual, for 9–12 — an entry to later systems.' } }
+    ]
   },
   {
     icon: '✎',
@@ -631,7 +650,28 @@ const AGES = [
     dailyPlan: { pl: '4 cykle Pomodoro (4×25 min focus + 5 min przerwa) = 2h codziennie głębokiej nauki. Anki rano 15 min (powtórki) + 10 min wieczorem (nowe karty). Po każdym wykładzie 10-minutowy recall pisemny. Sen 8–10 godzin (chronoterapia: początek nauki nie wcześniej niż godzinę po przebudzeniu). Telefon w innym pokoju podczas nauki.', en: '4 Pomodoro cycles (4×25 min focus + 5 min break) = 2h of deep study daily. Anki: 15 min morning (reviews) + 10 min evening (new cards). After every lecture, 10-min written recall. Sleep 8–10h (chronotherapy: start studying no earlier than 1h after waking). Phone in another room during study.' },
     example: { pl: 'Maciek (17 lat, Kraków) zaczął używać Anki + pałac na 6 miesięcy przed maturą rozszerzoną. Wynik: biologia 87%, polski 92%, matematyka 78% — dostał się na medycynę UJ. Wcześniej rówieśnicy z lepszych ocen w szkole nie zdali biologii. Klucz: nie liczba godzin (5–6 dziennie wystarczy), ale technika. Maciek robił aktywne odzyskiwanie po każdej lekcji — większość kolegów tylko czytała ponownie.', en: 'Maciek (17, Kraków) started Anki + palace 6 months before extended matriculation. Result: biology 87%, Polish 92%, maths 78% — admitted to Jagiellonian medical school. Peers with better school grades failed biology. The key: not hours (5–6 daily suffices) but technique. Maciek did active recall after every class — most peers only re-read.' },
     pitfalls: { pl: '„Wszystko-na-jeden-raz" przed egzaminem (cramming) — krótki efekt, zerowa retencja po roku. Podświetlanie tekstu = iluzja nauki, jeden z najmniej skutecznych sposobów. Multitasking podczas nauki obniża efektywność o 40%. Telefon na biurku = średnio 3 minuty głębokiej koncentracji między rozpraszaczami. Spanie 5h przed egzaminem = ocena niższa o jeden stopień.', en: '„Last-minute cramming" — short-lived, zero retention after a year. Highlighting = illusion of learning, one of the least effective methods. Multitasking drops effectiveness by 40%. Phone on desk = ~3 minutes of deep focus between distractions. 5h sleep before an exam = grade drops by one level.' },
-    advice: { pl: 'Dla uczniów: jedna technika, 90 dni, dopiero potem dokładaj. Anki + active recall + sen — to wystarczy do matury z najlepszymi wynikami. Dla rodziców: nie kupować „magicznych" tabletek na pamięć (placebo), nie naciskać na dłuższe wkuwanie (gorsze niż krótsze + lepsze techniki). Dla nauczycieli: zamiast zadawać czytanie, zadawajcie self-test — uczeń sam sobie zadaje 10 pytań do rozdziału.', en: 'For pupils: one technique, 90 days, then add another. Anki + active recall + sleep — enough for top matriculation results. For parents: don\'t buy „magic" memory pills (placebo), don\'t push for longer cramming (worse than shorter + better technique). For teachers: instead of assigning reading, assign self-tests — pupil asks himself 10 questions per chapter.' }
+    advice: { pl: 'Dla uczniów: jedna technika, 90 dni, dopiero potem dokładaj. Anki + active recall + sen — to wystarczy do matury z najlepszymi wynikami. Dla rodziców: nie kupować „magicznych" tabletek na pamięć (placebo), nie naciskać na dłuższe wkuwanie (gorsze niż krótsze + lepsze techniki). Dla nauczycieli: zamiast zadawać czytanie, zadawajcie self-test — uczeń sam sobie zadaje 10 pytań do rozdziału.', en: 'For pupils: one technique, 90 days, then add another. Anki + active recall + sleep — enough for top matriculation results. For parents: don\'t buy „magic" memory pills (placebo), don\'t push for longer cramming (worse than shorter + better technique). For teachers: instead of assigning reading, assign self-tests — pupil asks himself 10 questions per chapter.' },
+    microAdvice: {
+      pl: [
+        { label: 'Dziś', text: '4× pomodoro 25/5 min = 2h głębokiej nauki. Anki rano (15 min powtórki) i wieczorem (10 min nowe karty). Po każdym wykładzie — 10-minutowy recall pisemny.' },
+        { label: 'Co tydzień', text: 'Sobota: 1-godzinna sesja pałacu (cały tydzień historii w 20 loci). Niedziela: bilans Anki + sport min. 45 min.' },
+        { label: 'Czego unikać', text: 'Telefonu na biurku (3 minuty focusu między rozproszeniami), spania <8h przed egzaminem (ocena niższa o stopień), podświetlania tekstu (iluzja nauki), cramowania nocą.' },
+        { label: 'Klucz', text: 'Jedna technika 90 dni — zwykle Anki. Active recall + sen + Anki = matura z najlepszymi wynikami w klasie.' }
+      ],
+      en: [
+        { label: 'Today', text: '4× Pomodoro 25/5 min = 2h of deep study. Anki morning (15 min reviews) + evening (10 min new cards). After every lecture — 10-min written recall.' },
+        { label: 'Each week', text: 'Saturday: 1-hour palace session (whole week of history in 20 loci). Sunday: Anki balance + sport min. 45 min.' },
+        { label: 'Avoid', text: 'Phone on the desk (3 min of focus between distractions), <8h sleep before exam (one grade lower), highlighting (illusion of learning), all-night cramming.' },
+        { label: 'Key', text: 'One technique for 90 days — usually Anki. Active recall + sleep + Anki = top matriculation results.' }
+      ]
+    },
+    recommendedGames: [
+      { slug: 'palace', why: { pl: 'Trening dla dat historycznych, wzorów matematycznych, list królów Polski. Szachownica jako siatka loci uczy techniki na całe życie.', en: 'Training for historical dates, formulas, lists of Polish kings. The chessboard grid teaches a lifelong technique.' } },
+      { slug: 'major', why: { pl: 'Cyfra → spółgłoska → słowo → obraz. Niezbędne dla matury matematycznej, dat, statystyk. Tabeli uczy się 1 miesiąc — służy potem dziesięciolecia.', en: 'Digit → consonant → word → image. Essential for maths matriculation, dates, statistics. The table takes 1 month to learn and serves for decades.' } },
+      { slug: 'numbers', why: { pl: 'Number-Shape — szybki refleks dla cyfr. 5 minut dziennie, dziesięć kształtów. Wstęp do Major.', en: 'Number-Shape — quick digit reflex. 5 min daily, ten shapes. Gateway to Major.' } },
+      { slug: 'chain', why: { pl: 'Trening narracyjny — kompetencja kluczowa dla wypracowań i ustnych egzaminów.', en: 'Narrative training — a key competency for essays and oral exams.' } },
+      { slug: 'faces', why: { pl: 'Imiona nauczycieli, kolegów z klasy, postaci historycznych. Face-Feature-Link to przewaga społeczna.', en: 'Teachers\' names, classmates, historical figures. Face-Feature-Link is a social edge.' } }
+    ]
   },
   {
     icon: '▣',
@@ -645,7 +685,29 @@ const AGES = [
     dailyPlan: { pl: '6–7h focused work codziennie (3 sesje pomodoro × 2h, oddzielone 30-min ruchem). Anki rano + przed snem (15+15 min). 1 nowy rozdział + 1 powtórka + 1 self-test dziennie. Tydzień: poniedziałek-piątek pełen rytm, sobota bilans + lekka praca, niedziela odpoczynek (nie nauka — neurony muszą skonsolidować). Sport min. 3× w tygodniu po 45 min.', en: '6–7h focused work daily (3 pomodoro sessions × 2h, separated by 30-min movement). Anki morning + before sleep (15+15 min). 1 new chapter + 1 review + 1 self-test daily. Week: Mon-Fri full rhythm, Sat balance + light work, Sun rest (not study — neurons must consolidate). Sport min. 3× weekly for 45 min.' },
     example: { pl: 'Anna (studia farmacji, UMP Poznań). Pierwszy rok — wkuwa, średnia 3.7. Drugi rok — przeskakuje na Anki + pałac dla nazw leków (struktura chemiczna jako loci): średnia 4.8. Egzamin państwowy (LEK farmaceutyczny) — wynik w top 5%. Klucz: pałac „Klatka schodowa wydziału farmacji" — każde piętro = jedna grupa leków. Kuba (informatyka UJ) ułożył 50-stronicowe opracowanie na egzamin z baz danych w ciągu 4 dni przez aktywne odzyskiwanie + jeden pałac, zamiast tygodnia czytania ponownego.', en: 'Anna (pharmacy, AMU Poznań). First year — cramming, GPA 3.7. Second year — switches to Anki + palace for drug names (chemical structure as loci): GPA 4.8. State exam (pharmaceutical board) — top 5% nationally. The key: palace „Faculty of Pharmacy stairwell" — each floor = one drug class.' },
     pitfalls: { pl: '„To działa wszystko" — próba 5 narzędzi naraz daje chaos i porzucenie wszystkich. Rezygnacja z Anki podczas sesji = po 2 tygodniach traci się 1500 fiszek (tygodnie pracy w błoto). Brak snu w sesji = krótkotrwałe oblanie egzaminu i długie zmęczenie. Cytat Cycerona „bez ruchu nie ma pamięci" jest dosłowny — neurogeneza wymaga aerobowego ruchu. Energetyki + brak snu + 18 godzin nauki dziennie = wypalenie w 2 tygodnie.', en: '„Everything works" — trying 5 tools at once creates chaos and abandonment. Quitting Anki during exam season = losing 1,500 cards in 2 weeks. No sleep during exams = short-term failure and long fatigue. Cicero\'s „no memory without motion" is literal — neurogenesis requires aerobic movement. Energy drinks + no sleep + 18h study daily = burnout in 2 weeks.' },
-    advice: { pl: 'Wybierz JEDNĄ podstawową technikę (zwykle Anki), trzymaj się jej 90 dni, dopiero wtedy dokładaj kolejne. Inwestuj w ergonomię biurka (drugi monitor, dobre krzesło) — dziesiątki godzin tygodniowo, opłaca się. Znajdź jednego partnera do nauki — wzajemne self-testing podwaja efektywność. Po sesji — zostaw materiał na 3 dni. Mózg konsoliduje. Po roku zobaczysz, że to nie była strata.', en: 'Choose ONE primary technique (usually Anki), stick to it for 90 days, only then add others. Invest in desk ergonomics (second monitor, good chair) — dozens of hours weekly, pays off. Find one study partner — mutual self-testing doubles effectiveness. After exams — leave the material for 3 days. The brain consolidates. After a year you\'ll see it wasn\'t wasted.' }
+    advice: { pl: 'Wybierz JEDNĄ podstawową technikę (zwykle Anki), trzymaj się jej 90 dni, dopiero wtedy dokładaj kolejne. Inwestuj w ergonomię biurka (drugi monitor, dobre krzesło) — dziesiątki godzin tygodniowo, opłaca się. Znajdź jednego partnera do nauki — wzajemne self-testing podwaja efektywność. Po sesji — zostaw materiał na 3 dni. Mózg konsoliduje. Po roku zobaczysz, że to nie była strata.', en: 'Choose ONE primary technique (usually Anki), stick to it for 90 days, only then add others. Invest in desk ergonomics (second monitor, good chair) — dozens of hours weekly, pays off. Find one study partner — mutual self-testing doubles effectiveness. After exams — leave the material for 3 days. The brain consolidates. After a year you\'ll see it wasn\'t wasted.' },
+    microAdvice: {
+      pl: [
+        { label: 'Dziś', text: '3× pomodoro × 50 min focused work + 10 min ruchu między blokami. Anki rano + przed snem (15+15 min). Jeden self-test pisemny po każdym rozdziale.' },
+        { label: 'Co tydzień', text: 'Nowy pałac tematyczny (anatomia / prawo karne / API / struktury danych). Sport min. 3× po 45 min. Niedziela = odpoczynek (mózg konsoliduje).' },
+        { label: 'Czego unikać', text: 'Imprez >2× w tygodniu (alkohol zabija REM przez 3 dni), 5 narzędzi naraz (chaos), porzucania Anki w sesji (1500 fiszek w 2 tygodnie do kosza), nauki >12h dziennie (wypalenie w 2 tygodnie).' },
+        { label: 'Klucz', text: 'Te techniki opanowane na studiach służą przez następne 40 lat. Inwestuj teraz w system, nie w godziny. Partner do nauki podwaja efektywność.' }
+      ],
+      en: [
+        { label: 'Today', text: '3× pomodoro × 50 min focused work + 10 min movement between blocks. Anki morning + before sleep (15+15 min). One written self-test after each chapter.' },
+        { label: 'Each week', text: 'New thematic palace (anatomy / criminal law / API / data structures). Sport min. 3× for 45 min. Sunday = rest (the brain consolidates).' },
+        { label: 'Avoid', text: 'Parties >2×/week (alcohol kills REM for 3 days), 5 tools at once (chaos), abandoning Anki during exams (1,500 cards lost in 2 weeks), studying >12h daily (burnout in 2 weeks).' },
+        { label: 'Key', text: 'Techniques mastered now serve for the next 40 years. Invest in a system now, not in hours. A study partner doubles effectiveness.' }
+      ]
+    },
+    recommendedGames: [
+      { slug: 'pao', why: { pl: 'Standard memory sport. 6 cyfr w jednym obrazie — niezbędne dla statystyki, długich liczb i memoryzacji literatury z pełnymi numerami stron.', en: 'Memory sport standard. 6 digits in one image — essential for statistics, long numbers, and memorizing literature with page numbers.' } },
+      { slug: 'major', why: { pl: 'Fundament dla wszystkich liczb akademickich — daty, wzory, ISBN, stałe fizyczne. 100 obrazów daje pamięć życiową dla tysięcy liczb.', en: 'Foundation for all academic numbers — dates, formulas, ISBNs, physical constants. 100 images give lifelong memory for thousands of numbers.' } },
+      { slug: 'palace', why: { pl: 'Trening dla wykładów, książek, struktur kodu. Pierwszy pałac uczy Cię podstawy — następnych zbudujesz wiele.', en: 'Training for lectures, books, code structures. The first palace teaches you the basics — you\'ll build many.' } },
+      { slug: 'pi', why: { pl: 'Cyfry π metodą Major — najlepsza miara progresu. Cel 50 cyfr w 2 tygodnie udowodni Ci, że metoda działa.', en: 'Digits of π via Major — the best progress benchmark. 50 digits in 2 weeks proves the method works.' } },
+      { slug: 'wheel', why: { pl: 'Eksperymentalna kombinatoryka Bruna z 1582 r. Dla informatyków, lingwistów, filozofów — zobaczysz prefigurację Leibniza i sieci asocjacyjnych.', en: 'Bruno\'s experimental combinatorics from 1582. For computer scientists, linguists, philosophers — see the foreshadowing of Leibniz and associative networks.' } },
+      { slug: 'faces', why: { pl: 'Imiona profesorów, kolegów z grupy, autorów cytowanych w literaturze. Profesor zapamiętany = lepsza opinia w sesji.', en: 'Names of professors, group mates, authors cited in literature. A professor remembered = better impression at exams.' } }
+    ]
   },
   {
     icon: '⬢',
@@ -659,7 +721,28 @@ const AGES = [
     dailyPlan: { pl: '3× dziennie po 5–10 min Anki: commute do pracy (telefon), w przerwie obiadowej, przed snem. 1 wystąpienie / spotkanie tygodniowo z pełnym przygotowaniem przez pałac. Sport 3× w tygodniu po 30 min (HIIT lub bieg). Sobotnia 1-godzinna sesja głębokiej nauki (jeden rozdział + recall). Sen 7–8 godzin, telefon poza sypialnią.', en: '3× daily for 5–10 min Anki: commute (phone), lunch break, before sleep. 1 talk / meeting weekly with full palace preparation. Sport 3× weekly for 30 min (HIIT or run). Saturday 1-hour deep study session (one chapter + recall). Sleep 7–8h, phone outside the bedroom.' },
     example: { pl: 'Tomek (37, project manager IT, Warszawa) — TED-style prezentacja na 250 osób bez kartki. Tydzień przygotowania: pałac w starym mieszkaniu rodziców, 15 loci, każdy = jedna myśl + jeden konkret. Zero zająknięć, 8.4/10 oceny publiczności, awans w 3 miesiące później. Magdalena (42, dyrektor HR) zapamiętuje imiona 80 nowych pracowników w roku przez Face-Feature-Link, co buduje jej reputację „szefowej, która zna wszystkich". Marek (45, lekarz rodzinny) używa Anki dla nowych protokołów EBM — 200 fiszek, 10 minut dziennie, mniej błędów diagnostycznych.', en: 'Tomek (37, IT project manager, Warsaw) — TED-style talk to 250 people without notes. A week of prep: palace in his parents\' old flat, 15 loci, each = one thought + one concrete fact. Zero stumbles, 8.4/10 audience rating, promotion three months later.' },
     pitfalls: { pl: '„Zajmę się tym w weekend" = nigdy. Duolingo bez Anki = 80% zapomniane w 3 miesiące. Nauka wieczorna po 23:00 = 50% efektywności i niszczy sen. Próba szkoły wieczorowej + 10h pracy + dziecko = wypalenie w semestr. Bez ruchu hipokamp się kurczy o 1–2% rocznie po 40-tce — to mierzalne na MRI.', en: '„I\'ll do it this weekend" = never. Duolingo without Anki = 80% forgotten in 3 months. Studying after 11 PM = 50% effectiveness and ruins sleep. Evening school + 10h work + a child = burnout in one semester. Without movement, the hippocampus shrinks 1–2% per year after 40 — measurable on MRI.' },
-    advice: { pl: 'Pierwsze 30 dni jednej techniki (zwykle Anki). Pamiętaj że 10 min dziennie > 2h raz w tygodniu (mózg konsoliduje przez sen, nie przez czas). Język obcy raz w roku — nie żeby być fluent, ale żeby utrzymać sieć. Imiona ludzi to twoja waluta zawodowa — inwestuj. Jeśli masz rodzinę, włącz dzieci w naukę: 15 min wspólnego Anki to genialny czas razem.', en: 'First 30 days, one technique (usually Anki). Remember 10 min daily > 2h weekly (the brain consolidates through sleep, not time). One new language a year — not to be fluent, but to maintain the network. People\'s names are your professional currency — invest. If you have family, include children: 15 min joint Anki is brilliant time together.' }
+    advice: { pl: 'Pierwsze 30 dni jednej techniki (zwykle Anki). Pamiętaj że 10 min dziennie > 2h raz w tygodniu (mózg konsoliduje przez sen, nie przez czas). Język obcy raz w roku — nie żeby być fluent, ale żeby utrzymać sieć. Imiona ludzi to twoja waluta zawodowa — inwestuj. Jeśli masz rodzinę, włącz dzieci w naukę: 15 min wspólnego Anki to genialny czas razem.', en: 'First 30 days, one technique (usually Anki). Remember 10 min daily > 2h weekly (the brain consolidates through sleep, not time). One new language a year — not to be fluent, but to maintain the network. People\'s names are your professional currency — invest. If you have family, include children: 15 min joint Anki is brilliant time together.' },
+    microAdvice: {
+      pl: [
+        { label: 'Dziś', text: '3× po 5–10 min Anki: commute do pracy (telefon), w przerwie obiadowej, przed snem. Plus 10 min ćwiczeń pamięci online — w kolejce, podczas kawy.' },
+        { label: 'Co tydzień', text: '1 wystąpienie / spotkanie tygodniowo z pełnym przygotowaniem przez pałac (nawet 15 loci wystarcza). Sobotnia 1-godzinna sesja głębokiej nauki + sport 3× po 30 min (HIIT lub bieg).' },
+        { label: 'Czego unikać', text: 'Nauki po 23:00 (50% efektywności), telefonu w sypialni, „zajmę się tym w weekend" (= nigdy), Duolingo bez Anki (80% zapomniane w 3 miesiące).' },
+        { label: 'Klucz', text: '10 min dziennie > 2h raz w tygodniu. Mózg konsoliduje przez SEN, nie przez czas. Włącz rodzinę: wspólne Anki z dziećmi to genialny czas razem.' }
+      ],
+      en: [
+        { label: 'Today', text: '3× 5–10 min Anki: commute (phone), lunch break, before sleep. Plus 10 min of memory exercises online — in a queue, during coffee.' },
+        { label: 'Each week', text: '1 talk / meeting per week with full palace prep (even 15 loci is enough). Saturday 1-hour deep study session + sport 3× for 30 min (HIIT or run).' },
+        { label: 'Avoid', text: 'Studying after 11 PM (50% effectiveness), phone in the bedroom, „I\'ll do it this weekend" (= never), Duolingo without Anki (80% forgotten in 3 months).' },
+        { label: 'Key', text: '10 min daily > 2h weekly. The brain consolidates through SLEEP, not through time. Include the family: joint Anki with children is brilliant time together.' }
+      ]
+    },
+    recommendedGames: [
+      { slug: 'faces', why: { pl: 'Imiona klientów = waluta zawodowa. Face-Feature-Link dla 80 osób z konferencji — 30 min ćwiczenia daje miesiące przewagi społecznej.', en: 'Client names = professional currency. Face-Feature-Link for 80 conference attendees — 30 min of practice yields months of social edge.' } },
+      { slug: 'palace', why: { pl: 'Trening dla wystąpień (TED-style — Cyceron miał rację). Pałac w starym mieszkaniu rodziców jako miejsce 15 myśli prezentacji.', en: 'Training for talks (TED-style — Cicero was right). The palace in your parents\' old flat as a place for 15 presentation points.' } },
+      { slug: 'major', why: { pl: 'Numery telefonów klientów, daty kontraktów, statystyki firmowe. Po miesiącu — pamiętasz rzeczy, których nie szukasz w telefonie.', en: 'Client phone numbers, contract dates, company statistics. After one month — you remember things you don\'t look up on the phone.' } },
+      { slug: 'match', why: { pl: '5-minutowa rozgrzewka mózgu rano przy kawie. Lepsza niż przewijanie social media — daje wzrost focus na całe rano.', en: 'A 5-min brain warm-up with morning coffee. Better than scrolling social media — boosts focus for the whole morning.' } },
+      { slug: 'numbers', why: { pl: 'Refleks dla cyfr — kody PIN, IBAN, daty rachunków. 5 min dziennie utrzymuje sprawność.', en: 'Digit reflex — PIN codes, IBAN, invoice dates. 5 min daily maintains sharpness.' } }
+    ]
   },
   {
     icon: '⊙',
@@ -673,7 +756,27 @@ const AGES = [
     dailyPlan: { pl: '30–45 min ruchu aerobowego CODZIENNIE (BDNF, neurogeneza) — najważniejsze ze wszystkiego. 20 min nauki nowej umiejętności. Kontakt z grupą min. 3× w tygodniu (UTW, klub książki, chór, partia szachów). Sen 7–8 godzin, regularne pory (rano światło słoneczne 10 min — synchronizacja rytmu okołodobowego). Drobny stres (zimna woda, krótki post) raz na 2 tygodnie — hormeza.', en: '30–45 min aerobic movement DAILY (BDNF, neurogenesis) — the most important of all. 20 min learning a new skill. Group contact at least 3× weekly (third-age university, book club, choir, chess club). Sleep 7–8h, regular times (morning sunlight 10 min — circadian sync). Minor stress (cold water, brief fasting) every 2 weeks — hormesis.' },
     example: { pl: '73-letnia Wanda z Lublina — emerytowana nauczycielka. Po wstąpieniu do UTW (Uniwersytet Trzeciego Wieku) zaczęła hiszpański przez Linkword + Anki, codziennie 20 min. 4 lata: poziom B1, samodzielna podróż do Madrytu, korespondencja z hiszpańską przyjaciółką. Test pamięci roboczej powyżej średniej dla 50-latków. Edward (68, Łódź) — nauczył się gry na harmonijce ustnej zaczynając od zera, gra w lokalnym zespole bluesowym; jego MRI hipokampu po 3 latach wskazuje WZROST objętości — zjawisko opisane w literaturze (Reuter-Lorenz 2015).', en: 'Wanda (73, Lublin) — retired teacher. After joining the Third-Age University she started Spanish via Linkword + Anki, 20 min daily. 4 years: B1 level, solo trip to Madrid, correspondence with a Spanish friend. Working memory test above average for 50-year-olds.' },
     pitfalls: { pl: 'Rezygnacja na zasadzie „już za późno" — najgorsza decyzja kognitywna w życiu. Bierne TV >3h dziennie skraca kognitywne życie o 5–10 lat (Hamer & Stamatakis 2014). Izolacja społeczna jest neurotoksyczna — większy czynnik ryzyka niż palenie. Suplementy „na pamięć" (ginkgo, omega bez kontekstu, lecytyna) bez ruchu i nauki = placebo + strata pieniędzy. Alkohol >7 jednostek/tydzień przyspiesza atrofię hipokampu.', en: 'Quitting because „it\'s too late" — the worst cognitive decision of a lifetime. Passive TV >3h daily shortens cognitive life by 5–10 years (Hamer & Stamatakis 2014). Social isolation is neurotoxic — a greater risk factor than smoking. Memory supplements (ginkgo, isolated omega, lecithin) without movement and learning = placebo + lost money. Alcohol >7 units/week accelerates hippocampal atrophy.' },
-    advice: { pl: 'Dla siebie i bliskich: ruch jest #1 lekiem na pamięć — lepszy niż jakikolwiek dostępny lek (efekt udokumentowany w setkach badań). Nauka NOWEGO języka daje +4–5 lat ochrony przed demencją; nie musisz być fluent, sam proces wystarczy. Samotność jest neurotoksyczna — dzwoń do dzieci, dołącz do grupy, weź psa. „Use it or lose it" jest dosłowne na poziomie neuronalnym. Plastyczność istnieje do ostatniego dnia życia — pytanie tylko czy ją wykorzystasz.', en: 'For yourself and loved ones: movement is the #1 memory medicine — better than any available drug (effect documented in hundreds of studies). Learning a NEW language gives +4–5 years of dementia protection; you don\'t need fluency, the process is enough. Loneliness is neurotoxic — call your children, join a group, get a dog. „Use it or lose it" is literal at the neural level. Plasticity exists until the last day of life — the only question is whether you use it.' }
+    advice: { pl: 'Dla siebie i bliskich: ruch jest #1 lekiem na pamięć — lepszy niż jakikolwiek dostępny lek (efekt udokumentowany w setkach badań). Nauka NOWEGO języka daje +4–5 lat ochrony przed demencją; nie musisz być fluent, sam proces wystarczy. Samotność jest neurotoksyczna — dzwoń do dzieci, dołącz do grupy, weź psa. „Use it or lose it" jest dosłowne na poziomie neuronalnym. Plastyczność istnieje do ostatniego dnia życia — pytanie tylko czy ją wykorzystasz.', en: 'For yourself and loved ones: movement is the #1 memory medicine — better than any available drug (effect documented in hundreds of studies). Learning a NEW language gives +4–5 years of dementia protection; you don\'t need fluency, the process is enough. Loneliness is neurotoxic — call your children, join a group, get a dog. „Use it or lose it" is literal at the neural level. Plasticity exists until the last day of life — the only question is whether you use it.' },
+    microAdvice: {
+      pl: [
+        { label: 'Dziś', text: '30 minut spaceru w słońcu (najlepiej przed południem — synchronizuje rytm okołodobowy). Po południu 15 min nauki nowego: gra pamięciowa online, jedna nowa rymowanka, 5 słówek obcojęzycznych przez Linkword.' },
+        { label: 'Co tydzień', text: 'Spotkanie z grupą min. 3× w tygodniu (UTW, klub książki, chór, partia szachów, kawa z wnukami). Jedna nowa umiejętność rozpoczęta lub kontynuowana — instrument, taniec, język, malowanie.' },
+        { label: 'Czego unikać', text: 'TV >3h/dzień (skraca kognitywne życie 5–10 lat — Hamer & Stamatakis 2014), izolacji społecznej (większy czynnik ryzyka niż palenie), suplementów „na pamięć" bez ruchu (placebo), alkoholu >7 jednostek/tydzień.' },
+        { label: 'Klucz', text: 'Ruch jest #1 lekiem na pamięć — lepszy niż jakikolwiek dostępny lek. Plastyczność do ostatniego dnia życia. „Use it or lose it" jest DOSŁOWNE.' }
+      ],
+      en: [
+        { label: 'Today', text: '30 min walk in the sunlight (preferably before noon — syncs circadian rhythm). Afternoon: 15 min of learning something new — an online memory game, a new rhyme, 5 foreign words via Linkword.' },
+        { label: 'Each week', text: 'Group contact at least 3× weekly (third-age university, book club, choir, chess club, coffee with grandchildren). One new skill started or continued — instrument, dance, language, painting.' },
+        { label: 'Avoid', text: 'TV >3h/day (shortens cognitive life 5–10 years — Hamer & Stamatakis 2014), social isolation (greater risk factor than smoking), memory supplements without movement (placebo), alcohol >7 units/week.' },
+        { label: 'Key', text: 'Movement is the #1 memory medicine — better than any available drug. Plasticity until the last day of life. „Use it or lose it" is LITERAL.' }
+      ]
+    },
+    recommendedGames: [
+      { slug: 'chain', why: { pl: 'Najprostszy i najbardziej naturalny dla osób z bogatą autobiograficzną pamięcią. 5 słów łączysz w historię — używasz wieloletniego doświadczenia jako siatki skojarzeń.', en: 'Simplest and most natural for people with rich autobiographical memory. Link 5 words into a story — use decades of experience as the association net.' } },
+      { slug: 'match', why: { pl: 'Klasyk — Memory Match z wnukami. Trening pamięci roboczej + bezcenny czas razem. Trzy poziomy trudności.', en: 'Classic — Memory Match with grandchildren. Working memory training + priceless time together. Three difficulty levels.' } },
+      { slug: 'palace', why: { pl: 'Pałac dla codziennych zadań („dziś: apteka, urząd, telefon do córki"). Nauczysz się przy okazji historii dziadków — ich domy stają się Twoimi loci.', en: 'Palace for daily tasks („today: pharmacy, office, call to daughter"). You also learn family history — grandparents\' homes become your loci.' } },
+      { slug: 'faces', why: { pl: 'Rozpoznawanie twarzy = pierwsza linia ochrony przed izolacją. Łatwiej zapamiętasz nowych członków klubu, sąsiadów, lekarzy.', en: 'Face recognition = first line of defense against isolation. Easier to remember new club members, neighbors, doctors.' } }
+    ]
   }
 ];
 
@@ -701,11 +804,44 @@ const ageModalContent = document.getElementById('ageModalContent');
 const ageModalClose = document.getElementById('ageModalClose');
 const ageModalBackdrop = ageModal?.querySelector('.modal-backdrop');
 
+// Game catalog for age recommendations
+const GAMES_CATALOG = {
+  match:   { icon: '▣',     name: { pl: 'Memory Match',     en: 'Memory Match' } },
+  palace:  { icon: '⌂',     name: { pl: 'Pałac pamięci',    en: 'Memory Palace' } },
+  numbers: { icon: '№',     name: { pl: 'Number-Shape',     en: 'Number-Shape' } },
+  major:   { icon: 'M',     name: { pl: 'System Major',     en: 'Major System' } },
+  chain:   { icon: '∞',     name: { pl: 'Łańcuch',          en: 'Chain' } },
+  wheel:   { icon: '◉',     name: { pl: 'Koło Bruna',       en: "Bruno's wheel" } },
+  pao:     { icon: '◆',     name: { pl: 'System PAO',       en: 'PAO System' } },
+  pi:      { icon: 'π',     name: { pl: 'Cyfry π',          en: 'Digits of π' } },
+  faces:   { icon: '☻',     name: { pl: 'Imiona i twarze',  en: 'Names & faces' } }
+};
+
 const openAgeModal = (idx) => {
   const a = AGES[idx];
   if (!a) return;
   const L = lang();
   const techList = (a.techniques[L] || []).map(t => `<li>${t}</li>`).join('');
+  const microList = (a.microAdvice?.[L] || []).map(m => `
+    <div class="am-micro-item">
+      <div class="am-micro-label">${m.label}</div>
+      <div class="am-micro-text">${m.text}</div>
+    </div>
+  `).join('');
+  const gamesList = (a.recommendedGames || []).map(g => {
+    const meta = GAMES_CATALOG[g.slug];
+    if (!meta) return '';
+    return `
+      <a class="am-game" href="games/${g.slug}.html">
+        <div class="am-game-icon">${meta.icon}</div>
+        <div class="am-game-body">
+          <div class="am-game-name">${meta.name[L]}</div>
+          <div class="am-game-why">${g.why[L]}</div>
+        </div>
+        <div class="am-game-arrow">→</div>
+      </a>
+    `;
+  }).join('');
   ageModalContent.innerHTML = `
     <div class="am-header">
       <div class="am-icon">${a.icon}</div>
@@ -743,8 +879,17 @@ const openAgeModal = (idx) => {
       <h4>${t9n('Pułapki', 'Pitfalls')}</h4>
       <p>${a.pitfalls[L]}</p>
     </section>
+    <section class="am-section am-micro">
+      <h4>${t9n('Konkretne porady — co zrobić', 'Concrete advice — what to do')}</h4>
+      <div class="am-micro-grid">${microList}</div>
+    </section>
+    <section class="am-section am-games-section">
+      <h4>${t9n('Ćwiczenia online dla Ciebie', 'Online exercises for you')}</h4>
+      <p class="am-games-lead">${t9n('Dedykowany wybór z naszej gry solo — kliknij aby zacząć trening dostosowany do tej grupy wiekowej.', 'A curated pick from our solo game — click to start a session tailored to this age group.')}</p>
+      <div class="am-games-grid">${gamesList}</div>
+    </section>
     <section class="am-section am-advice">
-      <h4>${t9n('Rada', 'Advice')}</h4>
+      <h4>${t9n('Rada (podsumowanie)', 'Final word')}</h4>
       <p>${a.advice[L]}</p>
     </section>
   `;

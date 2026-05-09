@@ -1486,6 +1486,115 @@ section {
   background: linear-gradient(to right, color-mix(in srgb, var(--vermillion) 6%, transparent), transparent);
   border-left: 2px solid var(--vermillion);
 }
+
+/* Micro-advice cards */
+#ageModalContent .am-micro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+#ageModalContent .am-micro-item {
+  padding: 18px 20px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+}
+#ageModalContent .am-micro-item:nth-child(even) { background: var(--paper-deep); }
+#ageModalContent .am-micro-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--vermillion);
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--rule);
+}
+#ageModalContent .am-micro-text {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* Online exercises grid */
+#ageModalContent .am-games-section h4 { color: var(--vermillion); }
+#ageModalContent .am-games-lead {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 15px !important;
+  color: var(--ink-mute) !important;
+  margin: 0 0 18px !important;
+}
+#ageModalContent .am-games-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+#ageModalContent .am-game {
+  display: grid;
+  grid-template-columns: 56px 1fr 24px;
+  gap: 16px;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--paper-deep);
+  border: 1px solid var(--ink);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s var(--ease);
+  position: relative;
+  overflow: hidden;
+}
+#ageModalContent .am-game::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  transform: translateX(-101%);
+  transition: transform 0.4s var(--ease);
+}
+#ageModalContent .am-game:hover::before { transform: translateX(0); }
+#ageModalContent .am-game:hover { color: var(--paper); }
+#ageModalContent .am-game:hover .am-game-icon { color: var(--vermillion); }
+#ageModalContent .am-game:hover .am-game-arrow { color: var(--vermillion); transform: translateX(4px); }
+#ageModalContent .am-game > * { position: relative; z-index: 1; }
+#ageModalContent .am-game-icon {
+  font-family: var(--serif);
+  font-size: 36px;
+  line-height: 1;
+  color: var(--vermillion);
+  text-align: center;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+#ageModalContent .am-game-name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+#ageModalContent .am-game-why {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: inherit;
+  opacity: 0.85;
+}
+#ageModalContent .am-game-arrow {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--vermillion);
+  text-align: right;
+  transition: all 0.3s var(--ease);
+}
+
+@media (max-width: 600px) {
+  #ageModalContent .am-micro-grid { grid-template-columns: 1fr; }
+  #ageModalContent .am-game { grid-template-columns: 44px 1fr 20px; gap: 12px; padding: 14px 16px; }
+  #ageModalContent .am-game-icon { font-size: 28px; }
+  #ageModalContent .am-game-name { font-size: 17px; }
+}
 @media (max-width: 600px) {
   #ageModalContent .am-header { grid-template-columns: 60px 1fr; gap: 16px; }
   #ageModalContent .am-icon { font-size: 44px; }
