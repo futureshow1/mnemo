@@ -541,6 +541,79 @@ const techModalBackdrop = techModal?.querySelector('.modal-backdrop');
 
 const t9n = (pl, en) => lang() === 'en' ? en : pl;
 
+// ============= TECHNIQUE LINKS (deepen / continue) =============
+// indeksy TECHNIQUES:
+// 0 Pałac · 1 Łańcuch · 2 Akronimy · 3 Rymy · 4 Zakładkowy
+// 5 Major · 6 Dominic · 7 PAO · 8 Linkword · 9 Mapy myśli
+// 10 Spaced repetition · 11 Active recall
+const TECHNIQUE_LINKS = {
+  0: { practiceGame: 'palace',  practiceLabel: { pl: 'Pałac pamięci', en: 'Memory palace' }, related: [4, 7, 1] },
+  1: { practiceGame: 'chain',   practiceLabel: { pl: 'Łańcuch skojarzeń', en: 'Chain of associations' }, related: [0, 2, 3] },
+  2: { practiceGame: 'chain',   practiceLabel: { pl: 'Łańcuch (jako narracja akronimu)', en: 'Chain (as acronym narrative)' }, related: [1, 3] },
+  3: { practiceGame: null,      practiceLabel: null, related: [2, 1] },
+  4: { practiceGame: 'numbers', practiceLabel: { pl: 'Number-Shape', en: 'Number-Shape' }, related: [0, 5, 7] },
+  5: { practiceGame: 'major',   practiceLabel: { pl: 'Trener Major', en: 'Major trainer' }, related: [4, 6, 7] },
+  6: { practiceGame: 'pao',     practiceLabel: { pl: 'PAO (najbliższy systemowi Dominic)', en: 'PAO (closest to Dominic)' }, related: [5, 7] },
+  7: { practiceGame: 'pao',     practiceLabel: { pl: 'PAO — Osoba · Akcja · Obiekt', en: 'PAO — Person · Action · Object' }, related: [5, 6, 0] },
+  8: { practiceGame: null,      practiceLabel: null, related: [10, 11] },
+  9: { practiceGame: null,      practiceLabel: null, related: [11, 1] },
+  10: { practiceGame: null,     practiceLabel: null, related: [11, 8] },
+  11: { practiceGame: null,     practiceLabel: null, related: [10, 9] }
+};
+
+const buildNextSection = (idx) => {
+  const L = lang();
+  const links = TECHNIQUE_LINKS[idx] || {};
+  const practice = links.practiceGame
+    ? `<a class="tm-next-card tm-next-practice" href="games/${links.practiceGame}.html">
+         <div class="tm-next-eyebrow">${t9n('Spróbuj teraz', 'Try it now')}</div>
+         <div class="tm-next-title">${links.practiceLabel[L]}</div>
+         <div class="tm-next-arrow">→</div>
+       </a>`
+    : `<div class="tm-next-card tm-next-disabled">
+         <div class="tm-next-eyebrow">${t9n('Spróbuj teraz', 'Try it now')}</div>
+         <div class="tm-next-title">${t9n('Brak gry dla tej techniki — najlepiej ćwicz w realu', 'No game for this technique yet — practise in real life')}</div>
+         <div class="tm-next-sub">${t9n('Wybierz przykład ze swojej dziedziny i zastosuj 5 kroków powyżej.', 'Pick an example from your domain and apply the 5 steps above.')}</div>
+       </div>`;
+
+  // compendium link — wszystkie klasyczne techniki (0-7) → rozdz. 04; współczesne (10-11) → rozdz. 05
+  const docPl = (idx <= 9) ? '04-techniki-klasyczne' : '05-metody-wspolczesne';
+  const docEn = (idx <= 9) ? '04-techniques' : '05-masters'; // fallback; tylko 04 jest po EN
+  const docSlug = L === 'en' ? '04-techniques' : docPl;
+
+  const compendium = `<a class="tm-next-card tm-next-deeper" href="../kompendium/viewer.html?doc=${docSlug}&lang=${L}">
+    <div class="tm-next-eyebrow">${t9n('Czytaj głębiej', 'Read deeper')}</div>
+    <div class="tm-next-title">${t9n('Kompendium · rozdział o technikach', 'Compendium · techniques chapter')}</div>
+    <div class="tm-next-sub">${t9n('Pełne instrukcje, tabele, warianty zaawansowane, przykłady mistrzów.', 'Full instructions, tables, advanced variants, masters\' examples.')}</div>
+    <div class="tm-next-arrow">→</div>
+  </a>`;
+
+  const relatedItems = (links.related || []).map(ri => {
+    const rt = TECHNIQUES[ri];
+    if (!rt) return '';
+    return `<button class="tm-related-chip" data-related-idx="${ri}">
+      <span class="tm-related-icon">${rt.icon || '◇'}</span>
+      <span class="tm-related-name">${rt.name[L]}</span>
+    </button>`;
+  }).join('');
+
+  return `
+    <section class="tm-next">
+      <h4>${t9n('Co dalej', 'What\'s next')}</h4>
+      <div class="tm-next-grid">
+        ${practice}
+        ${compendium}
+      </div>
+      ${relatedItems ? `
+        <div class="tm-related">
+          <div class="tm-related-label">${t9n('Powiązane techniki', 'Related techniques')}</div>
+          <div class="tm-related-chips">${relatedItems}</div>
+        </div>
+      ` : ''}
+    </section>
+  `;
+};
+
 const openTechniqueModal = (idx) => {
   const t = TECHNIQUES[idx];
   if (!t) return;
@@ -581,9 +654,20 @@ const openTechniqueModal = (idx) => {
       <h4>${t9n('Pułapki', 'Pitfalls')}</h4>
       <p>${t.pitfalls[L]}</p>
     </section>
+    ${buildNextSection(idx)}
   `;
+  techModal.scrollTop = 0;
   techModal.classList.add('open');
   document.body.style.overflow = 'hidden';
+
+  // wire up related technique chips → reopen modal with that technique
+  techModalContent.querySelectorAll('.tm-related-chip').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ri = parseInt(btn.dataset.relatedIdx, 10);
+      openTechniqueModal(ri);
+      techModal.querySelector('.modal-card-wide')?.scrollTo({ top: 0, behavior: 'instant' });
+    });
+  });
 };
 const closeTechniqueModal = () => {
   techModal?.classList.remove('open');
