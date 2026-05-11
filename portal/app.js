@@ -335,6 +335,26 @@ const TECHNIQUES = [
     whenToUse: { pl: 'Dłuższe listy (10+ pozycji), wystąpienia publiczne (wzór cyceroński), egzaminy z dużą ilością pojęć, sekwencje wymagające trzymania kolejności.', en: 'Longer lists (10+ items), public speeches (Cicero\'s original use), exams with many concepts, sequences requiring strict order.' },
     origin: { pl: 'Symonides z Keos (~500 p.n.e.) — odkrył metodę po katastrofie sali biesiadnej u Skopasa. Rhetorica ad Herennium (~90 p.n.e.) — pierwszy traktat techniczny. Cyceron, Kwintylian, Tomasz z Akwinu, Camillo, Bruno — kanon dwóch i pół tysiąca lat.', en: 'Simonides of Ceos (~500 BCE) — discovered the method after the collapse of Scopas\'s banquet hall. Rhetorica ad Herennium (~90 BCE) — first technical treatise. Cicero, Quintilian, Aquinas, Camillo, Bruno — a canon two and a half thousand years long.' },
     pitfalls: { pl: 'Zbyt podobne loci się mieszają. Obrazy zbyt subtelne giną. Używanie tej samej trasy do różnych list — interferencja (potrzebujesz minimum 3–5 osobnych pałaców).', en: 'Loci too similar blur into each other. Images too subtle vanish. Reusing the same route for different lists causes interference — you need at least 3–5 separate palaces.' },
+    firstWeek: {
+      pl: [
+        { day: 'Dzień 1', text: 'Wybierz przestrzeń (najlepiej dom z dzieciństwa lub obecne mieszkanie). Narysuj jej plan na kartce. Czas: 15 min.' },
+        { day: 'Dzień 2', text: 'Ustal stałą trasę przez tę przestrzeń: 10 punktów-loci w niezmiennej kolejności. Zapisz je. Spaceruj mentalnie 5 razy. Czas: 10 min.' },
+        { day: 'Dzień 3', text: 'Pierwsza prawdziwa lista 10 elementów (zakupy, agenda dnia, kolejność królów). Umieść po jednym obrazie w każdym z 10 loci. Odzyskaj wieczorem. Czas: 15 min.' },
+        { day: 'Dzień 4', text: 'Druga lista 10 — ta sama trasa, NOWE obrazy. Sprawdź czy nie mieszają się ze wczorajszymi (mieszają? — następnym razem zmień intensywność, nie miejsce).' },
+        { day: 'Dzień 5', text: 'Rozszerz trasę z 10 do 15 loci. Spróbuj listy 15 elementów. To moment, w którym czujesz „działa".' },
+        { day: 'Dzień 6', text: 'Zbuduj drugi pałac — inną przestrzeń (biuro, szkoła, ulubione miejsce). Trzeba mieć przynajmniej dwa, żeby uniknąć interferencji.' },
+        { day: 'Dzień 7', text: 'Wystąp z 15-minutową prezentacją używając pierwszego pałacu jako struktury. Tu zobaczysz prawdziwą moc — i już nie wrócisz do kartki.' }
+      ],
+      en: [
+        { day: 'Day 1', text: 'Choose a space (childhood home or your current flat works best). Draw its plan on paper. Time: 15 min.' },
+        { day: 'Day 2', text: 'Define a fixed route through it: 10 points-loci in invariable order. Write them down. Walk mentally five times. Time: 10 min.' },
+        { day: 'Day 3', text: 'First real list of 10 items (shopping, day\'s agenda, sequence of kings). Place one image at each of the 10 loci. Recall in the evening. Time: 15 min.' },
+        { day: 'Day 4', text: 'Second list of 10 — same route, NEW images. Check whether yesterday\'s images bleed through (if so, raise intensity next time, not location).' },
+        { day: 'Day 5', text: 'Extend the route from 10 to 15 loci. Try a 15-item list. This is the moment you feel „it works".' },
+        { day: 'Day 6', text: 'Build a second palace — a different space (office, school, favourite place). You need at least two to avoid interference.' },
+        { day: 'Day 7', text: 'Deliver a 15-minute talk using the first palace as scaffold. Here you\'ll see the real power — and you won\'t go back to notes.' }
+      ]
+    },
     level: 'intermediate', uses: ['lists'], time: { pl: '15 min', en: '15 min' }
   },
   {
@@ -350,6 +370,18 @@ const TECHNIQUES = [
     whenToUse: { pl: 'Krótkie listy (do 7–10 elementów), szybkie zapamiętanie bez trasy, pierwsza technika dla dzieci, opowiadanie żartów i anegdot.', en: 'Short lists (up to 7–10 items), quick memorization without a route, first technique for children, telling jokes and anecdotes.' },
     origin: { pl: 'Tradycja ustna starożytna — szamani, bardowie, gawędziarze. Spopularyzowana w XX wieku przez Harry\'ego Lorayne\'a (The Memory Book, 1974).', en: 'Ancient oral tradition — shamans, bards, storytellers. Popularized in the 20th century by Harry Lorayne (The Memory Book, 1974).' },
     pitfalls: { pl: 'Zerwanie ogniwa = zerwanie reszty łańcucha. Słabsze niż pałac dla list 15+. Wymaga praktyki w generowaniu absurdalnych obrazów na żądanie.', en: 'A broken link breaks the rest of the chain. Weaker than the palace for lists of 15+. Requires practice generating absurd images on demand.' },
+    warmup: {
+      pl: [
+        { title: 'Warm-up · 3 słowa (15 sekund)', text: 'Zapamiętaj: KLUCZ, BANAN, PARASOL. Klucz jest BANANOWY — żółty, miękki, zgięty. Wkładasz nim do zamka, zamek otwiera PARASOL. Z parasola spada deszcz kluczyków. Trzy linki, jedna mała historia. Zamknij oczy — odtwórz.' },
+        { title: 'Warm-up · 5 słów (30 sekund)', text: 'GITARA, KOT, LODÓWKA, ZEGAR, GAZETA. Gitara gra kotem zamiast struny. Kot wskakuje do lodówki. W lodówce — zegary tykające jak serca. Każdy zegar owinięty starą gazetą. Pięć słów = jedna historia = Twoja lista zakupów / agenda spotkania.' },
+        { title: 'Warm-up · 7 grzechów głównych', text: 'Pyszny pawi-ogon trzyma worek monet (chciwość). Z worka wyskakuje zazdrosny zielony potwór, łapie się za serce gorącej z gniewu tancerki. Tancerka spada do miski z wymiotującym gulaszem (łakomstwo). Miska pęka — wypełza śpiący niedźwiedź. Siedem słów w pół minuty.' }
+      ],
+      en: [
+        { title: 'Warm-up · 3 words (15 seconds)', text: 'Memorize: KEY, BANANA, UMBRELLA. The key is BANANA-shaped — yellow, soft, bent. You stick it in the lock; the lock opens an UMBRELLA. From the umbrella rains down tiny keys. Three links, one small story. Close eyes — recall.' },
+        { title: 'Warm-up · 5 words (30 seconds)', text: 'GUITAR, CAT, FRIDGE, CLOCK, NEWSPAPER. The guitar plays a CAT instead of a string. The cat jumps into the FRIDGE. Inside — CLOCKS ticking like hearts. Each clock wrapped in an old NEWSPAPER.' },
+        { title: 'Warm-up · 7 deadly sins', text: 'A proud peacock-tail holds a bag of coins (greed). From the bag jumps a green envious monster, who grabs the angry-hot dancer\'s heart. She falls into a vomiting stew bowl (gluttony). The bowl cracks — out crawls a sleeping bear (sloth).' }
+      ]
+    },
     level: 'beginner', uses: ['lists'], time: { pl: '5 min', en: '5 min' }
   },
   {
@@ -365,6 +397,32 @@ const TECHNIQUES = [
     whenToUse: { pl: 'Krótkie sekwencje 4–10 elementów, terminologia techniczna, klucze diagnostyczne (medycyna ABCDE), procedury awaryjne.', en: 'Short sequences of 4–10 items, technical terminology, diagnostic keys (medical ABCDE), emergency procedures.' },
     origin: { pl: 'Tradycja retoryczna od starożytności (Cyceron stosował akrostychy w mowach). W średniowieczu — łacińskie wierszyki mnemoniczne dla studentów uniwersyteckich. W XX wieku eksplozja w branżach wojskowych i medycznych.', en: 'Rhetorical tradition since antiquity (Cicero used acrostics in speeches). In the Middle Ages — Latin mnemonic verses for university students. In the 20th century, an explosion in military and medical fields.' },
     pitfalls: { pl: 'Trudno zbudować akronim z 15+ liter. Kolejność musi być stała — jeśli się zmienia, akronim staje się bezużyteczny. Niektóre kombinacje liter nie tworzą zapadających słów.', en: 'Hard to build an acronym from 15+ letters. Order must be fixed — if it shifts, the acronym becomes useless. Some letter combinations form no memorable word.' },
+    workshop: {
+      pl: {
+        title: 'Warsztat · zbuduj własny akrostych',
+        intro: 'Akrostych zbudowany samodzielnie pamiętasz trzy razy mocniej niż gotowy. Spróbuj teraz dla pięciu zmysłów: wzrok, słuch, węch, smak, dotyk.',
+        steps: [
+          'Wypisz pierwsze litery: W · S · W · S · D',
+          'Dla każdej litery — 3 słowa polskie (W: Wesoła, Wieczór, Wąsy; S: Słońce, Stół, Sowa; D: Dzieci, Dom, Drzwi).',
+          'Złóż zdanie z rymem i akcją: „Wesołe Sowy Wąchają Słodkie Donaty"',
+          'Powiedz na głos trzy razy. Zapisz.',
+          'Sprawdź za godzinę i za dobę — czy wciąż pamiętasz oryginał (wzrok-słuch-węch-smak-dotyk)?'
+        ],
+        challenge: 'Wyzwanie dalej: zbuduj akrostychy dla siedmiu cudów świata, dziesięciu pierwiastków układu okresowego (H, He, Li, Be, B, C, N, O, F, Ne), Wielkich Jezior Ameryki.'
+      },
+      en: {
+        title: 'Workshop · build your own acrostic',
+        intro: 'An acrostic you build yourself sticks three times stronger than a ready-made one. Try now for the five senses: sight, hearing, smell, taste, touch.',
+        steps: [
+          'Write the first letters: S · H · S · T · T',
+          'For each letter — 3 English words (S: Sunny, Silent, Sandy; H: Happy, Heavy, Holy; T: Tiny, Tall, Tough).',
+          'Compose a sentence with rhythm and action: „Silent Hippos Singing Tales Tonight"',
+          'Say it aloud three times. Write it down.',
+          'Check after one hour and one day — do you still remember the originals (sight-hearing-smell-taste-touch)?'
+        ],
+        challenge: 'Further challenge: build acrostics for the seven wonders of the world, the first ten chemical elements (H, He, Li, Be, B, C, N, O, F, Ne), the Great Lakes of America.'
+      }
+    },
     level: 'beginner', uses: ['lists'], time: { pl: '2 min', en: '2 min' }
   },
   {
@@ -638,14 +696,42 @@ const openTechniqueModal = (idx) => {
       <h4>${t9n('Krok po kroku', 'Step by step')}</h4>
       <ol class="tm-steps">${stepsList}</ol>
     </section>
+    ${t.warmup ? `<section class="tm-section tm-warmup">
+      <h4>${t9n('Rozgrzewki dla początkujących', 'Warm-ups for beginners')}</h4>
+      ${(t.warmup[L] || []).map(w => `
+        <div class="tm-warmup-card">
+          <div class="tm-warmup-title">${w.title}</div>
+          <p>${w.text}</p>
+        </div>
+      `).join('')}
+    </section>` : ''}
     <section class="tm-section">
       <h4>${t9n('Przykład', 'Example')}</h4>
       <p class="tm-example">${t.example[L]}</p>
     </section>
+    ${t.workshop ? `<section class="tm-section tm-workshop">
+      <h4>${t.workshop[L].title}</h4>
+      <p class="tm-workshop-intro">${t.workshop[L].intro}</p>
+      <ol class="tm-workshop-steps">
+        ${(t.workshop[L].steps || []).map((s, i) => `<li><span class="step-num">${i + 1}</span><span class="step-body">${s}</span></li>`).join('')}
+      </ol>
+      <p class="tm-workshop-challenge"><strong>${t9n('Wyzwanie', 'Challenge')}:</strong> ${t.workshop[L].challenge}</p>
+    </section>` : ''}
     <section class="tm-section">
       <h4>${t9n('Kiedy używać', 'When to use')}</h4>
       <p>${t.whenToUse[L]}</p>
     </section>
+    ${t.firstWeek ? `<section class="tm-section tm-firstweek">
+      <h4>${t9n('Pierwszy tydzień — plan dzień po dniu', 'First week — day by day')}</h4>
+      <ol class="tm-firstweek-list">
+        ${(t.firstWeek[L] || []).map(d => `
+          <li>
+            <div class="tm-fw-day">${d.day}</div>
+            <div class="tm-fw-text">${d.text}</div>
+          </li>
+        `).join('')}
+      </ol>
+    </section>` : ''}
     <section class="tm-section">
       <h4>${t9n('Pochodzenie', 'Origin')}</h4>
       <p>${t.origin[L]}</p>

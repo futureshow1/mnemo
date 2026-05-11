@@ -38,25 +38,90 @@ Brzmi groteskowo? **Właśnie o to chodzi.** Po jednym przejściu pamiętasz wsz
 
 **Co to jest.** Technika prostsza od pałacu, dobra na początek. Zamieniasz listę elementów na łańcuch absurdalnych obrazów, w którym każdy łączy się z następnym.
 
-**Przykład — siedem grzechów głównych** (pycha, chciwość, zazdrość, gniew, nieczystość, łakomstwo, lenistwo):
+### Trzy warm-upy — od najprostszego
 
-Pawień (pycha — pawi-ogon) trzyma worek pełen monet (chciwość). Z worka wyskakuje zazdrosny zielony potwór (zazdrość), który łapie się za serce gorącej z gniewu (gniew) tancerki w rozsuniętej sukni (nieczystość). Tancerka spada do wielkiej miski wymiotującego gulasz (łakomstwo). Miska pęka i z niej wypełza śpiący niedźwiedź (lenistwo).
+**Warm-up 1 — trzy słowa (dla absolutnego początkującego).**
 
-Zaletą jest łatwość. Wadą — gdy któreś ogniwo wypadnie, dalej tracisz ciąg. Pałac nie ma tej wady (loci są niezależne).
+Spróbuj zapamiętać: **klucz, banan, parasol**.
+
+> Klucz jest banananowy — żółty, miękki, lekko zgięty. Wkładasz nim do zamka — zamek otwiera parasol. Z parasola spada deszcz drobnych kluczyków.
+
+Trzy słowa. Trzy linki. Nie więcej niż 15 sekund pracy. Zamknij oczy, odtwórz: klucz → banan → parasol. **To wszystko, co potrzebujesz na początku.**
+
+**Warm-up 2 — pięć słów.**
+
+Spróbuj: **gitara, kot, lodówka, zegar, gazeta**.
+
+> Gitara gra kotem zamiast struny. Kot wskakuje do lodówki i miauczy z chłodu. W lodówce zamiast jajek — zegary tykające jak serca. Każdy zegar owinięty starą gazetą.
+
+Pięć słów w jednej krótkiej historii. To Twoja lista zakupów, agenda spotkania, plan dnia.
+
+**Warm-up 3 — siedem grzechów głównych** (pycha, chciwość, zazdrość, gniew, nieczystość, łakomstwo, lenistwo):
+
+Pawień (pycha — pawi ogon) trzyma worek pełen monet (chciwość). Z worka wyskakuje zazdrosny zielony potwór (zazdrość), który łapie się za serce gorącej z gniewu (gniew) tancerki w rozsuniętej sukni (nieczystość). Tancerka spada do wielkiej miski wymiotującego gulasz (łakomstwo). Miska pęka i z niej wypełza śpiący niedźwiedź (lenistwo).
+
+### Cztery zasady mocnego łańcucha
+
+1. **Ruch** — coś dzieje się w obrazie. Nie „kot leży na lodówce", ale „kot wskakuje do lodówki".
+2. **Absurd** — sytuacja musi być niemożliwa. Zwykły obraz znika; absurdalny zostaje.
+3. **Skala** — gigantyczne, mikroskopijne, w niesłychanych proporcjach.
+4. **Emocje** — zaskoczenie, śmiech, ulga, strach. Emocja = oksytocyna i dopamina = lepsza konsolidacja.
+
+Zaletą łańcucha jest łatwość. Wadą — gdy któreś ogniwo wypadnie, dalej tracisz ciąg. Pałac nie ma tej wady (loci są niezależne). Dlatego po opanowaniu łańcucha — przejdź do pałacu.
 
 ---
 
 ## Akronimy i akrostychy
 
-**Akronim** — słowo z pierwszych liter listy.
+**Akronim** — słowo z pierwszych liter listy. **Akrostych** — całe zdanie, w którym pierwsze litery wyrazów odpowiadają liście.
 
-- **NEFROZA** — Neapol, Florencja, Rzym, Orvieto, Zagrzeb, Asyż (wymyślona trasa).
+### Klasyczne przykłady
+
+- **NEFROZA** — Neapol, Florencja, Rzym, Orvieto, Zagrzeb, Asyż (wymyślona trasa podróży).
 - **ROY G BIV** — angielski sposób na kolory tęczy.
-
-**Akrostych** — zdanie, w którym pierwsze litery wyrazów odpowiadają liście.
-
 - "**M**y **V**ery **E**ducated **M**other **J**ust **S**erved **U**s **N**oodles" — Merkury, Wenus, Ziemia, Mars, Jowisz, Saturn, Uran, Neptun.
 - "**N**igdy **N**ie **W**iadomo, **G**dy **C**hcesz **K**upić **P**lacek **R**ano" — popularna pomoc do nut na liniach klucza wiolinowego (E G B D F).
+- "**A**ni **B**óg **C**iężko **D**la **E**popej" — kolejność pierwszych pięciu polskich królów elekcyjnych (Henryk, Stefan… — daje radę przy luźnym dopasowaniu).
+
+### Jak zbudować własny akrostych — pięć kroków
+
+**Krok 1. Wypisz listę w kolejności.**
+Np. kolejność procesów w mitozie: profaza, metafaza, anafaza, telofaza, cytokineza.
+
+**Krok 2. Wypisz tylko pierwsze litery.**
+P · M · A · T · C
+
+**Krok 3. Szukaj słów polskich zaczynających się od każdej z tych liter, najlepiej w jednej rodzinie znaczeniowej (zwierzęta, jedzenie, ludzie, akcje).**
+- P: Piotr / Piwo / Pies / Para
+- M: Mama / Mały / Most / Most
+- A: Ania / Ale / Auto / Apel
+- T: Trzeba / Tata / Telewizor / Trąba
+- C: Cztery / Czeka / Czas / Cukier
+
+**Krok 4. Złóż zdanie, najlepiej rytmiczne i z lekkim absurdem.**
+> **P**iotr **M**ama **A**ni **T**ata **C**ukier — czyli „Piotr dał mamie, Ania tacie cukier".
+
+Albo z większą energią:
+> **P**ies **M**a **A**potekarski **T**rójkąt **C**zerwony.
+
+**Krok 5. Sprawdź rytm i wymowę.** Powiedz na głos kilka razy. Jeśli się potyka — zmieniaj słowa, aż popłynie. Akrostych musi *brzmieć*, nie tylko być.
+
+### Warsztat dla siebie — spróbuj teraz
+
+Zbuduj własny akrostych dla:
+- pięciu zmysłów (wzrok, słuch, węch, smak, dotyk)
+- siedmiu cudów świata
+- pięciu Wielkich Jezior Ameryki (Superior, Michigan, Huron, Erie, Ontario — angielski podpowiada SMHEO → „**S**ome **M**en **H**ate **E**ating **O**ranges")
+- pierwszych dziesięciu pierwiastków układu okresowego (H, He, Li, Be, B, C, N, O, F, Ne)
+
+Zapisz, powiedz na głos, sprawdź po godzinie. **Akrostych zbudowany samodzielnie pamiętasz trzy razy mocniej** niż gotowy.
+
+### Kiedy akronimy działają najlepiej
+
+- Kolejność jest stała (lista chemikaliów, planety, klucze).
+- Maksymalnie 7–10 elementów (powyżej trudno zbudować zdanie).
+- Litery pierwsze są różne (15 słów na „A" — beznadzieja).
+- Możesz dopasować temat (NEFROZA dla nazw chorób układu moczowego nie jest przypadkowa — to mnemonika *przy okazji*).
 
 Klasyk, prosty i zaskakująco wytrzymały — działa po latach.
 
@@ -64,12 +129,62 @@ Klasyk, prosty i zaskakująco wytrzymały — działa po latach.
 
 ## Rymy i rytm
 
-Rymowanki działają, bo łączą kanał werbalny z rytmicznym, niemal muzycznym. Mózg uwielbia rytm — to jeden z najstarszych systemów organizacji informacji (kultury bezpiśmienne przekazywały gigantyczne korpusy mityczne właśnie wierszem).
+Rymowanki działają, bo łączą kanał werbalny z rytmicznym, niemal muzycznym. Mózg uwielbia rytm — to jeden z najstarszych systemów organizacji informacji. Kultury bezpiśmienne przekazywały gigantyczne korpusy mityczne właśnie wierszem (Iliada, Odyseja, polska Bogurodzica, indyjska Mahabharata — wszystko było pamiętane, bo było rytmiczne).
 
-- "Trzydzieści dni ma listopad, kwiecień, czerwiec i wrzesień..."
-- "I before E except after C..." (zasada angielskiej ortografii)
+### Dlaczego rym i rytm działają (neurobiologia w trzech zdaniach)
 
-Praktyka: gdy tworzysz własną mnemonikę, **spróbuj nadać jej rytm i rym**. Trudniejsze — ale efekt trwalszy.
+Rytmiczny tekst aktywuje równolegle korę słuchową (rozpoznawanie wzorca dźwiękowego), korę motoryczną (przewidywanie kolejnej sylaby), kora przedczołową (planowanie wypowiedzi) i jądra podstawne (system nagrody przy spełnieniu oczekiwania rymu). Cztery sieci na raz = cztery razy mocniejszy ślad pamięciowy. Dlatego piosenkę z dzieciństwa pamiętasz po 40 latach, a referat z zeszłego tygodnia — już nie.
+
+### Klasyczne polskie i obce rymowanki mnemoniczne
+
+- **„Trzydzieści dni ma listopad, kwiecień, czerwiec i wrzesień…"** — najstarsza polska mnemonika kalendarzowa.
+- **„Pamiętaj chemiku młody, wlewaj zawsze kwas do wody"** — fundamentalna zasada bezpieczeństwa laboratoryjnego.
+- **„I before E except after C"** — angielska zasada ortograficzna.
+- **„Lewa, prawa, w lewo skręć — to jest piąta z brzegu… pięć"** — rymowanki pomagające opanować lateralizację dla dzieci.
+- **„Czarne — żarte. Białe — całe."** — szachy, krótki wiersz o ruchu i biciu (dla 7-latków).
+
+### Warsztat — zrymuj datę bitwy pod Grunwaldem (15 lipca 1410)
+
+**Krok 1. Zidentyfikuj kotwicę liczbową.** 1410. Trzeba zapamiętać cztery cyfry + miesiąc + dzień.
+
+**Krok 2. Znajdź rym do kluczowych słów.**
+- Grunwald rymuje się z: pad, lad, ład, władc(a).
+- 1410 = czternaście dziesięć → rymuje się z: jędrzej, niedziela, dziedzina, godziną.
+- Lipiec rymuje się z: kopiec, słupiec, hipiec.
+
+**Krok 3. Złóż dwuwiersz.**
+
+> Czternaście dziesięć, lipca w połowie —
+> pod Grunwaldem Krzyżak głowy nie schowie.
+
+Albo prościej, dla dziecka:
+
+> Rok czternaście dziesięć,
+> piętnasty dzień lipca —
+> w boju ginie mistrz krzyżacki,
+> chwała króla Jagiełły wskaźnik.
+
+**Krok 4. Recytuj głośno trzy razy.** Recytacja włącza mięśnie krtani — to dodatkowy kanał pamięciowy.
+
+**Krok 5. Sprawdź za 1 godzinę, 1 dzień, 1 tydzień.** Jeśli rymowanka jest dobra, to po tygodniu pamiętasz całe zdanie, a wraz z nim rok, miesiąc, lokalizację i znaczenie.
+
+### Zasady mocnej mnemoniki rymowej
+
+1. **Krótka.** 2–4 wersy maksymalnie. Dłuższe się rozpadają.
+2. **Rytmiczna.** Lepszy prosty trochej (TA-ta, TA-ta) niż finezyjna metafora.
+3. **Z czasownikiem.** Akcja w środku, nie sam opis.
+4. **Z konkretem.** Jeden obraz wizualny w rymowance (głowa, kopiec, lasy, miecz).
+5. **Recytowana na głos.** Zawsze, minimum 3× przy nauce.
+
+### Spróbuj sam
+
+Zrymuj:
+- datę chrztu Polski (966)
+- liczbę dni roku przestępnego (366)
+- prędkość światła (~300 000 km/s)
+- temperaturę wrzenia wody (100°C)
+
+Zapisz w notatniku, recytuj na głos, sprawdź po tygodniu.
 
 ---
 
@@ -217,18 +332,74 @@ Gabriel Wyner w *Fluent Forever* rozszerza tę metodę o "image cards" — fiszk
 
 ## Mapy myśli (Tony Buzan)
 
-**Co to jest.** Wizualne notowanie. Centralny temat na środku kartki, gałęzie wychodzące we wszystkie strony, każda gałąź to podtemat, każda podgałąź — szczegół. Używasz **kolorów, ikon, krzywych linii** (nie linijek), słów-kluczy (nie zdań).
+**Co to jest.** Wizualne notowanie radialne. Centralny temat na środku kartki, gałęzie wychodzące we wszystkie strony, każda gałąź to podtemat, każda podgałąź — szczegół. Używasz **kolorów, ikon, krzywych linii** (nie linijek), słów-kluczy (nie zdań).
 
-**Dlaczego działa.**
+### Dlaczego działa
 
 - Łączy oba kanały (werbalny + wizualny).
 - Wymusza hierarchię i strukturę.
 - Wykorzystuje skojarzenia (radial thinking).
-- Zostawia "rusztowanie" przestrzenne, do którego pamięć łatwo wraca.
+- Zostawia „rusztowanie" przestrzenne, do którego pamięć łatwo wraca.
 
-**Kiedy używać.** Notowanie z wykładu, planowanie eseju, podsumowanie rozdziału, brainstorming, przygotowanie do egzaminu (jedna mapa = jeden temat).
+### Jak narysować pierwszą mapę myśli — krok po kroku
 
-**Kiedy NIE używać.** Materiał ściśle linearny (kod programu, przepis kucharski), gdy potrzebujesz dosłownego cytatu.
+**Krok 1. Kartka A3 lub A4 poziomo.** Mała kartka zabija mapę — gałęzie się duszą. A3 daje miejsce na 40+ gałęzi.
+
+**Krok 2. W centrum — OBRAZ, nie samo słowo.** Jeśli mapujesz „pamięć" — narysuj mózg w jednej kresce (15 sekund, niech będzie krzywy). Obraz angażuje korę wzrokową silniej niż słowo.
+
+**Krok 3. Główne gałęzie radialnie.** Najczęściej 3–7 głównych — tyle ile pomieści ludzka pamięć robocza. Każda gałąź = **jedno słowo-klucz drukowanymi literami wzdłuż linii**. Nie wzdłuż osi pionowej, nie pod linią — *wzdłuż samej linii*.
+
+**Krok 4. Kolor = kategoria.** Niebieski dla przyczyn, czerwony dla skutków, zielony dla przykładów. Wymuszenie kolorystyczne zmusza mózg do klasyfikowania.
+
+**Krok 5. Drugorzędne gałęzie — coraz cieńsze.** Im dalej od centrum, tym cieńsza linia i mniejsza czcionka. Hierarchia wizualna = hierarchia poznawcza.
+
+**Krok 6. Ikony i strzałki.** Mały rysunek przy każdej gałęzi (zegar, oko, książka). Strzałki łączące odległe gałęzie pokazują nieoczywiste relacje.
+
+### Przykład — mapa myśli „PAMIĘĆ" w tekście
+
+```
+                   PAMIĘĆ
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+    SENSORYCZNA   ROBOCZA    DŁUGOTRWAŁA
+    (0,5 s)      (15–30 s)         │
+    ikoniczna     7±2 chunków      │
+    echoiczna    kora przedcz.     │
+                              ┌────┴────┐
+                              │         │
+                          DEKLARATYWNA  PROCEDURALNA
+                              │              │
+                          ┌───┴───┐        rower
+                       epizodyczna        instrument
+                       semantyczna         pamięć
+                       (Tulving)          motoryczna
+                          │                 │
+                       hipokamp        móżdżek
+                                      jądra
+                                      podstawne
+```
+
+Cała struktura pamięci w jednym kadrze. Po dwóch dniach przypominasz sobie pełną topografię z trzech promieniujących osi.
+
+### Kiedy używać
+
+- Notowanie z wykładu — jedna mapa = jeden wykład.
+- Planowanie eseju lub artykułu — centrum to teza, gałęzie to argumenty.
+- Podsumowanie rozdziału — centrum to nazwa rozdziału, gałęzie to podrozdziały.
+- Brainstorming — szybsze niż linearne listy, daje skojarzenia poprzeczne.
+- Przygotowanie do egzaminu — jedna mapa A3 mieści cały temat.
+- Mapowanie konfliktu (rodzinny, zawodowy) — centrum = problem, gałęzie = perspektywy stron.
+
+### Kiedy NIE używać
+
+- Materiał ściśle linearny (kod programu, przepis kucharski, sekwencja ruchów).
+- Gdy potrzebujesz dosłownego cytatu — mapa to skróty, nie pełne zdania.
+- W cyfrowych aplikacjach (XMind, MindMeister) tracisz efekt motoryczny pisania ręcznego — papier wygrywa.
+
+### Studia naukowe
+
+Farrand et al. (2002) w *Medical Education* — porównanie 50 studentów medycyny: grupa z mapami myśli miała 10% lepsze wyniki niż grupa z notatkami linearnymi, ale efekt zniknął gdy nie kontynuowano techniki. Wniosek: mapy działają jako PROCES wytwarzania, nie jako PRODUKT do oglądania. Sam akt rysowania = nauka.
 
 ---
 

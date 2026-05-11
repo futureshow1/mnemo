@@ -1292,6 +1292,102 @@ section {
   font-style: italic;
 }
 
+/* Warm-up cards (Łańcuch) ----------------------------------- */
+#techniqueModalContent .tm-warmup-card {
+  padding: 14px 18px;
+  margin-bottom: 12px;
+  background: color-mix(in srgb, var(--gold) 6%, transparent);
+  border-left: 2px solid var(--gold);
+}
+#techniqueModalContent .tm-warmup-card:last-child { margin-bottom: 0; }
+#techniqueModalContent .tm-warmup-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  margin-bottom: 8px;
+}
+#techniqueModalContent .tm-warmup-card p {
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+  color: var(--ink) !important;
+  margin: 0;
+}
+
+/* Workshop (Akronimy) --------------------------------------- */
+#techniqueModalContent .tm-workshop {
+  padding: 20px 22px;
+  background: color-mix(in srgb, var(--vermillion) 5%, transparent);
+  border: 1px dashed var(--vermillion);
+}
+#techniqueModalContent .tm-workshop > h4 {
+  color: var(--vermillion);
+  border-bottom-color: color-mix(in srgb, var(--vermillion) 35%, transparent);
+}
+#techniqueModalContent .tm-workshop-intro {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+  color: var(--ink) !important;
+  margin-bottom: 16px !important;
+}
+#techniqueModalContent .tm-workshop-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+}
+#techniqueModalContent .tm-workshop-steps li {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--vermillion) 18%, transparent);
+  align-items: baseline;
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+#techniqueModalContent .tm-workshop-steps li:last-child { border-bottom: 0; }
+#techniqueModalContent .tm-workshop-challenge {
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+  color: var(--ink-mute) !important;
+  margin: 0 !important;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--vermillion) 18%, transparent);
+}
+#techniqueModalContent .tm-workshop-challenge strong { color: var(--vermillion); }
+
+/* First week plan (Pałac) ----------------------------------- */
+#techniqueModalContent .tm-firstweek-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#techniqueModalContent .tm-firstweek-list li {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 18px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: baseline;
+}
+#techniqueModalContent .tm-firstweek-list li:last-child { border-bottom: 0; }
+#techniqueModalContent .tm-fw-day {
+  font-family: var(--serif);
+  font-size: 17px;
+  color: var(--vermillion);
+  font-weight: 500;
+  font-style: italic;
+}
+#techniqueModalContent .tm-fw-text {
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+
 /* "Co dalej" section ---------------------------------------- */
 #techniqueModalContent .tm-next {
   margin-top: 32px;
