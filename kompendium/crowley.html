@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="pl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MNEMO · Aleister Crowley</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="kompendium.css">
+<link rel="stylesheet" href="crowley.css">
+</head>
+<body class="page-crowley">
+
+<div class="viewer-progress" id="progress"></div>
+
+<header class="kompendium-topbar crowley-topbar">
+  <a href="index.html" class="back-link">← <span data-pl="kompendium" data-en="compendium">kompendium</span></a>
+  <a href="index.html" class="kompendium-brand">MNEMO · <em>Crowley</em></a>
+  <div class="k-controls">
+    <button class="lang-toggle" id="langToggle">
+      <span class="lang-pl">PL</span><span class="lang-sep">/</span><span class="lang-en">EN</span>
+    </button>
+    <button class="theme-toggle" id="themeToggle">◐</button>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="crowley-hero">
+  <div class="crowley-hero-bg">
+    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg" class="crowley-hero-svg">
+      <defs>
+        <radialGradient id="cglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#d4351c" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#0e0e0d" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <circle cx="400" cy="400" r="380" fill="url(#cglow)"/>
+      <!-- outer ring -->
+      <g stroke="#c9a449" fill="none" stroke-width="0.5" opacity="0.55">
+        <circle cx="400" cy="400" r="320"/>
+        <circle cx="400" cy="400" r="260"/>
+        <circle cx="400" cy="400" r="200"/>
+      </g>
+      <!-- unicursal hexagram (symbol Thelemy / Crowleya) -->
+      <g stroke="#d4351c" stroke-width="1.5" fill="none" opacity="0.9" transform="translate(400 400)">
+        <path d="M 0,-180 L 156,90 L -156,-90 L 156,-90 L -156,90 Z" />
+        <circle cx="0" cy="0" r="14" fill="#c9a449" stroke="none"/>
+        <text x="0" y="6" text-anchor="middle" font-family="serif" font-size="20" fill="#0e0e0d">✦</text>
+      </g>
+      <!-- planetary marks -->
+      <g font-family="serif" font-size="20" text-anchor="middle" fill="#c9a449" opacity="0.8">
+        <text x="400" y="115" dy="0.35em">☉</text>
+        <text x="606" y="400" dy="0.35em">♀</text>
+        <text x="400" y="685" dy="0.35em">☽</text>
+        <text x="194" y="400" dy="0.35em">♂</text>
+      </g>
+    </svg>
+  </div>
+  <div class="crowley-hero-content">
+    <div class="hero-eyebrow" data-pl="Patron osobny · Sekcja XIV" data-en="A separate patron · Section XIV">Patron osobny · Sekcja XIV</div>
+    <h1 class="crowley-hero-title">
+      <span class="hero-line-1">Aleister</span>
+      <span class="hero-line-2"><em>Crowley</em></span>
+    </h1>
+    <div class="hero-dates">12 X 1875 · Royal Leamington Spa — 1 XII 1947 · Hastings</div>
+    <blockquote class="hero-quote">
+      <span lang="en">„Do what thou wilt shall be the whole of the Law."</span>
+      <cite data-pl="— Liber AL vel Legis, I:40 (Kair, 1904)" data-en="— Liber AL vel Legis, I:40 (Cairo, 1904)">— Liber AL vel Legis, I:40 (Kair, 1904)</cite>
+    </blockquote>
+    <div class="hero-translation" data-pl="„Czyń wedle swej woli będzie całością Prawa." — pełna formuła Thelemy. Dla mnemonika brzmi inaczej: woli nie ma bez pamięci, pamięci nie ma bez praktyki." data-en="„Do what thou wilt shall be the whole of the Law." — the full formula of Thelema. For the mnemonist it sounds different: no will without memory, no memory without practice.">
+      „Czyń wedle swej woli będzie całością Prawa."
+    </div>
+    <div class="hero-scroll">
+      <span data-pl="przewiń" data-en="scroll">przewiń</span>
+      <span class="hero-arrow">↓</span>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INTRO ========== -->
+<section class="crowley-section crowley-intro">
+  <div class="crowley-container">
+    <div class="section-num">I</div>
+    <p class="crowley-intro-lead" data-pl="Aleister Crowley jest najbardziej problematyczną — i najgłębiej praktykującą — postacią w dwudziestowiecznej historii sztuki pamięci. Magus, poeta, alpinista, narkoman, szpieg domniemany, pisarz reportażu okultystycznego, twórca własnej religii. A jednocześnie: pierwszy człowiek od czasów Bruna, który podchodzi do mnemoniki z całkowitą powagą metodyczną — z prowadzeniem dziennika, mierzeniem czasu medytacji, eksperymentem ilościowym." data-en="Aleister Crowley is the most problematic — and the most deeply practising — figure in 20th-century history of the art of memory. Mage, poet, mountaineer, drug user, alleged spy, occult reporter, founder of his own religion. And at the same time: the first person since Bruno to approach mnemonics with full methodical seriousness — with diary-keeping, timing meditation, quantitative experiment.">
+      Aleister Crowley jest najbardziej problematyczną — i najgłębiej praktykującą — postacią w dwudziestowiecznej historii sztuki pamięci.
+    </p>
+    <p class="crowley-intro-body" data-pl="W Złotym Brzasku był uczniem od 1898 roku. Po przeżyciu w Kairze w 1904 r. założył własny system Thelemy i organizację A∴A∴. Jego sześć kanonicznych tekstów mnemonicznych (Liber E, Liber O, Liber Resh, Liber Thisharb, Magical Record, Liber Astarte) tworzy najbardziej szczegółowy zachodni program pracy z pamięcią od czasów Rhetorica ad Herennium." data-en="In the Golden Dawn he was a student from 1898. After the Cairo experience of 1904 he founded his own Thelema and the A∴A∴ order. His six canonical mnemonic texts (Liber E, Liber O, Liber Resh, Liber Thisharb, Magical Record, Liber Astarte) make up the most detailed Western programme of memory work since Rhetorica ad Herennium.">
+      Sześć kanonicznych tekstów mnemonicznych tworzy najbardziej szczegółowy zachodni program pracy z pamięcią od czasów Rhetorica ad Herennium.
+    </p>
+  </div>
+</section>
+
+<!-- ========== LIFE / TIMELINE ========== -->
+<section class="crowley-section crowley-life">
+  <div class="crowley-container">
+    <div class="section-num">II</div>
+    <h2 class="section-title" data-pl="Życie · od Cambridge do Hastings" data-en="Life · from Cambridge to Hastings">Życie · od Cambridge do Hastings</h2>
+
+    <div class="crowley-timeline">
+      <div class="ct-event">
+        <div class="ct-date">1875</div>
+        <div class="ct-place" data-pl="Royal Leamington Spa, Anglia" data-en="Royal Leamington Spa, England">Royal Leamington Spa, Anglia</div>
+        <div class="ct-desc" data-pl="Edward Alexander Crowley urodzony 12 października. Rodzina zamożnych Braci Plymuckich — fundamentalistyczna sekta, którą Crowley odrzuci jako 16-latek. Matka nazwała go „Bestią" (Beast 666) — Crowley przyjmie tę nazwę z dumą." data-en="Edward Alexander Crowley born on 12 October. Wealthy Plymouth Brethren family — a fundamentalist sect Crowley would reject at 16. His mother called him „the Beast" (Beast 666) — Crowley took the title with pride.">Urodzony w rodzinie Braci Plymuckich. Matka nazwała go „Bestią".</div>
+      </div>
+      <div class="ct-event">
+        <div class="ct-date">1895—98</div>
+        <div class="ct-place" data-pl="Cambridge · Trinity College" data-en="Cambridge · Trinity College">Cambridge · Trinity College</div>
+        <div class="ct-desc" data-pl="Studia chemii, potem literatury. Pierwsza poezja (Aceldama, 1898). Wspinaczka alpinistyczna — wstęp do następnej dekady ekspedycji himalajskich. Imię „Aleister" przyjmuje świadomie w 1898 r." data-en="Reads chemistry, then literature. First poetry (Aceldama, 1898). Alpine climbing — prelude to a decade of Himalayan expeditions. Adopts the name „Aleister" deliberately in 1898.">Studia, poezja, alpinizm. Przyjmuje imię „Aleister".</div>
+      </div>
+      <div class="ct-event highlight">
+        <div class="ct-date">18 XI 1898</div>
+        <div class="ct-place" data-pl="Londyn · Hermetic Order of the Golden Dawn" data-en="London · Hermetic Order of the Golden Dawn">Londyn · Hermetic Order of the Golden Dawn</div>
+        <div class="ct-desc" data-pl="Inicjacja jako Neophyte 0=0 pod imieniem Frater Perdurabo („wytrwam"). Mentor: Allan Bennett (późniejszy buddyjski mnich Ananda Metteyya). W ciągu 8 miesięcy osiąga stopień Philosophus 4=7." data-en="Initiated as Neophyte 0=0 under the name Frater Perdurabo („I shall endure"). Mentor: Allan Bennett (later Buddhist monk Ananda Metteyya). Reaches Philosophus 4=7 within 8 months.">Inicjacja jako Frater Perdurabo. Mentor: Allan Bennett.</div>
+      </div>
+      <div class="ct-event">
+        <div class="ct-date">1899</div>
+        <div class="ct-place" data-pl="Szkocja · Boleskine House nad Loch Ness" data-en="Scotland · Boleskine House by Loch Ness">Szkocja · Boleskine House nad Loch Ness</div>
+        <div class="ct-desc" data-pl="Kupuje wiejski dom nad jeziorem Loch Ness do wykonania półrocznej operacji „Abramelin" (rytuał wezwania Świętego Anioła Stróża). Boleskine pozostanie jego siedzibą hermetyczną przez 20 lat; w 1971 r. kupi go Jimmy Page z Led Zeppelin." data-en="Buys a country house by Loch Ness to perform the half-year „Abramelin" operation (invocation of the Holy Guardian Angel). Boleskine will remain his hermetic seat for 20 years; in 1971 Jimmy Page of Led Zeppelin will buy it.">Boleskine — hermetyczny dom nad Loch Ness. Operacja Abramelina.</div>
+      </div>
+      <div class="ct-event">
+        <div class="ct-date">1900—04</div>
+        <div class="ct-place" data-pl="Meksyk · Indie · Birma · Cejlon" data-en="Mexico · India · Burma · Ceylon">Meksyk · Indie · Birma · Cejlon</div>
+        <div class="ct-desc" data-pl="Cztery lata podróży. W Indiach studia jogi i buddyzmu (przyjaźń z Bennettem, który tam został mnichem). Ekspedycje himalajskie K2 (1902) i Kanczendzonga (1905) — niemal pierwsze wejścia w historii. Dyscyplina dharany przeniesiona z Indii staje się fundamentem A∴A∴." data-en="Four years of travel. In India studies yoga and Buddhism (friendship with Bennett, who became a monk there). Himalayan expeditions K2 (1902) and Kangchenjunga (1905) — almost first ascents in history. The dharana discipline brought back from India becomes the foundation of A∴A∴.">4 lata podróży. Joga w Indiach, K2, Kanczendzonga.</div>
+      </div>
+      <div class="ct-event highlight">
+        <div class="ct-date">8—10 IV 1904</div>
+        <div class="ct-place" data-pl="Kair · pokój hotelowy" data-en="Cairo · hotel room">Kair · pokój hotelowy</div>
+        <div class="ct-desc" data-pl="W ciągu trzech dni — każdego dnia od południa do 13:00 — Crowley „otrzymuje" Liber AL vel Legis (Księgę Prawa) od istoty Aiwass. Tekst ogłasza Nowy Aeon Horusa i prawo „Do what thou wilt". Crowley nigdy tej daty nie podważył. Od tego momentu jego życie ma jedno zadanie: ogłoszenie Prawa Thelemy." data-en="Over three days — each from noon to 1:00 pm — Crowley „receives" Liber AL vel Legis (Book of the Law) from a being named Aiwass. The text proclaims the New Aeon of Horus and the law „Do what thou wilt". Crowley never questioned this date. From that moment his life has one task: to proclaim the Law of Thelema.">Otrzymuje Liber AL vel Legis od Aiwassa. Narodziny Thelemy.</div>
+      </div>
+      <div class="ct-event">
+        <div class="ct-date">1907</div>
+        <div class="ct-place" data-pl="Londyn · A∴A∴ (Astrum Argentum)" data-en="London · A∴A∴ (Astrum Argentum)">Londyn · A∴A∴ (Astrum Argentum)</div>
+        <div class="ct-desc" data-pl="Założenie własnej organizacji „Srebrnej Gwiazdy" wspólnie z George'em Cecilem Jonesem. Cel: kontynuować dyscyplinę Złotego Brzasku z dodatkiem jogi i naukowej metody. To w A∴A∴ powstają Libri — w tym mnemoniczne." data-en="Founding of the „Silver Star" order with George Cecil Jones. Aim: to continue Golden Dawn discipline plus yoga and scientific method. It is in A∴A∴ that the Libri are produced — including the mnemonic ones.">Założenie A∴A∴ — własnego zakonu hermetyczno-jogicznego.</div>
+      </div>
+      <div class="ct-event highlight">
+        <div class="ct-date">1909—13</div>
+        <div class="ct-place" data-pl="The Equinox · sześć tomów Libri" data-en="The Equinox · six volumes of Libri">The Equinox · sześć tomów Libri</div>
+        <div class="ct-desc" data-pl="W periodyku „The Equinox" (1909—1913) Crowley publikuje wszystkie kluczowe teksty mnemoniczne: Liber E (1909), Liber O (1909), Liber Resh (1911), Liber Thisharb (1913). To jest moment kanoniczny — nowoczesna sztuka pamięci hermetycznej zostaje skodyfikowana." data-en="In „The Equinox" periodical (1909—1913) Crowley publishes all the key mnemonic texts: Liber E (1909), Liber O (1909), Liber Resh (1911), Liber Thisharb (1913). This is the canonical moment — modern hermetic art of memory is codified.">The Equinox — kodyfikacja Libri mnemonicznych.</div>
+      </div>
+      <div class="ct-event">
+        <div class="ct-date">1920—23</div>
+        <div class="ct-place" data-pl="Cefalù, Sycylia · Abbey of Thelema" data-en="Cefalù, Sicily · Abbey of Thelema">Cefalù, Sycylia · Abbey of Thelema</div>
+        <div class="ct-desc" data-pl="Założenie komuny w starej willi pod Cefalù. Życie według Thelemy, dyscyplina dharany, eksperymenty z opium i heroiną (Crowley był uzależniony od końca życia). W 1923 r. śmierć Raoul Loveday (jednego z adeptów). Mussolini wydala Crowleya z Włoch." data-en="A commune founded in an old villa near Cefalù. Life according to Thelema, dharana discipline, opium and heroin experiments (Crowley was an addict for the rest of his life). In 1923 Raoul Loveday (an adept) dies. Mussolini expels Crowley from Italy.">Abbey of Thelema. Eksperymenty. Śmierć adepta. Wydalenie przez Mussoliniego.</div>
+      </div>
+      <div class="ct-event">
+        <div class="ct-date">1929</div>
+        <div class="ct-place" data-pl="Paryż · Magick in Theory and Practice" data-en="Paris · Magick in Theory and Practice">Paryż · Magick in Theory and Practice</div>
+        <div class="ct-desc" data-pl="Publikacja głównego dzieła teoretycznego — części III tetralogii Magick (Book 4). Ten tom kanonizuje termin „Magick" (z literą K na końcu, by odróżnić od trickowej magii estradowej). Tu też pełna teoria mnemoniczna pracy z obrazem." data-en="Publication of the main theoretical work — Part III of the Magick (Book 4) tetralogy. This volume canonises the term „Magick" (with a K at the end, to distinguish it from stage magic). Here too the full mnemonic theory of image work.">Magick in Theory and Practice. Termin „Magick" wchodzi w użycie.</div>
+      </div>
+      <div class="ct-event finale">
+        <div class="ct-date">1 XII 1947</div>
+        <div class="ct-place" data-pl="Hastings · Netherwood guesthouse" data-en="Hastings · Netherwood guesthouse">Hastings · Netherwood guesthouse</div>
+        <div class="ct-desc" data-pl="Umiera w wieku 72 lat w pensjonacie Netherwood na wschodnim wybrzeżu Anglii. Bez majątku, uzależniony od heroiny. Ostatnie słowa (wg świadków): „I am perplexed" lub „Sometimes I hate myself". Pogrzeb buddyjski. Ostatnia inicjacja: śmierć." data-en="Dies at 72 in the Netherwood guesthouse on the east coast of England. Penniless, addicted to heroin. Last words (per witnesses): „I am perplexed" or „Sometimes I hate myself". Buddhist funeral. Last initiation: death.">Umiera w pensjonacie w Hastings. Ostatnia inicjacja: śmierć.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THELEMA ========== -->
+<section class="crowley-section crowley-thelema">
+  <div class="crowley-container">
+    <div class="section-num">III</div>
+    <h2 class="section-title" data-pl="Filozofia · Thelema i koncentracja jako pierwsza cnota" data-en="Philosophy · Thelema and concentration as the first virtue">Filozofia · Thelema i koncentracja jako pierwsza cnota</h2>
+
+    <p class="thelema-lead" data-pl="„Do what thou wilt shall be the whole of the Law. Love is the law, love under will." To centralna formuła Thelemy z Liber AL vel Legis. Dla mnemonika ważne jest: prawo brzmi nie „rób co chcesz", ale „czyń wedle swej Woli" — wielkiej W. Wola to nie kaprys, lecz cel, który każdy człowiek nosi w sobie od urodzenia. By go odnaleźć i wykonać, trzeba dyscypliny umysłu nieznanej w popkulturze." data-en="„Do what thou wilt shall be the whole of the Law. Love is the law, love under will." The central formula of Thelema from Liber AL vel Legis. For the mnemonist it matters: the law says not „do whatever you want" but „act according to your Will" — capital W. Will is not whim but the purpose every person carries from birth. To find and execute it requires a discipline of mind alien to pop culture.">
+      Wola to nie kaprys, lecz cel, który każdy człowiek nosi w sobie od urodzenia.
+    </p>
+
+    <div class="thelema-grid">
+      <div class="thelema-card">
+        <div class="thelema-icon">M</div>
+        <h3 data-pl="Magick z K" data-en="Magick with a K">Magick z K</h3>
+        <p data-pl="Crowley dodaje końcowe K do słowa „magic", by odróżnić swoją Magick (z greckiego mageia = sztuka magów) od trikowej iluzjonistyki estradowej. Magick = „nauka i sztuka powodowania zmian w zgodności z Wolą". W tej definicji każdy świadomy akt jest aktem magicznym, jeśli zgodny z Wolą." data-en="Crowley adds a final K to „magic" to distinguish his Magick (from Greek mageia = the art of the mages) from stage trickery. Magick = „the science and art of causing change to occur in conformity with Will". On this definition every conscious act is a magical act if aligned with Will.">
+          „Nauka i sztuka powodowania zmian w zgodności z Wolą."
+        </p>
+      </div>
+      <div class="thelema-card">
+        <div class="thelema-icon">∴</div>
+        <h3 data-pl="A∴A∴" data-en="A∴A∴">A∴A∴</h3>
+        <p data-pl="Astrum Argentum — „Srebrna Gwiazda". Zakon założony przez Crowleya w 1907 r. Trzy stopnie zewnętrzne (Probationer, Neophyte, Zelator) odpowiadają stopniom Złotego Brzasku z dodatkiem dyscypliny jogicznej. Każdy adept prowadzi Magical Record i wykonuje codzienne Libri." data-en="Astrum Argentum — „Silver Star". The order founded by Crowley in 1907. Three outer grades (Probationer, Neophyte, Zelator) parallel the Golden Dawn with added yogic discipline. Every adept keeps a Magical Record and performs the daily Libri.">
+          „Srebrna Gwiazda" — własny zakon Crowleya z 1907.
+        </p>
+      </div>
+      <div class="thelema-card">
+        <div class="thelema-icon">⬡</div>
+        <h3 data-pl="Unicursal Hexagram" data-en="Unicursal Hexagram">Unicursal Hexagram</h3>
+        <p data-pl="Symbol Thelemy: heksagram, który można narysować jednym ruchem pióra bez odrywania. W centrum — pięciopłatkowa róża. Łączy symbolikę solarno-makrokosmiczną (sześciokąt, 6 = liczba Słońca w kabale) z mikrokosmiczną (róża = człowiek). Mnemonicznie: jeden gest = jeden symbol = cała kosmologia." data-en="The symbol of Thelema: a hexagram drawn in one stroke without lifting the pen. At its centre — a five-petalled rose. It joins solar-macrocosmic symbolism (the hexagon, 6 = the Sun's number in Kabbalah) with the microcosmic (the rose = man). Mnemonically: one gesture = one symbol = an entire cosmology.">
+          Heksagram rysowany jedną kreską. W centrum róża.
+        </p>
+      </div>
+    </div>
+
+    <p class="thelema-conclusion" data-pl="Dla mnemonika centralna teza Crowleya brzmi w Magick Book 4 (część I, rozdz. V): „Concentration is the most fundamental of all magickal acts." Koncentracja jest pierwsza. Bez niej żadna inna technika nie działa. Dlatego Liber E zaczyna się od dharany — pięciu prostych obrazów (tattw), które adept musi utrzymać w głowie minutę, potem trzy, potem godzinę. Bez tego — wszystko inne to fantazja." data-en="For the mnemonist Crowley's central thesis runs in Magick Book 4 (Part I, ch. V): „Concentration is the most fundamental of all magickal acts." Concentration comes first. Without it no other technique works. That is why Liber E starts with dharana — five simple images (the tattwas) the adept must hold in mind for one minute, then three, then an hour. Without that — everything else is fantasy.">
+      „Concentration is the most fundamental of all magickal acts." Bez niej żadna inna technika nie działa.
+    </p>
+  </div>
+</section>
+
+<!-- ========== SIX LIBRI ========== -->
+<section class="crowley-section crowley-libri">
+  <div class="crowley-container">
+    <div class="section-num">IV</div>
+    <h2 class="section-title" data-pl="Sześć tekstów mnemonicznych A∴A∴" data-en="Six mnemonic texts of the A∴A∴">Sześć tekstów mnemonicznych A∴A∴</h2>
+
+    <div class="libri-list">
+      <article class="libri-item">
+        <header class="libri-head">
+          <h3>Liber E vel Exercitiorum</h3>
+          <span class="libri-meta">Liber 9 · The Equinox I:1, 1909</span>
+        </header>
+        <p class="libri-tag" data-pl="„Księga ćwiczeń"" data-en="„The Book of Exercises"">„Księga ćwiczeń"</p>
+        <p data-pl="Podstawowy podręcznik treningowy A∴A∴. Sześć sekcji: prowadzenie dziennika, asana, kontrola oddechu (pranayama), dharana (koncentracja), kontrola myśli, kontrola ciała. Sekcja V o dharanie wprowadza pięć tattw jako pierwsze obiekty koncentracji — czarne jajo, niebieski okrąg, czerwony trójkąt, srebrny półksiężyc, żółty kwadrat. Progresja: prosty obiekt → złożony → ruchomy → świecący → żywy. Adept ma trzymać każdy z nich „przez godzinę bez przerwania" — cel ten Crowley uważał za pierwszą rzeczywistą inicjację." data-en="The basic A∴A∴ training manual. Six sections: journal-keeping, asana, breath control (pranayama), dharana (concentration), control of thought, control of body. Section V on dharana introduces the five tattwas as the first concentration objects — black egg, blue disk, red triangle, silver crescent, yellow square. Progression: simple → complex → moving → luminous → living. The adept must hold each „for an hour uninterrupted" — Crowley regarded this goal as the first real initiation.">
+          Podstawowy podręcznik. Sześć sekcji od dziennika do kontroli myśli.
+        </p>
+      </article>
+
+      <article class="libri-item">
+        <header class="libri-head">
+          <h3>Liber O vel Manus et Sagittae</h3>
+          <span class="libri-meta">Liber 6 · The Equinox I:2, 1909</span>
+        </header>
+        <p class="libri-tag" data-pl="„O Ręce i Strzale"" data-en="„Of the Hand and the Arrow"">„O Ręce i Strzale"</p>
+        <p data-pl="Praktyka operacji magicznych. Najsłynniejsza część: Lesser Banishing Ritual of the Pentagram (LBRP) — codzienny rytuał oczyszczania przestrzeni mentalnej. Wymaga jednoczesnego utrzymania w wyobraźni: czterech archaniołów (Raphael, Gabriel, Michael, Uriel), czterech kabalistycznych imion Boskich w kolorach, pentagramów rysowanych ostrzem dłoni, znaków hebrajskich rozjarzających się płomieniem, kosmicznej osi Drzewa Życia. 5—10 minut wielokanałowej wizualizacji codziennie." data-en="The practice of magical operations. The most famous part: the Lesser Banishing Ritual of the Pentagram (LBRP) — daily ritual of clearing mental space. Requires holding in imagination simultaneously: four archangels (Raphael, Gabriel, Michael, Uriel), four Kabbalistic Divine Names in colour, pentagrams drawn with the blade of the hand, Hebrew letters blazing with flame, the cosmic axis of the Tree of Life. 5—10 minutes of multi-channel visualisation, daily.">
+          LBRP — codzienny rytuał oczyszczania. 5—10 minut wielokanałowej wizualizacji.
+        </p>
+      </article>
+
+      <article class="libri-item">
+        <header class="libri-head">
+          <h3>Liber Resh vel Helios</h3>
+          <span class="libri-meta">Liber 200 · The Equinox I:6, 1911</span>
+        </header>
+        <p class="libri-tag" data-pl="„Księga Głowy" / „Helios"" data-en="„The Book of the Head" / „Helios"">„Księga Głowy" / „Helios"</p>
+        <p data-pl="Cztery codzienne adoracje słońca: świt (Ra), południe (Ahathoor), zachód (Tum), północ (Khephra). Każda krótka (30 sek), ale wymaga znajomości czterech aspektów słońca w mitologii egipskiej, czterech znaków magicznych i czterech inwokacji w angielskim z hieratycznym rytmem. Czterokrotne wykonanie dziennie przez rok = 1 460 powtórek. Technika wchodzi w ciało, nie w intelekt. Antycypuje współczesną chronobiologię (Huberman, Walker) o sto lat." data-en="Four daily solar adorations: dawn (Ra), noon (Ahathoor), sunset (Tum), midnight (Khephra). Each brief (30 sec) but requires knowledge of four solar aspects in Egyptian mythology, four magical signs and four English invocations in hieratic rhythm. Performed four times a day for a year = 1,460 reps. The technique enters the body, not the intellect. Anticipates modern chronobiology (Huberman, Walker) by a hundred years.">
+          Cztery codzienne adoracje słońca. 1 460 powtórek rocznie wchodzi w ciało.
+        </p>
+      </article>
+
+      <article class="libri-item highlight">
+        <header class="libri-head">
+          <h3>Liber תישארב Thisharb Viae Memoriae</h3>
+          <span class="libri-meta">Liber CMXIII · The Equinox I:7, 1913</span>
+        </header>
+        <p class="libri-tag" data-pl="„Drogi Pamięci" — najważniejszy tekst" data-en="„Ways of Memory" — the central text">„Drogi Pamięci" — najważniejszy tekst</p>
+        <p data-pl="Najgłębsza praca Crowleya nad pamięcią. Tytuł hebrajski ThIShARB jest czytaniem wstecznym BRShIT — pierwszego słowa Tory („Bereshit", „Na początku"). Klucz w tytule: pamiętamy świat odwrotnie. Główna technika: medytacja wsteczna — rekonstrukcja dnia od końca do początku, z każdym gestem, słowem, oddechem. Cel oficjalny: wgląd w przeszłe życia. Cel naukowy: najsilniejsze znane ćwiczenie pamięci epizodycznej. Pełna instrukcja + 7-dniowy plan startowy w rozdziale 14 kompendium." data-en="Crowley's deepest work on memory. The Hebrew title ThIShARB is the reverse reading of BRShIT — the first word of the Torah („Bereshit", „In the beginning"). The key in the title: we remember the world backwards. Main technique: reverse meditation — reconstructing the day from end to beginning, every gesture, word, breath. Official aim: insight into past lives. Scientific aim: the strongest known exercise in episodic memory. Full instructions + 7-day starter plan in chapter 14 of the compendium.">
+          Medytacja wsteczna — najsilniejsze ćwiczenie pamięci epizodycznej Zachodu.
+        </p>
+      </article>
+
+      <article class="libri-item">
+        <header class="libri-head">
+          <h3>Magical Record</h3>
+          <span class="libri-meta">Praktyka codzienna · od 1898 do śmierci</span>
+        </header>
+        <p class="libri-tag" data-pl="„Dziennik magiczny"" data-en="„Magical Diary"">„Dziennik magiczny"</p>
+        <p data-pl="Crowley wymagał codziennego dziennika opisującego każdą operację, medytację, sen, posiłek, pogodę, emocję, spotkanie. Dziennik staje się: zewnętrzną pamięcią (analog Obsidian/Roam), lustrem dla wstecznej medytacji, bazą danych własnych wzorców. Crowley opublikował własny The Magical Record of the Beast 666 (1914—1920) — 100 lat przed Quantified Self movement." data-en="Crowley required a daily journal describing every operation, meditation, dream, meal, weather, emotion, encounter. The diary becomes: external memory (Obsidian/Roam analogue), mirror for reverse meditation, database of one's own patterns. Crowley published his own The Magical Record of the Beast 666 (1914—1920) — 100 years before the Quantified Self movement.">
+          Codzienny dziennik. 100 lat przed Quantified Self.
+        </p>
+      </article>
+
+      <article class="libri-item">
+        <header class="libri-head">
+          <h3>Liber Astarte vel Berylli</h3>
+          <span class="libri-meta">Liber 175 · 1916</span>
+        </header>
+        <p class="libri-tag" data-pl="„Bhakti-yoga oddania"" data-en="„Bhakti yoga of devotion"">„Bhakti-yoga oddania"</p>
+        <p data-pl="Mnemonika koncentracji na wybranym bóstwie. Adept wybiera jedno (Isis, Shiva, Jezus, Krishna), buduje wyobrażenie absolutnie precyzyjne — kolor szat, atrybuty, wyraz twarzy, otoczenie, dźwięk głosu — i nosi to wyobrażenie w głowie przez wszystkie chwile dnia przez tydzień, miesiąc, rok. Aż obraz „ożyje". To Brunowska figura archetypowa przeniesiona w XX wiek. Współczesny przekład: dual coding Paivio na skalę roczną." data-en="A mnemonics of concentration on a chosen deity. The adept picks one (Isis, Shiva, Jesus, Krishna), builds an absolutely precise image — robe colour, attributes, face, setting, voice — and carries it through every moment of the day for a week, month, year. Until the image „comes alive". The Brunonian archetypal figure carried into the 20th c. Modern translation: Paivio's dual coding on a yearly scale.">
+          Wyobrażenie jednego bóstwa noszone przez rok. Brunowska figura archetypowa w XX w.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== THISHARB DETAILED ========== -->
+<section class="crowley-section crowley-thisharb">
+  <div class="crowley-container">
+    <div class="section-num">V</div>
+    <h2 class="section-title" data-pl="Liber Thisharb · pamięć wsteczna w szczegółach" data-en="Liber Thisharb · reverse memory in detail">Liber Thisharb · pamięć wsteczna w szczegółach</h2>
+
+    <p class="thisharb-lead" data-pl="Z całego dorobku Crowleya, jedna technika ma najbliższy związek z mnemoniką jako dyscypliną naukową: wsteczna medytacja z Liber CMXIII (1913). Działa niezależnie od interpretacji metafizycznej. Spróbuj." data-en="Of all Crowley's work, one technique stands closest to mnemonics as a scientific discipline: the reverse meditation from Liber CMXIII (1913). It works regardless of metaphysical interpretation. Try it.">
+      Wsteczna medytacja działa niezależnie od interpretacji metafizycznej. Spróbuj.
+    </p>
+
+    <div class="thisharb-etym">
+      <div class="thisharb-etym-block">
+        <div class="hebrew">בראשית</div>
+        <div class="etym-label" data-pl="Bereshit (Tora, Rdz 1:1)" data-en="Bereshit (Torah, Gen 1:1)">Bereshit (Tora, Rdz 1:1)</div>
+        <div class="etym-meaning" data-pl="„Na początku"" data-en="„In the beginning"">„Na początku"</div>
+      </div>
+      <div class="thisharb-arrow">↺</div>
+      <div class="thisharb-etym-block">
+        <div class="hebrew">תישארב</div>
+        <div class="etym-label" data-pl="ThIShARB (Liber CMXIII)" data-en="ThIShARB (Liber CMXIII)">ThIShARB (Liber CMXIII)</div>
+        <div class="etym-meaning" data-pl="Klucz: świat czytany wstecz" data-en="Key: the world read backwards">Klucz: świat czytany wstecz</div>
+      </div>
+    </div>
+
+    <h3 class="thisharb-h3" data-pl="Plan pierwszego tygodnia" data-en="First week's plan">Plan pierwszego tygodnia</h3>
+    <ol class="thisharb-week">
+      <li><span class="tw-day">Dzień 1</span><span class="tw-text" data-pl="Ostatnie 5 minut. 4× dziennie. Po prostu naucz się myśleć wstecz." data-en="Last 5 minutes. 4× daily. Just learn to think backwards.">Ostatnie 5 minut. 4× dziennie. Po prostu naucz się myśleć wstecz.</span></li>
+      <li><span class="tw-day">Dzień 2</span><span class="tw-text" data-pl="Ostatnie 15 minut. 3× dziennie. Zauważ drobiazgi: kolor, gesty, dźwięki." data-en="Last 15 minutes. 3× daily. Notice details: colour, gestures, sounds.">Ostatnie 15 minut. 3× dziennie. Zauważ drobiazgi: kolor, gesty, dźwięki.</span></li>
+      <li><span class="tw-day">Dzień 3</span><span class="tw-text" data-pl="Ostatnia godzina. 2× dziennie. Posiłek wstecz, krzesło wstecz, droga wstecz." data-en="Last hour. 2× daily. Meal backwards, chair backwards, road backwards.">Ostatnia godzina. 2× dziennie. Posiłek wstecz, krzesło wstecz, droga wstecz.</span></li>
+      <li><span class="tw-day">Dzień 4</span><span class="tw-text" data-pl="Pół dnia. 1× wieczorem. Od kolacji do śniadania." data-en="Half a day. 1× in the evening. From dinner back to breakfast.">Pół dnia. 1× wieczorem. Od kolacji do śniadania.</span></li>
+      <li><span class="tw-day">Dzień 5</span><span class="tw-text" data-pl="Cały dzień. 1× przed snem. Od „kładę się" do „budzę się dziś rano"." data-en="The whole day. 1× before sleep. From „I lie down" back to „I wake up this morning".">Cały dzień. 1× przed snem. Od „kładę się" do „budzę się dziś rano".</span></li>
+      <li><span class="tw-day">Dzień 6</span><span class="tw-text" data-pl="Wczoraj + dziś. 2×. Sprawdzenie czy ślady są stabilne." data-en="Yesterday + today. 2×. Check that the traces are stable.">Wczoraj + dziś. 2×. Sprawdzenie czy ślady są stabilne.</span></li>
+      <li><span class="tw-day">Dzień 7</span><span class="tw-text" data-pl="Tydzień wstecz. 1×. Dzień po dniu, od dziś do soboty temu. Zapisz w dzienniku odzyskane szczegóły." data-en="A week back. 1×. Day by day, from today to last Saturday. Record recovered details in the diary.">Tydzień wstecz. 1×. Dzień po dniu, od dziś do soboty temu. Zapisz w dzienniku odzyskane szczegóły.</span></li>
+    </ol>
+
+    <h3 class="thisharb-h3" data-pl="Alternatywne ćwiczenia (§10—12 Libri)" data-en="Alternative exercises (Libri §10—12)">Alternatywne ćwiczenia (§10—12 Libri)</h3>
+    <ul class="thisharb-alt">
+      <li data-pl="Recytuj alfabet od tyłu. Dni tygodnia od soboty do niedzieli. Miesiące od grudnia do stycznia. Liczby od 100 do 1 jak modlitwę." data-en="Recite the alphabet backwards. Days of the week from Saturday to Sunday. Months from December to January. Numbers 100 to 1 like a prayer.">Recytuj alfabet od tyłu. Dni tygodnia od soboty do niedzieli. Miesiące od grudnia do stycznia. Liczby od 100 do 1 jak modlitwę.</li>
+      <li data-pl="Czytaj książkę, której strony są ułożone w odwrotnej kolejności. Trzy strony dziennie." data-en="Read a book whose pages are reordered backwards. Three pages a day.">Czytaj książkę, której strony są ułożone w odwrotnej kolejności. Trzy strony dziennie.</li>
+      <li data-pl="Recytuj wiersz, który znasz dobrze — od tyłu, słowo po słowie. Klasyka: „Litwo, Ojczyzno moja" od ostatniej linii." data-en="Recite a poem you know well — backwards, word by word. Classics: any well-known poem from the last line.">Recytuj wiersz, który znasz dobrze — od tyłu, słowo po słowie. Klasyka: „Litwo, Ojczyzno moja" od ostatniej linii.</li>
+    </ul>
+
+    <a href="../portal/#techniques" class="thisharb-cta">
+      <span class="cta-eyebrow" data-pl="Praktyka" data-en="Practice">Praktyka</span>
+      <span class="cta-title" data-pl="Modal Wstecznej medytacji w sekcji Techniki →" data-en="Reverse meditation modal in the Techniques section →">Modal Wstecznej medytacji w sekcji Techniki →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ========== MAGICAL RECORD ========== -->
+<section class="crowley-section crowley-record">
+  <div class="crowley-container">
+    <div class="section-num">VI</div>
+    <h2 class="section-title" data-pl="Magical Record · Quantified Self ante litteram" data-en="Magical Record · Quantified Self before its time">Magical Record · Quantified Self ante litteram</h2>
+
+    <p class="record-lead" data-pl="Crowley wymagał od każdego adepta codziennego dziennika opisującego każdy szczegół: medytacje, sny, posiłki, pogodę, emocje, każde spotkanie. Sam prowadził Magical Record od 1898 r. do końca życia — opublikowane fragmenty (1914—1920) to jeden z najdetailowszych dokumentów osobistych XX w." data-en="Crowley required every adept to keep a daily diary describing every detail: meditations, dreams, meals, weather, emotions, every encounter. He kept his own Magical Record from 1898 to the end of his life — the published fragments (1914—1920) are one of the most detailed personal documents of the 20th century.">
+      Sam prowadził Magical Record od 1898 r. do końca życia.
+    </p>
+
+    <p data-pl="Cztery funkcje dziennika magicznego, każda aktualna dzisiaj:" data-en="Four functions of the magical diary, each current today:">Cztery funkcje dziennika magicznego, każda aktualna dzisiaj:</p>
+
+    <ol class="record-functions">
+      <li data-pl="ZEWNĘTRZNA PAMIĘĆ — analog Obsidian, Roam Research, Notion. Co nie zostało zapisane, ginie po tygodniu. Co zapisane — można wezwać po dwudziestu latach." data-en="EXTERNAL MEMORY — the analogue of Obsidian, Roam Research, Notion. What is not written down is gone in a week. What is written can be summoned twenty years later."><strong>Zewnętrzna pamięć</strong> — analog Obsidian, Roam Research, Notion. Co nie zostało zapisane, ginie po tygodniu.</li>
+      <li data-pl="LUSTRO DLA WSTECZNEJ MEDYTACJI — przeczytanie wpisu sprzed roku reaktywuje pełen kontekst emocjonalny i sensoryczny dnia." data-en="MIRROR FOR REVERSE MEDITATION — reading a year-old entry reactivates the full emotional and sensory context of that day."><strong>Lustro dla wstecznej medytacji</strong> — przeczytanie wpisu sprzed roku reaktywuje pełen kontekst dnia.</li>
+      <li data-pl="BAZA DANYCH WZORCÓW — śledzenie pogody, snu, nastroju, produktywności pozwala wykryć korelacje, których nie widzi intuicja. Crowley wprost o tym pisał: „Liczyć — to znaczy widzieć"." data-en="DATABASE OF PATTERNS — tracking weather, sleep, mood, productivity reveals correlations invisible to intuition. Crowley wrote explicitly: „To count is to see"."><strong>Baza danych wzorców</strong> — śledzenie pogody, snu, nastroju ujawnia korelacje niewidoczne dla intuicji.</li>
+      <li data-pl="MATHERS TABLE DLA SAMEGO SIEBIE — dziennik staje się osobistym kompendium symboli, snów, archetypów, na który adept buduje własną mnemonikę." data-en="MATHERS TABLE FOR THE SELF — the diary becomes a personal compendium of symbols, dreams, archetypes onto which the adept builds his own mnemonics."><strong>Mathers Table dla samego siebie</strong> — dziennik staje się osobistym kompendium symboli i archetypów.</li>
+    </ol>
+
+    <div class="record-quote">
+      <p data-pl="„Bez Magical Record praktyka magiczna jest jak nauka chemii bez wagi. Wszystko, co masz — to wrażenia, które kłamią." — Aleister Crowley, Magick Book 4, Część III" data-en="„Without the Magical Record, magical practice is like chemistry without a balance. All you have are impressions, which lie." — Aleister Crowley, Magick Book 4, Part III">
+        „Bez Magical Record praktyka magiczna jest jak nauka chemii bez wagi. Wszystko, co masz — to wrażenia, które kłamią."
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== INFLUENCE ========== -->
+<section class="crowley-section crowley-influence">
+  <div class="crowley-container">
+    <div class="section-num">VII</div>
+    <h2 class="section-title" data-pl="Wpływ na XX i XXI wiek" data-en="Influence on the 20th and 21st centuries">Wpływ na XX i XXI wiek</h2>
+
+    <div class="cinfluence-timeline">
+      <div class="cift-row">
+        <div class="cift-period" data-pl="Lata 60." data-en="1960s">Lata 60.</div>
+        <div class="cift-content"><strong>The Beatles</strong> umieszczają twarz Crowleya na okładce albumu <em>Sgt. Pepper's Lonely Hearts Club Band</em> (1967), w lewym górnym rogu. <strong>Timothy Leary</strong> nawiązuje do Crowleya w eseju psychodelicznym. Kontrkulturowa rehabilitacja po 13 latach milczenia po jego śmierci.</div>
+      </div>
+      <div class="cift-row highlight">
+        <div class="cift-period" data-pl="1971" data-en="1971">1971</div>
+        <div class="cift-content"><strong>Jimmy Page</strong> z Led Zeppelin kupuje Boleskine House nad Loch Ness — dom Crowleya z 1899 r. Otwiera w Londynie księgarnię Equinox (1975—1979) sprzedającą wyłącznie pierwsze wydania Crowleya. Wpływ słyszalny w trzeciej i czwartej płycie Led Zeppelin (symbol „ZoSo" Page'a jest skomponowany w stylu sigili).</div>
+      </div>
+      <div class="cift-row">
+        <div class="cift-period" data-pl="Lata 70.—80." data-en="1970s—80s">Lata 70.—80.</div>
+        <div class="cift-content"><strong>David Bowie</strong> w <em>Quicksand</em> (1971): „I'm closer to the Golden Dawn / Immersed in Crowley's uniform / Of imagery". <strong>Throbbing Gristle</strong> i <strong>Genesis P-Orridge</strong> tworzą Temple ov Psychick Youth (1981) — kolektyw bezpośrednio kontynuujący Thelemę w wersji industrial. <strong>Kenneth Anger</strong> nakręca <em>Lucifer Rising</em> (1972, 1981) z Crowleyem jako patronem.</div>
+      </div>
+      <div class="cift-row">
+        <div class="cift-period" data-pl="Lata 80.—2000." data-en="1980s—2000">Lata 80.—2000.</div>
+        <div class="cift-content"><strong>Chaos magic</strong>: Peter Carroll, Phil Hine, Ramsey Dukes wyciągają z Crowleya skuteczne techniki (LBRP, sigile, koncentracja), porzucając jego XIX-wieczny kostium ezoteryczny. Crowleyowska metoda staje się jednym z trzech filarów współczesnej magii zachodniej (obok Złotego Brzasku i tradycji wicca).</div>
+      </div>
+      <div class="cift-row">
+        <div class="cift-period" data-pl="XXI w." data-en="21st c.">XXI w.</div>
+        <div class="cift-content"><strong>Alan Moore</strong> w <em>Promethea</em> (1999—2005) i <em>From Hell</em> czyni Crowleya patronem mistycznej historii literackiej. <strong>Grant Morrison</strong> w <em>The Invisibles</em> i własnym manifeście chaos magic. <strong>Marco Pasi</strong>, <strong>Henrik Bogdan</strong>, <strong>Egil Asprem</strong> — akademiccy historycy ezoteryki, którzy w latach 2000—2020 wprowadzili Crowleya do mainstreamu studiów religioznawczych. Crowley stale obecny w popkulturze (Sopranos, Penny Dreadful, Mr. Robot — odniesienia bezpośrednie lub kostiumowe).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CRITIQUE ========== -->
+<section class="crowley-section crowley-critique">
+  <div class="crowley-container">
+    <div class="section-num">VIII</div>
+    <h2 class="section-title" data-pl="Krytyka · człowiek i metoda" data-en="Critique · the man and the method">Krytyka · człowiek i metoda</h2>
+
+    <p class="critique-lead" data-pl="Crowley był osobą skrajnie problematyczną etycznie. Autorytarność wobec adeptów, narkomania od końca 20. roku życia, kłamstwa biograficzne, traktowanie kobiet (Leah Hirsig, Rose Kelly, wiele innych) na granicy znęcania się i poza nią. Nie ma sensu temu zaprzeczać. To, że jego techniki mnemoniczne działają, nie czyni jego życia wzorem." data-en="Crowley was a deeply problematic figure ethically. Authoritarianism toward adepts, drug addiction from his late twenties, biographical lies, treatment of women (Leah Hirsig, Rose Kelly, many others) on the borderline of abuse and beyond. There is no point denying it. The fact that his mnemonic techniques work does not make his life a model.">
+      To, że jego techniki działają, nie czyni jego życia wzorem.
+    </p>
+
+    <p data-pl="Rozróżnienie jest fundamentalne — i znajome wszystkim, którzy chcą uczyć się od mistrzów problematycznych (Wagner, Heidegger, Eliade):" data-en="The distinction is fundamental — and familiar to anyone who wants to learn from problematic masters (Wagner, Heidegger, Eliade):">Rozróżnienie jest fundamentalne:</p>
+
+    <div class="critique-grid">
+      <div class="critique-col">
+        <h3 data-pl="CZŁOWIEK — odrzucamy" data-en="THE MAN — we reject">CZŁOWIEK — odrzucamy</h3>
+        <ul>
+          <li data-pl="autorytarne traktowanie adeptów" data-en="authoritarian treatment of adepts">autorytarne traktowanie adeptów</li>
+          <li data-pl="uzależnienie od heroiny do końca życia" data-en="heroin addiction until death">uzależnienie od heroiny do końca życia</li>
+          <li data-pl="manipulacja seksualna i emocjonalna" data-en="sexual and emotional manipulation">manipulacja seksualna i emocjonalna</li>
+          <li data-pl="bankructwo i wykorzystanie spadku adeptów" data-en="bankruptcy and exploitation of adepts' inheritance">bankructwo i wykorzystanie spadku adeptów</li>
+          <li data-pl="rasistowskie i mizoginiczne wypowiedzi" data-en="racist and misogynistic statements">rasistowskie i mizoginiczne wypowiedzi</li>
+          <li data-pl="kłamstwa biograficzne i autopromocyjne" data-en="biographical and self-promotional lies">kłamstwa biograficzne i autopromocyjne</li>
+        </ul>
+      </div>
+      <div class="critique-col">
+        <h3 data-pl="METODA — bierzemy" data-en="THE METHOD — we take">METODA — bierzemy</h3>
+        <ul>
+          <li data-pl="dharana z mierzeniem czasu (Liber E)" data-en="dharana with timed sessions (Liber E)">dharana z mierzeniem czasu (Liber E)</li>
+          <li data-pl="LBRP jako trening wielokanałowej wizualizacji" data-en="LBRP as multi-channel visualisation training">LBRP jako trening wielokanałowej wizualizacji</li>
+          <li data-pl="cztery adoracje słońca jako anchor okołodobowy" data-en="four solar adorations as circadian anchor">cztery adoracje słońca jako anchor okołodobowy</li>
+          <li data-pl="wsteczna medytacja Liber Thisharb" data-en="reverse meditation of Liber Thisharb">wsteczna medytacja Liber Thisharb</li>
+          <li data-pl="Magical Record jako dziennik wglądu i danych" data-en="Magical Record as journal of insight and data">Magical Record jako dziennik wglądu i danych</li>
+          <li data-pl="dyscyplina codziennej praktyki bez wyjątku" data-en="discipline of daily practice without exception">dyscyplina codziennej praktyki bez wyjątku</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="critique-warning" data-pl="OSTRZEŻENIE PRAKTYCZNE: wsteczna medytacja Liber Thisharb wykonywana bez przerw może wywołać epizody dysocjacyjne. Dion Fortune ostrzegała o tym w Psychic Self-Defence (1930). Maksimum 20 minut na sesję. Nie łączyć z długim postem ani brakiem snu. Jeśli czujesz dziwne zniekształcenia czasu i przestrzeni — przerwij na tydzień, zjedz coś ciepłego, wyjdź na spacer." data-en="PRACTICAL WARNING: Liber Thisharb's reverse meditation done without breaks can trigger dissociative episodes. Dion Fortune warned about this in Psychic Self-Defence (1930). Sessions of 20 min max. Don't combine with deep fasting or sleep deprivation. If you start to feel odd distortions of time and space — stop for a week, eat something warm, take a walk.">
+      OSTRZEŻENIE PRAKTYCZNE: wsteczna medytacja wykonywana bez przerw może wywołać epizody dysocjacyjne. Max 20 min na sesję.
+    </p>
+  </div>
+</section>
+
+<!-- ========== LESSONS ========== -->
+<section class="crowley-section crowley-lessons">
+  <div class="crowley-container">
+    <div class="section-num">IX</div>
+    <h2 class="section-title" data-pl="Pięć lekcji dla dzisiejszego mnemonika" data-en="Five lessons for today's mnemonist">Pięć lekcji dla dzisiejszego mnemonika</h2>
+
+    <div class="clessons-grid">
+      <div class="clesson">
+        <div class="clesson-num">1</div>
+        <h3 data-pl="Koncentracja jest pierwsza" data-en="Concentration comes first">Koncentracja jest pierwsza</h3>
+        <p data-pl="Bez utrzymania jednego prostego obrazu przez minutę żadna inna technika nie działa. Zacznij od pięciu tattw (czarne jajo, niebieski okrąg, czerwony trójkąt, srebrny półksiężyc, żółty kwadrat). 5 min dziennie przez 30 dni." data-en="Without holding one simple image for a minute, no other technique works. Start with the five tattwas (black egg, blue disk, red triangle, silver crescent, yellow square). 5 min daily for 30 days.">
+          Bez utrzymania jednego prostego obrazu przez minutę żadna inna technika nie działa.
+        </p>
+      </div>
+      <div class="clesson">
+        <div class="clesson-num">2</div>
+        <h3 data-pl="Prowadź dziennik. Codziennie." data-en="Keep a diary. Every day.">Prowadź dziennik. Codziennie.</h3>
+        <p data-pl="Wieczorny wpis 10 minut. Body, emocje, czytany materiał, sny, drobiazgi rozmów. Po roku masz 36 godzin wglądu w siebie, których inaczej byś nie miał. Nie magia — metodologia." data-en="Evening entry, 10 minutes. Body, emotions, material read, dreams, snippets of conversations. After a year you have 36 hours of self-insight you would not otherwise have. Not magic — methodology.">
+          10 min wieczorem przez rok = 36 godzin wglądu w siebie.
+        </p>
+      </div>
+      <div class="clesson">
+        <div class="clesson-num">3</div>
+        <h3 data-pl="Cztery razy dziennie zatrzymaj się" data-en="Stop four times a day">Cztery razy dziennie zatrzymaj się</h3>
+        <p data-pl="Liber Resh w wersji świeckiej: świt, południe, zachód, północ. 30 sekund uważności. Bez egipskich bogów — wystarczy spojrzenie w słońce, wdech, kotwica „jestem tu". 2 minuty dziennie restrukturyzują dobę." data-en="Liber Resh secularised: dawn, noon, sunset, midnight. 30 seconds of attention. No Egyptian gods needed — just a look toward the sun, a breath, the anchor „I am here". 2 minutes a day restructure the day.">
+          Świt · południe · zachód · północ. 30 sekund × 4 = 2 minuty, które restrukturyzują dobę.
+        </p>
+      </div>
+      <div class="clesson">
+        <div class="clesson-num">4</div>
+        <h3 data-pl="Pamiętaj wstecz" data-en="Remember backwards">Pamiętaj wstecz</h3>
+        <p data-pl="Liber Thisharb: 10 minut przed snem, rekonstrukcja dnia od końca do początku. Pierwszy tydzień boli. Po miesiącu pamiętasz drobiazgi rozmów, których inaczej byś nie zarejestrował. Po pół roku — dni sprzed lat." data-en="Liber Thisharb: 10 minutes before sleep, reconstructing the day end to start. The first week hurts. After a month you remember snippets of conversation you wouldn't have registered. After half a year — days from years ago.">
+          10 min przed snem. Rekonstrukcja dnia od końca. Po miesiącu odzyskujesz drobiazgi.
+        </p>
+      </div>
+      <div class="clesson">
+        <div class="clesson-num">5</div>
+        <h3 data-pl="Dyscyplina codziennej praktyki" data-en="Discipline of daily practice">Dyscyplina codziennej praktyki</h3>
+        <p data-pl="Crowley pisał: „A∴A∴ daje rezultaty tylko tym, którzy pracują codziennie. Trzy dni przerwy = trzy tygodnie do nadrobienia." Bez wyjątków — sobota i święta też. Pamięć jest funkcją rytmu, nie nakładów." data-en="Crowley wrote: „A∴A∴ yields results only to those who work daily. Three days off = three weeks to make up." No exceptions — Saturdays and holidays too. Memory is a function of rhythm, not effort.">
+          Bez wyjątków. Pamięć jest funkcją rytmu, nie nakładów.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== READING ========== -->
+<section class="crowley-section crowley-reading">
+  <div class="crowley-container">
+    <div class="section-num">X</div>
+    <h2 class="section-title" data-pl="Dalsza lektura" data-en="Further reading">Dalsza lektura</h2>
+
+    <div class="creading-grid">
+      <div class="creading-col">
+        <h3 class="creading-cat" data-pl="Główne dzieła Crowleya" data-en="Crowley's main works">Główne dzieła Crowleya</h3>
+        <ul class="creading-list">
+          <li><strong>Magick (Book 4)</strong> — tetralogia (Część I: Mistycyzm, II: Magick Elementarna, III: Magick w Teorii i Praktyce, IV: Liber Aleph). Pełne wydanie krytyczne: Weiser 1997. Po polsku fragmenty w „Magia w teorii i praktyce" (Wyd. Studio Astropsychologii).</li>
+          <li><strong>The Confessions of Aleister Crowley</strong> (1929) — autobiografia 1100 stron. Klasyk literatury okultystycznej.</li>
+          <li><strong>The Magical Record of the Beast 666</strong> (red. John Symonds, 1972) — dziennik 1914—1920.</li>
+          <li><strong>777 and Other Qabalistic Writings</strong> (1909) — tablice korespondencji kabały hermetycznej.</li>
+        </ul>
+      </div>
+      <div class="creading-col">
+        <h3 class="creading-cat" data-pl="Biografie i studia naukowe" data-en="Biographies and scholarship">Biografie i studia naukowe</h3>
+        <ul class="creading-list">
+          <li><strong>Lawrence Sutin</strong>, <em>Do What Thou Wilt: A Life of Aleister Crowley</em> (St. Martin's, 2000). Najlepsza nowoczesna biografia.</li>
+          <li><strong>Marco Pasi</strong>, <em>Aleister Crowley and the Temptation of Politics</em> (Acumen, 2014). Akademicka, kontekst polityczny.</li>
+          <li><strong>Tobias Churton</strong>, <em>Aleister Crowley: The Biography</em> (Watkins, 2011).</li>
+          <li><strong>Henrik Bogdan, Martin Starr (red.)</strong>, <em>Aleister Crowley and Western Esotericism</em> (Oxford UP, 2012).</li>
+        </ul>
+      </div>
+      <div class="creading-col">
+        <h3 class="creading-cat" data-pl="Online" data-en="Online">Online</h3>
+        <ul class="creading-list">
+          <li><a href="https://hermetic.com/" target="_blank">Hermetic Library</a> — kompletne wydania Crowleya online</li>
+          <li><a href="https://sacred-texts.com/oto/" target="_blank">Sacred Texts Archive · OTO</a> — Liber Libri skanowane</li>
+          <li><a href="http://www.thelemapedia.org/" target="_blank">Thelemapedia</a> — encyklopedia thelemiczna</li>
+          <li><a href="https://lashtal.com/" target="_blank">LAShTAL</a> — forum thelemiczne</li>
+          <li><a href="viewer.html?doc=14-zloty-brzask-crowley">Rozdział 14 kompendium MNEMO →</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== QUOTES ========== -->
+<section class="crowley-section crowley-quotes">
+  <div class="crowley-container">
+    <div class="section-num">XI</div>
+    <h2 class="section-title" data-pl="Cytaty dla mnemonika" data-en="Quotes for the mnemonist">Cytaty dla mnemonika</h2>
+
+    <div class="cquotes-grid">
+      <blockquote class="cbq">
+        <p lang="en">„Concentration is the most fundamental of all magickal acts."</p>
+        <cite data-pl="Koncentracja jest najbardziej podstawowym ze wszystkich aktów magicznych." data-en="Magick Book 4, Part I">Koncentracja jest najbardziej podstawowym ze wszystkich aktów magicznych.</cite>
+      </blockquote>
+      <blockquote class="cbq">
+        <p lang="en">„Do what thou wilt shall be the whole of the Law. Love is the law, love under will."</p>
+        <cite data-pl="Czyń wedle swej Woli będzie całością Prawa. Miłość jest prawem, miłość pod Wolą." data-en="Liber AL vel Legis, I:40 / I:57">Czyń wedle swej Woli będzie całością Prawa. Miłość jest prawem, miłość pod Wolą.</cite>
+      </blockquote>
+      <blockquote class="cbq">
+        <p lang="en">„The Magical Record is to the Magician what the laboratory note-book is to the scientist."</p>
+        <cite data-pl="Magical Record jest dla Maga tym, czym laboratoryjny zeszyt dla naukowca." data-en="Magick Book 4, Part III">Magical Record jest dla Maga tym, czym laboratoryjny zeszyt dla naukowca.</cite>
+      </blockquote>
+      <blockquote class="cbq">
+        <p lang="en">„Memory is the foundation of all spiritual practice. Without it, no progress is possible."</p>
+        <cite data-pl="Pamięć jest fundamentem wszelkiej duchowej praktyki. Bez niej żaden postęp nie jest możliwy." data-en="Liber Thisharb, introduction">Pamięć jest fundamentem wszelkiej duchowej praktyki. Bez niej żaden postęp nie jest możliwy.</cite>
+      </blockquote>
+    </div>
+
+    <div class="crowley-final">
+      <p class="cfinal-quote" lang="en">
+        „Every man and every woman is a star."
+      </p>
+      <cite data-pl="— Liber AL vel Legis, I:3 · Każdy człowiek i każda kobieta są gwiazdą." data-en="— Liber AL vel Legis, I:3">— Liber AL vel Legis, I:3 · Każdy człowiek i każda kobieta są gwiazdą.</cite>
+    </div>
+  </div>
+</section>
+
+<!-- ========== NAV ========== -->
+<section class="crowley-section crowley-nav">
+  <div class="crowley-container">
+    <nav class="chapter-nav">
+      <a href="viewer.html?doc=14-zloty-brzask-crowley">
+        <span class="nav-label">← <span data-pl="rozdział kompendium" data-en="compendium chapter">rozdział kompendium</span></span>
+        <span class="nav-title" data-pl="14 · Złoty Brzask i Crowley" data-en="14 · Golden Dawn & Crowley">14 · Złoty Brzask i Crowley</span>
+      </a>
+      <a href="bruno.html">
+        <span class="nav-label" data-pl="patron osobny ↗" data-en="separate patron ↗">patron osobny ↗</span>
+        <span class="nav-title" data-pl="Giordano Bruno (1548—1600)" data-en="Giordano Bruno (1548—1600)">Giordano Bruno (1548—1600)</span>
+      </a>
+    </nav>
+  </div>
+</section>
+
+<script src="kompendium.js"></script>
+<script>
+window.addEventListener('scroll', () => {
+  const h = document.documentElement;
+  const scrolled = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+  document.getElementById('progress').style.width = scrolled + '%';
+}, { passive: true });
+</script>
+</body>
+</html>
