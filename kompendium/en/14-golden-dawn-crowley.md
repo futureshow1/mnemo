@@ -37,9 +37,28 @@ Mathers created **five Knowledge Lectures**, one for each grade of the Outer Ord
 | **3 = 8 Practicus** | הוד | Hod | Hod table, Mercury, **16 geomantic figures** with attributions, Water signs, Aristotle-Lull tree of life |
 | **4 = 7 Philosophus** | נצח | Netzach | Netzach table, Venus, Fire signs, path to the Portal, Kabbalistic gematria, foundations of Enochian |
 
-The **Mathers Table** was the core instrument — a vast cross-index of **32 paths + 10 sephiroth × multiple columns** (names, colours, myths, perfumes, plants, metals, demons, angels, tarot cards, spirit hierarchies). Crowley would later develop this in *777 and Other Qabalistic Writings* (1909).
+The **Mathers Table** was the core instrument — a vast cross-index of **32 paths + 10 sephiroth × multiple columns** (names, colours, myths, perfumes, plants, metals, demons, angels, tarot cards, spirit hierarchies).
 
-This is **the most demanding mnemonic ritual in Western occult history**. Modern comparison: mastering the full Mathers stack equals learning 5,000 Anki cards in fully contextualised narrative.
+### 777 — operational database of the whole system
+
+What Mathers had kept secret in the Golden Dawn manuscripts, **Crowley published in 1909 as *777 vel Prolegomena Symbolica*** — breaking his oath of silence and causing a schism with Mathers. *777* is not a ritual Liber — it is the **structural foundation for all the others**, the operational database of the entire hermetic system.
+
+**What 777 contains exactly:**
+
+- **32 paths of the Tree of Life** (10 sephiroth + 22 connections) crossed with **191 columns of correspondences** (Crowley's own count)
+- **Hebrew and Greek** Divine Names, archangels, angelic choirs, Goetic demon hierarchies
+- **colours in 4 scales** of the Golden Dawn: King (male sephiroth), Queen (female sephiroth), Prince (male paths), Princess (female paths)
+- perfumes, precious stones, plants, animals, tastes, sounds
+- **Greco-Roman, Egyptian, Hindu, Gnostic, Scandinavian** myths — each column as a separate tradition
+- **alphabets**: Hebrew, Greek, Arabic, **Enochian** (John Dee's)
+- **geomancy, astrology, tarot, ceremonial magic** in a single cross-grid
+- **Tarot card attributions** to the paths of the Tree of Life (the template still used in the Rider-Waite-Smith deck)
+
+**Crowley called 777 „the magickal memory of mankind".** His introduction is one of his best texts on hermetic method: it explains **what mnemonic analogy is as a cognitive tool**, why the correspondences are not arbitrary, how to build your own. A **mnemonic manifesto**.
+
+**Practical mechanism of 777:** if you know ONE column for a given sephira, through 777 you find all the others. Want to memorize Yesod (9th sephira)? *777* says: planet Moon, colour pearl-silver, stone quartz and pearl, perfume jasmine, deity Diana / Artemis / Chandra, archangel Gabriel, choir Cherubim, animal elephant, myth Zeus becoming a swan. **Each column is a separate mnemonic hook for the same idea.** Remember one — you remember them all. This is an embodiment of the hypertext principle „every node connected to every other".
+
+This is **the most demanding mnemonic ritual in Western occult history**. Modern comparison: mastering the full Mathers stack + *777* equals learning **8,000—10,000 Anki cards** in fully contextualised narrative and symbolic form.
 
 ---
 

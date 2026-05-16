@@ -37,9 +37,28 @@ Mathers stworzył **pięć Knowledge Lectures** (Wykładów Wiedzy), po jednym d
 | **3 = 8 Practicus** | הוד | Hod | Tablica Hod, Merkury, **16 figur geomancji** z atrybutami, znaki Wody, drzewo życia Aristotelesa-Lulla |
 | **4 = 7 Philosophus** | נצח | Netzach | Tablica Netzach, Wenus, znaki Ognia, droga do Portalu, kabalistyczne sumy gematryczne, podstawy Enochu |
 
-**Mathers Table** (tablica Mathersa) była podstawowym narzędziem — wielki zwód korespondencji **32 ścieżek + 10 sefir × kilkanaście kolumn** (imiona, kolory, mity, perfumy, rośliny, metale, demony, anioły, karty tarota, hierarchie duchowe). Późniejsze rozwinięcie znajdujemy w *777 and Other Qabalistic Writings* Crowleya (1909).
+**Mathers Table** (tablica Mathersa) była podstawowym narzędziem — wielki zwód korespondencji **32 ścieżek + 10 sefir × kilkanaście kolumn** (imiona, kolory, mity, perfumy, rośliny, metale, demony, anioły, karty tarota, hierarchie duchowe).
 
-To **najtwardszy rytuał pamięciowy w okultystycznej historii Zachodu**. Współczesne porównanie: opanowanie pełnego stosu Mathersa odpowiada nauce 5 000 fiszek Anki w pełnym kontekście narracyjnym.
+### 777 — operacyjna baza danych całego systemu
+
+To, co Mathers zostawił w manuskryptach Złotego Brzasku jako tajne, **Crowley opublikował w 1909 r. jako *777 vel Prolegomena Symbolica*** — łamiąc przysięgę milczenia i wywołując rozłam z Mathersem. *777* nie jest Libri rytualnym — jest **strukturalnym fundamentem dla wszystkich pozostałych**, operacyjną bazą danych całego systemu hermetycznego.
+
+**Co dokładnie zawiera 777:**
+
+- **32 ścieżki Drzewa Życia** (10 sefirot + 22 połączenia) skrzyżowane ze **191 kolumnami korespondencji** (Crowley sam tak je policzył)
+- imiona Boskie **hebrajskie i greckie**, archanioły, chóry anielskie, demony hierarchii Goecji
+- **kolory w 4 skalach** Złotego Brzasku: King (sefiry mężczyzn), Queen (sefiry kobiet), Prince (ścieżki mężczyzn), Princess (ścieżki kobiet)
+- perfumy, kamienie szlachetne, rośliny, zwierzęta, smaki, dźwięki
+- **mity grecko-rzymskie, egipskie, hinduskie, gnostyckie, scandinawskie** — każda kolumna jako osobna tradycja
+- **alfabety**: hebrajski, grecki, arabski, **enochiański** (Johna Dee)
+- **geomancja, astrologia, tarot, magia ceremonialna** w jednej krzyżowej siatce
+- atrybucje **figur Tarota** do ścieżek Drzewa Życia (wzorzec do dziś używany w talii Rider-Waite-Smith)
+
+**Crowley nazwał 777 „magiczną pamięcią ludzkości" (the magickal memory of mankind).** Wprowadzenie napisane przez niego jest jednym z najlepszych jego tekstów o metodzie hermetycznej: wyjaśnia, **czym jest analogia mnemoniczna jako narzędzie poznawcze**, dlaczego korespondencje nie są arbitralne, jak budować własne. To **manifest mnemoniczny**.
+
+**Mechanizm praktyczny 777:** jeśli znasz JEDNĄ kolumnę dla danej sefiry, przez 777 znajdziesz wszystkie pozostałe. Chcesz zapamiętać Yesod (9. sefirę)? *777* mówi: planeta Księżyc, kolor srebrnoperłowy, kamień kwarc i perła, perfuma jaśmin, bóstwo Diana / Artemis / Chandra, archanioł Gabriel, chór Cherubim, zwierzę słoń, mit Zeus zmienia się w łabędzia. **Każda kolumna jest osobnym haczykiem mnemonicznym dla tej samej idei.** Pamiętając jeden — pamiętasz wszystkie. To wcielenie hipertekstowej zasady „każdy węzeł połączony z każdym".
+
+To **najtwardszy rytuał pamięciowy w okultystycznej historii Zachodu**. Współczesne porównanie: opanowanie pełnego stosu Mathersa + *777* odpowiada nauce **8 000—10 000 fiszek Anki** w pełnym kontekście narracyjnym i symbolicznym.
 
 ---
 
