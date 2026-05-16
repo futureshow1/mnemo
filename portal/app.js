@@ -559,6 +559,41 @@ const TECHNIQUES = [
     origin: { pl: 'Henry L. Roediger III i Jeffrey D. Karpicke (Washington University w St. Louis, 2006) — efekt testowania (testing effect). Książka „Make It Stick" (Brown, Roediger, McDaniel, 2014) — najlepsza synteza. Metoda Feynmana (Richard Feynman, lata 60.) jest jej wariantem.', en: 'Henry L. Roediger III and Jeffrey D. Karpicke (Washington University in St. Louis, 2006) — the testing effect. „Make It Stick" (Brown, Roediger, McDaniel, 2014) — best synthesis. The Feynman method (Richard Feynman, 1960s) is a variant.' },
     pitfalls: { pl: 'Na początku boli — wydaje się, że niczego nie pamiętasz. Bólność = znak że metoda działa (mniej illusion of knowing). Bez powtórek po 24h efekt zanika. Pisanie jest skuteczniejsze niż samo myślenie.', en: 'At first it hurts — feels like you remember nothing. The pain = sign the method works (less illusion of knowing). Without 24h reviews the effect fades. Writing beats mere thinking.' },
     level: 'beginner', uses: ['language', 'lists'], time: { pl: '10 min', en: '10 min' }
+  },
+  {
+    icon: '↺',
+    name: { pl: 'Wsteczna medytacja (Thisharb)', en: 'Reverse meditation (Thisharb)' },
+    desc: { pl: 'Rekonstrukcja dnia od końca do początku. Hermetyczna technika Crowleya (1913) — najgłębsze ćwiczenie pamięci epizodycznej.', en: 'Reconstruct your day from end to beginning. Crowley\'s hermetic technique (1913) — the deepest exercise in episodic memory.' },
+    principle: { pl: 'Mózg jest skonfigurowany na narrację „do przodu" (strzałka czasu, przyczyna → skutek). Cofanie się łamie ten automatyzm i otwiera nowy poziom dostępu do pamięci epizodycznej — szczegóły, których inaczej nie zarejestrowałbyś świadomie.', en: 'The brain is wired for forward narrative (arrow of time, cause → effect). Going backwards breaks that automatism and opens a new level of access to episodic memory — details you would not consciously register otherwise.' },
+    howTo: {
+      pl: ['Połóż się wieczorem, zamknij oczy. Cofnij się myślą o 5 minut: „byłem w łazience, przed tym jadłem kolację, przed tym dzwoniła córka...".', 'Idź coraz dalej wstecz, krok po kroku — gest, słowo, myśl, kadr.', 'Nie streszczaj. Każdy szczegół (kolor talerza, ton głosu, temperatura ciała) jest cennym znacznikiem.', 'Po tygodniu — rozszerzaj do godziny, dnia, tygodnia.', 'Prowadź dziennik (Magical Record): zapisz każdą sesję i co odzyskałeś.'],
+      en: ['Lie down in the evening, close your eyes. Go back mentally five minutes: „I was in the bathroom, before that I ate dinner, before that my daughter called…".', 'Go further back, step by step — gesture, word, thought, frame.', 'Don\'t summarise. Every detail (plate colour, tone of voice, body temperature) is a valuable marker.', 'After a week — extend to one hour, then a day, then a week.', 'Keep a journal (Magical Record): record every session and what you recovered.']
+    },
+    example: { pl: 'Pierwsza próba 5 minut: pamiętasz, że wszedłeś do łazienki, ale już nie którą nogą zacząłeś. Po dwóch tygodniach pamiętasz wszystkie kroki. Po miesiącu odzyskujesz drobiazgi rozmów sprzed tygodni („on miał wczoraj zielony krawat — to znaczy, że…"). Po pół roku masz dostęp do dni sprzed lat z precyzją, której nie miałeś nawet dnia po.', en: 'First 5-minute attempt: you remember entering the bathroom, but not which foot first. Two weeks in, you recall every step. After a month you recover snippets of conversations from weeks ago („he had a green tie yesterday — that means…"). After half a year, access to days from years ago with precision you never had even the day after.' },
+    whenToUse: { pl: 'Trening pamięci epizodycznej (najsilniejszy znany). Wgląd terapeutyczny (rewizja dnia rozkłada zautomatyzowane reakcje). Praktyka „magicznego dziennika" (analog Quantified Self). Przed snem — zamiast scrollowania telefonu.', en: 'Episodic-memory training (the strongest known). Therapeutic insight (revising the day breaks automatic reactions). „Magical diary" practice (analogue of Quantified Self). Before sleep — instead of scrolling the phone.' },
+    origin: { pl: 'Aleister Crowley, Liber תישארב (ThIShARB) Viae Memoriae sub figura CMXIII (1913). Tytuł hebrajski czytany wstecz to BRShIT — pierwsze słowo Tory („Bereshit", „Na początku"). Klucz w tytule: pamiętamy świat odwrotnie. Kontynuuje tradycję Złotego Brzasku (zob. Kompendium · rozdz. 14).', en: 'Aleister Crowley, Liber תישארב (ThIShARB) Viae Memoriae sub figura CMXIII (1913). The Hebrew title read backwards is BRShIT — the first word of the Torah („Bereshit", „In the beginning"). The key is in the title: we remember the world backwards. Continues the Golden Dawn tradition (see Compendium · ch. 14).' },
+    pitfalls: { pl: 'Wykonywana bez przerw może wywołać epizody dysocjacyjne (Fortune ostrzegała). Maksymalnie 20 min sesja. Nie łączyć z głębokim postem ani brakiem snu. Crowleyowskie tezy o przeszłych życiach pomiń — naukowo nieuzasadnione. Sama technika działa niezależnie od metafizycznej interpretacji.', en: 'Done without breaks it can trigger dissociative episodes (Fortune warned). Sessions of 20 min max. Don\'t combine with deep fasting or sleep deprivation. Ignore Crowley\'s claims about past lives — scientifically unfounded. The technique works regardless of metaphysical interpretation.' },
+    firstWeek: {
+      pl: [
+        { day: 'Dzień 1', text: 'Ostatnie 5 minut, 4× dziennie. Tylko cofnij się — nie analizuj. Czas trudny, normalny.' },
+        { day: 'Dzień 2', text: 'Ostatnie 15 minut, 3× dziennie. Zauważ drobiazgi: kolor, gesty, dźwięki.' },
+        { day: 'Dzień 3', text: 'Ostatnia godzina, 2× dziennie. Posiłek wstecz, krzesło wstecz, droga wstecz.' },
+        { day: 'Dzień 4', text: 'Pół dnia, 1× wieczorem. Od kolacji do śniadania, krok po kroku.' },
+        { day: 'Dzień 5', text: 'Cały dzień, 1× przed snem. Od „kładę się" do „budzę się dziś rano".' },
+        { day: 'Dzień 6', text: 'Wczoraj + dziś, 2×. Sprawdzenie czy ślady są stabilne.' },
+        { day: 'Dzień 7', text: 'Tydzień wstecz, 1×. Dzień po dniu, od dziś do soboty temu. Zapisz w dzienniku odzyskane szczegóły.' }
+      ],
+      en: [
+        { day: 'Day 1', text: 'Last 5 minutes, 4× daily. Just go back — don\'t analyse. Hard at first, normal.' },
+        { day: 'Day 2', text: 'Last 15 minutes, 3× daily. Notice details: colour, gestures, sounds.' },
+        { day: 'Day 3', text: 'Last hour, 2× daily. The meal backwards, the chair backwards, the road backwards.' },
+        { day: 'Day 4', text: 'Half a day, 1× in the evening. From dinner to breakfast, step by step.' },
+        { day: 'Day 5', text: 'Whole day, 1× before sleep. From „I lie down" to „I wake up this morning".' },
+        { day: 'Day 6', text: 'Yesterday + today, 2×. Check that traces are stable.' },
+        { day: 'Day 7', text: 'A week backwards, 1×. Day by day, from today to last Saturday. Record what you recovered.' }
+      ]
+    },
+    level: 'advanced', uses: ['lists'], time: { pl: '10—20 min / dzień', en: '10—20 min / day' }
   }
 ];
 
@@ -616,7 +651,8 @@ const TECHNIQUE_LINKS = {
   8: { practiceGame: null,      practiceLabel: null, related: [10, 11] },
   9: { practiceGame: null,      practiceLabel: null, related: [11, 1] },
   10: { practiceGame: null,     practiceLabel: null, related: [11, 8] },
-  11: { practiceGame: null,     practiceLabel: null, related: [10, 9] }
+  11: { practiceGame: null,     practiceLabel: null, related: [10, 9, 12] },
+  12: { practiceGame: null,     practiceLabel: null, related: [11, 0, 9] }
 };
 
 const buildNextSection = (idx) => {
@@ -634,10 +670,15 @@ const buildNextSection = (idx) => {
          <div class="tm-next-sub">${t9n('Wybierz przykład ze swojej dziedziny i zastosuj 5 kroków powyżej.', 'Pick an example from your domain and apply the 5 steps above.')}</div>
        </div>`;
 
-  // compendium link — wszystkie klasyczne techniki (0-7) → rozdz. 04; współczesne (10-11) → rozdz. 05
-  const docPl = (idx <= 9) ? '04-techniki-klasyczne' : '05-metody-wspolczesne';
-  const docEn = (idx <= 9) ? '04-techniques' : '05-masters'; // fallback; tylko 04 jest po EN
-  const docSlug = L === 'en' ? '04-techniques' : docPl;
+  // compendium link routing:
+  //  0–9: klasyczne → rozdz. 04
+  //  10–11: współczesne → rozdz. 05 (PL) / 04 (EN fallback)
+  //  12 (Wsteczna medytacja Thisharb): hermetyczna → rozdz. 14
+  let docPl, docEn;
+  if (idx === 12) { docPl = '14-zloty-brzask-crowley'; docEn = '14-golden-dawn-crowley'; }
+  else if (idx <= 9) { docPl = '04-techniki-klasyczne'; docEn = '04-techniques'; }
+  else { docPl = '05-metody-wspolczesne'; docEn = '04-techniques'; }
+  const docSlug = L === 'en' ? docEn : docPl;
 
   const compendium = `<a class="tm-next-card tm-next-deeper" href="../kompendium/viewer.html?doc=${docSlug}&lang=${L}">
     <div class="tm-next-eyebrow">${t9n('Czytaj głębiej', 'Read deeper')}</div>
