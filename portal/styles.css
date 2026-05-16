@@ -1990,9 +1990,10 @@ section {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 50px;
+  grid-template-columns: 2fr 1fr;
+  gap: 80px;
   margin-bottom: 60px;
+  align-items: start;
 }
 .footer-brand {
   display: flex;
@@ -2046,11 +2047,8 @@ section {
   text-align: center;
 }
 
-@media (max-width: 900px) {
-  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-}
-@media (max-width: 500px) {
-  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+@media (max-width: 700px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
 /* SELECTION ================================================ */
