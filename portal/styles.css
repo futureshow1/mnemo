@@ -2062,3 +2062,119 @@ section {
 ::-webkit-scrollbar-track { background: var(--paper-deep); }
 ::-webkit-scrollbar-thumb { background: var(--ink); border: 2px solid var(--paper-deep); }
 ::-webkit-scrollbar-thumb:hover { background: var(--vermillion); }
+
+/* HIDDEN SIGIL & SECRET REVEAL ============================= */
+/* Hidden unicursal hexagram in the footer-bottom — invisible
+   unless you really look. For those who know. */
+.hidden-sigil {
+  display: inline-block;
+  margin-left: 18px;
+  color: color-mix(in srgb, var(--paper-deep) 70%, transparent);
+  vertical-align: middle;
+  opacity: 0.08;
+  transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+  outline: none;
+}
+.hidden-sigil:hover,
+.hidden-sigil:focus {
+  color: var(--vermillion);
+  opacity: 1;
+  transform: rotate(180deg) scale(1.1);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--vermillion) 60%, transparent));
+}
+.hidden-sigil svg { display: block; }
+
+/* Secret reveal overlay — triggered by typing 777 or thelema */
+.secret-reveal {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 6, 6, 0.94);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0s linear 0.8s;
+  cursor: pointer;
+}
+.secret-reveal.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.8s ease, visibility 0s;
+}
+.secret-card {
+  background: var(--paper);
+  padding: 60px 70px 50px;
+  border: 1px solid #d4351c;
+  text-align: center;
+  max-width: 540px;
+  font-family: var(--serif);
+  position: relative;
+  box-shadow: 0 0 80px -10px rgba(212, 53, 28, 0.4);
+  cursor: default;
+}
+.secret-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: #d4351c;
+  margin-bottom: 30px;
+}
+.secret-sigil {
+  color: #d4351c;
+  margin-bottom: 30px;
+  animation: secretSpin 60s linear infinite;
+  display: inline-block;
+}
+@keyframes secretSpin {
+  to { transform: rotate(360deg); }
+}
+.secret-text {
+  font-style: italic;
+  font-size: 24px;
+  line-height: 1.4;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.secret-trans {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  margin-bottom: 40px;
+}
+.secret-link {
+  display: inline-block;
+  padding: 16px 36px;
+  border: 1.5px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 20px;
+  font-style: italic;
+  font-family: var(--serif);
+  transition: all 0.3s var(--ease);
+  letter-spacing: 0.02em;
+}
+.secret-link:hover {
+  background: #d4351c;
+  color: var(--paper);
+  border-color: #d4351c;
+}
+.secret-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: 0;
+  color: var(--ink-mute);
+  font-size: 24px;
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  transition: color 0.2s;
+}
+.secret-close:hover { color: #d4351c; }

@@ -435,6 +435,30 @@
     </div>
     <div class="footer-bottom">
       <span>MNEMO · 2026</span>
+      <a href="../kompendium/crowley.html" class="hidden-sigil" tabindex="-1" aria-hidden="true">
+        <svg viewBox="0 0 30 30" width="14" height="14" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15 3 L25 22 L5 11 L25 11 L5 22 Z" fill="none" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="15" cy="15" r="1.5" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Secret reveal overlay (triggered by typing 777 or thelema) -->
+    <div class="secret-reveal" id="secretReveal" aria-hidden="true">
+      <div class="secret-card">
+        <div class="secret-eyebrow">SECRETUM · SECRETORUM</div>
+        <div class="secret-sigil">
+          <svg viewBox="0 0 60 60" width="48" height="48" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="30" cy="30" r="28" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+            <path d="M30 4 L52 44 L8 22 L52 22 L8 44 Z" fill="none" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="30" cy="30" r="3" fill="currentColor"/>
+          </svg>
+        </div>
+        <div class="secret-text" lang="en">„Do what thou wilt shall be the whole of the Law."</div>
+        <div class="secret-trans" data-pl="Czyń wedle swej Woli będzie całością Prawa." data-en="— Liber AL vel Legis, I:40">— Liber AL vel Legis, I:40</div>
+        <a href="../kompendium/crowley.html" class="secret-link" data-pl="Wejdź" data-en="Enter">Wejdź</a>
+        <button class="secret-close" id="secretClose" aria-label="Close">×</button>
+      </div>
     </div>
   </div>
 </footer>

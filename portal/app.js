@@ -1196,9 +1196,39 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
+// ============= SECRET — type 777 or "thelema" anywhere =============
+(() => {
+  const reveal = document.getElementById('secretReveal');
+  const close = document.getElementById('secretClose');
+  if (!reveal) return;
+  let buffer = '';
+  const openSecret = () => {
+    reveal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeSecret = () => {
+    reveal.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  window.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (e.key === 'Escape' && reveal.classList.contains('open')) { closeSecret(); return; }
+    if (e.key.length !== 1) return;
+    buffer = (buffer + e.key.toLowerCase()).slice(-10);
+    if (buffer.endsWith('777') || buffer.endsWith('thelema')) {
+      openSecret();
+      buffer = '';
+    }
+  });
+  close?.addEventListener('click', closeSecret);
+  reveal.addEventListener('click', (e) => { if (e.target === reveal) closeSecret(); });
+})();
+
 // ============= INIT =============
 console.log('%cMNEMO', 'font-family: serif; font-size: 32px; color: #c8401f; letter-spacing: 0.1em;');
 console.log('%cTeatr pamięci · Theatre of memory', 'font-style: italic; color: #b8924a;');
 console.log('%cKeyboard: 1—8 sections · L lang · T theme · G game · H home · ESC close modal', 'font-family: monospace; font-size: 11px;');
+console.log('%cQuod superius sicut quod inferius. ⛤', 'font-style: italic; color: #d4351c; font-size: 10px;');
 
 })();
