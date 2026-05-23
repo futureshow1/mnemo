@@ -974,3 +974,7 @@
 .clesson-special .clesson-num { color: var(--crowley-gold); }
 .clesson-special:hover { background: var(--ink) !important; }
 .clesson-special:hover .clesson-num { color: var(--crowley-gold); }
+
+/* Inline unicursal hexagram replaces text glyph in Thelema card */
+.thelema-icon-hex { line-height: 0; margin-bottom: 16px; }
+.thelema-icon-hex svg { display: block; }
