@@ -1196,29 +1196,38 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-// ============= SECRET — type 777 or "thelema" anywhere =============
+// ============= SECRET — type 777 / thelema / crowley anywhere =============
 (() => {
   const reveal = document.getElementById('secretReveal');
   const close = document.getElementById('secretClose');
   if (!reveal) return;
   let buffer = '';
+  const TRIGGERS = ['777', 'thelema', 'crowley', 'aiwass'];
   const openSecret = () => {
     reveal.classList.add('open');
     document.body.style.overflow = 'hidden';
+    console.log('%c⛤ Secret unlocked. Welcome.', 'color: #d4351c; font-style: italic; font-size: 14px;');
   };
   const closeSecret = () => {
     reveal.classList.remove('open');
     document.body.style.overflow = '';
   };
   window.addEventListener('keydown', (e) => {
-    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    // skip when typing in form fields
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) return;
+    // skip modifier combos so we don't clash with browser shortcuts
     if (e.metaKey || e.ctrlKey || e.altKey) return;
+    // ESC closes the overlay if open
     if (e.key === 'Escape' && reveal.classList.contains('open')) { closeSecret(); return; }
+    // only accept single printable characters
     if (e.key.length !== 1) return;
-    buffer = (buffer + e.key.toLowerCase()).slice(-10);
-    if (buffer.endsWith('777') || buffer.endsWith('thelema')) {
-      openSecret();
-      buffer = '';
+    buffer = (buffer + e.key.toLowerCase()).slice(-12);
+    for (const t of TRIGGERS) {
+      if (buffer.endsWith(t)) {
+        openSecret();
+        buffer = '';
+        return;
+      }
     }
   });
   close?.addEventListener('click', closeSecret);

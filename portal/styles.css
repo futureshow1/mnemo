@@ -2068,19 +2068,19 @@ section {
    unless you really look. For those who know. */
 .hidden-sigil {
   display: inline-block;
-  margin-left: 18px;
-  color: color-mix(in srgb, var(--paper-deep) 70%, transparent);
+  margin-left: 24px;
+  color: var(--ink-mute);
   vertical-align: middle;
-  opacity: 0.08;
-  transition: color 0.8s ease, opacity 0.8s ease, transform 0.8s ease;
+  opacity: 0.4;
+  transition: color 0.6s ease, opacity 0.6s ease, transform 0.8s ease, filter 0.6s ease;
   outline: none;
 }
 .hidden-sigil:hover,
 .hidden-sigil:focus {
   color: var(--vermillion);
   opacity: 1;
-  transform: rotate(180deg) scale(1.1);
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--vermillion) 60%, transparent));
+  transform: rotate(180deg) scale(1.3);
+  filter: drop-shadow(0 0 10px color-mix(in srgb, var(--vermillion) 75%, transparent));
 }
 .hidden-sigil svg { display: block; }
 
