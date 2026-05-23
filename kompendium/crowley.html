@@ -405,6 +405,199 @@
       Bez praktyki tabele zostają martwą encyklopedią. Z praktyką stają się tym, czym chciał Crowley: aktywnym instrumentem myślenia.
     </p>
 
+    <!-- ===== Kabalistyczne Drzewo Życia · diagram referencyjny ===== -->
+    <figure class="tree-of-life">
+      <figcaption class="tol-caption" data-pl="Kabalistyczne Drzewo Życia — szkielet systemu 777. Dziesięć sefirot · 22 ścieżki · trzy filary · trzy sfery (Naddatkowa, Etyczna, Astralna) · Malkuth jako świat materialny." data-en="The Kabbalistic Tree of Life — skeleton of the 777 system. Ten sephiroth · 22 paths · three pillars · three spheres (Supernal, Ethical, Astral) · Malkuth as the material world.">
+        Kabalistyczne Drzewo Życia — szkielet systemu 777.
+      </figcaption>
+
+      <div class="tol-pillars-header">
+        <span data-pl="Filar Surowości" data-en="Pillar of Severity">Filar Surowości</span>
+        <span data-pl="Filar Łagodności" data-en="Pillar of Mildness">Filar Łagodności</span>
+        <span data-pl="Filar Miłosierdzia" data-en="Pillar of Mercy">Filar Miłosierdzia</span>
+      </div>
+
+      <svg viewBox="0 0 600 820" class="tol-svg" xmlns="http://www.w3.org/2000/svg" aria-label="Tree of Life">
+
+        <!-- Spheres background (Supernal / Ethical / Astral triangles) -->
+        <g class="tol-spheres" opacity="0.18">
+          <!-- Supernal: 1-2-3 -->
+          <path d="M 300,80 L 480,180 L 120,180 Z" fill="var(--crowley-gold)"/>
+          <!-- Ethical: 4-5-6 -->
+          <path d="M 480,340 L 120,340 L 300,420 Z" fill="var(--fire)"/>
+          <!-- Astral: 7-8-9 -->
+          <path d="M 480,500 L 120,500 L 300,580 Z" fill="var(--crowley-gold)"/>
+        </g>
+
+        <!-- Pillars (vertical guides) -->
+        <g class="tol-pillar-lines" opacity="0.25">
+          <line x1="120" y1="60" x2="120" y2="780" stroke="var(--ink)" stroke-width="0.5" stroke-dasharray="2 6"/>
+          <line x1="300" y1="60" x2="300" y2="780" stroke="var(--ink)" stroke-width="0.5" stroke-dasharray="2 6"/>
+          <line x1="480" y1="60" x2="480" y2="780" stroke="var(--ink)" stroke-width="0.5" stroke-dasharray="2 6"/>
+        </g>
+
+        <!-- 22 Paths -->
+        <g class="tol-paths" stroke="var(--ink)" stroke-width="1.5" fill="none">
+          <!-- 11 Aleph: 1-2 -->
+          <line x1="300" y1="80" x2="480" y2="180" data-path="11"/>
+          <!-- 12 Beth: 1-3 -->
+          <line x1="300" y1="80" x2="120" y2="180" data-path="12"/>
+          <!-- 13 Gimel: 1-6 (przez Daath) -->
+          <line x1="300" y1="80" x2="300" y2="420" data-path="13"/>
+          <!-- 14 Daleth: 2-3 (poziomo) -->
+          <line x1="480" y1="180" x2="120" y2="180" data-path="14"/>
+          <!-- 15 He: 2-6 -->
+          <line x1="480" y1="180" x2="300" y2="420" data-path="15"/>
+          <!-- 16 Vau: 2-4 (pionowo prawo) -->
+          <line x1="480" y1="180" x2="480" y2="340" data-path="16"/>
+          <!-- 17 Zain: 3-6 -->
+          <line x1="120" y1="180" x2="300" y2="420" data-path="17"/>
+          <!-- 18 Cheth: 3-5 (pionowo lewo) -->
+          <line x1="120" y1="180" x2="120" y2="340" data-path="18"/>
+          <!-- 19 Teth: 4-5 (poziomo środek) -->
+          <line x1="480" y1="340" x2="120" y2="340" data-path="19"/>
+          <!-- 20 Yod: 4-6 -->
+          <line x1="480" y1="340" x2="300" y2="420" data-path="20"/>
+          <!-- 21 Kaph: 4-7 (pionowo prawo) -->
+          <line x1="480" y1="340" x2="480" y2="500" data-path="21"/>
+          <!-- 22 Lamed: 5-6 -->
+          <line x1="120" y1="340" x2="300" y2="420" data-path="22"/>
+          <!-- 23 Mem: 5-8 (pionowo lewo) -->
+          <line x1="120" y1="340" x2="120" y2="500" data-path="23"/>
+          <!-- 24 Nun: 6-7 -->
+          <line x1="300" y1="420" x2="480" y2="500" data-path="24"/>
+          <!-- 25 Samekh: 6-9 (środkowa pionowa) -->
+          <line x1="300" y1="420" x2="300" y2="580" data-path="25"/>
+          <!-- 26 Ayin: 6-8 -->
+          <line x1="300" y1="420" x2="120" y2="500" data-path="26"/>
+          <!-- 27 Pé: 7-8 (poziomo dolna) -->
+          <line x1="480" y1="500" x2="120" y2="500" data-path="27"/>
+          <!-- 28 Tzaddi: 7-9 -->
+          <line x1="480" y1="500" x2="300" y2="580" data-path="28"/>
+          <!-- 29 Qoph: 7-10 -->
+          <line x1="480" y1="500" x2="300" y2="740" data-path="29"/>
+          <!-- 30 Resh: 8-9 -->
+          <line x1="120" y1="500" x2="300" y2="580" data-path="30"/>
+          <!-- 31 Shin: 8-10 -->
+          <line x1="120" y1="500" x2="300" y2="740" data-path="31"/>
+          <!-- 32 Tau: 9-10 (środkowa pionowa) -->
+          <line x1="300" y1="580" x2="300" y2="740" data-path="32"/>
+        </g>
+
+        <!-- Path labels (Hebrew letter + number, midpoint of each line) -->
+        <g class="tol-path-labels" font-family="Cormorant Garamond" font-size="14" text-anchor="middle" fill="var(--fire)">
+          <text x="395" y="125">11·א</text>
+          <text x="205" y="125">12·ב</text>
+          <text x="316" y="255">13·ג</text>
+          <text x="300" y="173">14·ד</text>
+          <text x="395" y="305">15·ה</text>
+          <text x="496" y="265">16·ו</text>
+          <text x="205" y="305">17·ז</text>
+          <text x="104" y="265">18·ח</text>
+          <text x="300" y="333">19·ט</text>
+          <text x="395" y="385">20·י</text>
+          <text x="496" y="425">21·כ</text>
+          <text x="205" y="385">22·ל</text>
+          <text x="104" y="425">23·מ</text>
+          <text x="395" y="465">24·נ</text>
+          <text x="316" y="505">25·ס</text>
+          <text x="205" y="465">26·ע</text>
+          <text x="300" y="493">27·פ</text>
+          <text x="395" y="545">28·צ</text>
+          <text x="412" y="625">29·ק</text>
+          <text x="205" y="545">30·ר</text>
+          <text x="188" y="625">31·ש</text>
+          <text x="316" y="665">32·ת</text>
+        </g>
+
+        <!-- 10 Sephiroth (circles + labels) -->
+        <g class="tol-sephiroth">
+          <!-- 1 Kether -->
+          <g class="sefira" data-sefira="1" transform="translate(300 80)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">1</text>
+            <text class="s-heb" text-anchor="middle" y="16">כתר</text>
+            <text class="s-label" text-anchor="middle" y="70" data-pl="Kether · Korona · Primum Mobile" data-en="Kether · Crown · Primum Mobile">Kether · Korona · Primum Mobile</text>
+          </g>
+          <!-- 2 Chokmah -->
+          <g class="sefira" data-sefira="2" transform="translate(480 180)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">2</text>
+            <text class="s-heb" text-anchor="middle" y="16">חכמה</text>
+            <text class="s-label" text-anchor="start" x="56" y="6" data-pl="Chokmah · Mądrość · Zodiak" data-en="Chokmah · Wisdom · Zodiac">Chokmah · Mądrość · Zodiak</text>
+          </g>
+          <!-- 3 Binah -->
+          <g class="sefira" data-sefira="3" transform="translate(120 180)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">3</text>
+            <text class="s-heb" text-anchor="middle" y="16">בינה</text>
+            <text class="s-label" text-anchor="end" x="-56" y="6" data-pl="Binah · Zrozumienie · Saturn" data-en="Binah · Understanding · Saturn">Binah · Zrozumienie · Saturn</text>
+          </g>
+          <!-- Daath (hidden sephira, dashed circle) -->
+          <g class="sefira sefira-daath" transform="translate(300 260)">
+            <circle r="22" fill="none" stroke="var(--ink-mute)" stroke-width="1" stroke-dasharray="3 3" opacity="0.6"/>
+            <text class="s-heb" text-anchor="middle" y="4" font-size="11" fill="var(--ink-mute)">דעת</text>
+          </g>
+          <!-- 4 Chesed -->
+          <g class="sefira" data-sefira="4" transform="translate(480 340)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">4</text>
+            <text class="s-heb" text-anchor="middle" y="16">חסד</text>
+            <text class="s-label" text-anchor="start" x="56" y="6" data-pl="Chesed · Miłosierdzie · Jowisz" data-en="Chesed · Mercy · Jupiter">Chesed · Miłosierdzie · Jowisz</text>
+          </g>
+          <!-- 5 Geburah -->
+          <g class="sefira" data-sefira="5" transform="translate(120 340)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">5</text>
+            <text class="s-heb" text-anchor="middle" y="16">גבורה</text>
+            <text class="s-label" text-anchor="end" x="-56" y="6" data-pl="Geburah · Siła · Mars" data-en="Geburah · Strength · Mars">Geburah · Siła · Mars</text>
+          </g>
+          <!-- 6 Tiphareth (highlighted as centre) -->
+          <g class="sefira sefira-tiphareth" data-sefira="6" transform="translate(300 420)">
+            <circle r="48" fill="color-mix(in srgb, var(--crowley-gold) 22%, var(--paper))" stroke="var(--fire)" stroke-width="2.5"/>
+            <text class="s-num" text-anchor="middle" y="-3">6</text>
+            <text class="s-heb" text-anchor="middle" y="18">תפארת</text>
+            <text class="s-label" text-anchor="middle" y="-72" data-pl="Tiphareth · Piękno · Słońce — centrum systemu" data-en="Tiphareth · Beauty · Sun — centre of the system">Tiphareth · Piękno · Słońce — centrum systemu</text>
+          </g>
+          <!-- 7 Netzach -->
+          <g class="sefira" data-sefira="7" transform="translate(480 500)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">7</text>
+            <text class="s-heb" text-anchor="middle" y="16">נצח</text>
+            <text class="s-label" text-anchor="start" x="56" y="6" data-pl="Netzach · Zwycięstwo · Wenus" data-en="Netzach · Victory · Venus">Netzach · Zwycięstwo · Wenus</text>
+          </g>
+          <!-- 8 Hod -->
+          <g class="sefira" data-sefira="8" transform="translate(120 500)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">8</text>
+            <text class="s-heb" text-anchor="middle" y="16">הוד</text>
+            <text class="s-label" text-anchor="end" x="-56" y="6" data-pl="Hod · Splendor · Merkury" data-en="Hod · Splendour · Mercury">Hod · Splendor · Merkury</text>
+          </g>
+          <!-- 9 Yesod -->
+          <g class="sefira" data-sefira="9" transform="translate(300 580)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">9</text>
+            <text class="s-heb" text-anchor="middle" y="16">יסוד</text>
+            <text class="s-label" text-anchor="start" x="56" y="6" data-pl="Yesod · Fundament · Księżyc" data-en="Yesod · Foundation · Moon">Yesod · Fundament · Księżyc</text>
+          </g>
+          <!-- 10 Malkuth -->
+          <g class="sefira sefira-malkuth" data-sefira="10" transform="translate(300 740)">
+            <circle r="42" fill="var(--paper)" stroke="var(--ink)" stroke-width="2"/>
+            <text class="s-num" text-anchor="middle" y="-2">10</text>
+            <text class="s-heb" text-anchor="middle" y="16">מלכות</text>
+            <text class="s-label" text-anchor="middle" y="70" data-pl="Malkuth · Królestwo · Świat (4 żywioły)" data-en="Malkuth · Kingdom · World (4 elements)">Malkuth · Królestwo · Świat (4 żywioły)</text>
+          </g>
+        </g>
+      </svg>
+
+      <div class="tol-spheres-legend">
+        <div class="tol-sphere-item"><span class="tsi-mark tsi-supernal"></span><span data-pl="Sfera Naddatkowa (1·2·3) — Atziluth, świat archetypów" data-en="Supernal Sphere (1·2·3) — Atziluth, world of archetypes">Sfera Naddatkowa (1·2·3) — Atziluth, świat archetypów</span></div>
+        <div class="tol-sphere-item"><span class="tsi-mark tsi-ethical"></span><span data-pl="Sfera Etyczna (4·5·6) — Briah, świat tworzenia" data-en="Ethical Sphere (4·5·6) — Briah, world of creation">Sfera Etyczna (4·5·6) — Briah, świat tworzenia</span></div>
+        <div class="tol-sphere-item"><span class="tsi-mark tsi-astral"></span><span data-pl="Sfera Astralna (7·8·9) — Yetzirah, świat formacji" data-en="Astral Sphere (7·8·9) — Yetzirah, world of formation">Sfera Astralna (7·8·9) — Yetzirah, świat formacji</span></div>
+        <div class="tol-sphere-item"><span class="tsi-mark tsi-malkuth"></span><span data-pl="Malkuth (10) — Assiah, świat materialny" data-en="Malkuth (10) — Assiah, the material world">Malkuth (10) — Assiah, świat materialny</span></div>
+      </div>
+    </figure>
+
     <ol class="internalise-steps">
       <li>
         <span class="is-num">1</span>
