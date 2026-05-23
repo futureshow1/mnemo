@@ -1151,7 +1151,7 @@
   padding: 36px 28px 28px;
   background: var(--paper);
   border: 1px solid var(--ink);
-  max-width: 720px;
+  max-width: 860px;
 }
 .tol-caption {
   font-family: var(--serif);
