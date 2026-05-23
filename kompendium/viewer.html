@@ -222,15 +222,40 @@
     updateScroll();
   }
 
-  // Re-load page on language change so we get the right doc
+  // Explicit slug mapping PL ↔ EN — not by array index, because EN has
+  // fewer chapters and the index-based mapping silently sent the wrong doc.
+  const PL_TO_EN = {
+    '00-wprowadzenie': '00-introduction',
+    '01-historia': '01-history',
+    '02-nauka-o-pamieci': '02-science',
+    '03-zasady': '03-principles',
+    '04-techniki-klasyczne': '04-techniques',
+    '05-metody-wspolczesne': '04-techniques',          // no direct EN
+    '06-mistrzowie': '05-masters',
+    '07-styl-zycia': '06-lifestyle-age-pitfalls',
+    '08-aplikacja-wiekowa': '06-lifestyle-age-pitfalls',
+    '09-pulapki-mity': '06-lifestyle-age-pitfalls',
+    '10-cwiczenia': '07-exercises-tools-path',
+    '11-narzedzia': '07-exercises-tools-path',
+    '12-sciezka-osobista': '07-exercises-tools-path',
+    '13-giordano-bruno': '13-giordano-bruno',
+    '14-zloty-brzask-crowley': '14-golden-dawn-crowley'
+  };
+  const EN_TO_PL = {
+    '00-introduction': '00-wprowadzenie',
+    '01-history': '01-historia',
+    '02-science': '02-nauka-o-pamieci',
+    '03-principles': '03-zasady',
+    '04-techniques': '04-techniki-klasyczne',
+    '05-masters': '06-mistrzowie',
+    '06-lifestyle-age-pitfalls': '07-styl-zycia',
+    '07-exercises-tools-path': '10-cwiczenia',
+    '13-giordano-bruno': '13-giordano-bruno',
+    '14-golden-dawn-crowley': '14-zloty-brzask-crowley'
+  };
   MNEMO.onLangChange((newLang) => {
-    // Try to map slug to other-lang variant
-    const fromList = newLang === 'en' ? CHAPTERS_PL : CHAPTERS_EN;
-    const toList = newLang === 'en' ? CHAPTERS_EN : CHAPTERS_PL;
-    const idx = fromList.findIndex(c => c.slug === slug);
-    let nextSlug;
-    if (idx >= 0 && toList[idx]) nextSlug = toList[idx].slug;
-    else nextSlug = toList[0].slug;
+    const map = newLang === 'en' ? PL_TO_EN : EN_TO_PL;
+    const nextSlug = map[slug] || (newLang === 'en' ? '00-introduction' : '00-wprowadzenie');
     window.location.href = `viewer.html?doc=${nextSlug}&lang=${newLang}`;
   });
 })();
