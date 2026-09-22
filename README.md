@@ -1,3 +1,5 @@
+**▶ Wersja live / Live site: https://futureshow.pl/mnemo/**
+
 # MNEMO
 
 > **Bilingwalny portal + gra solo do doskonalenia pamięci.**
